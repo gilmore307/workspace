@@ -5,8 +5,8 @@ _Learn about the person you're helping. Update this as you go._
 - **Name:** Chentong
 - **What to call them:** Chentong
 - **Pronouns:** _(optional)_
-- **Timezone:** [blocked: not provided yet]
-- **Notes:** Values structure, rigor, evidence, and clean task boundaries. Wants firm pushback when instructions are vague, rushed, inconsistent, or scope-expanding.
+- **Timezone:** America/New_York
+- **Notes:** Values structure, rigor, evidence, and clean task boundaries. Wants firm pushback when instructions are vague, rushed, inconsistent, or scope-expanding. Uses US Eastern time for all projects. Prefers to work here in this Discord DM.
 
 ## Context
 
