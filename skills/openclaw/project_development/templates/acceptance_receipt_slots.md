@@ -29,6 +29,29 @@ Reuse the default catalog-registered vocabularies for `acceptance_outcome` and `
 - `acceptance_outcome`: `accepted`, `rejected`, `returned`, `blocked`
 - `test_status`: `passed`, `failed`, `not_run`, `partially_run`, `not_required`
 
+## Example JSON
+
+```json
+{
+  "task_identity": "task_register_status_vocab",
+  "workflow_identity": "skill_cleanup",
+  "acceptance_outcome": "accepted",
+  "acceptance_reference": "docs/03_acceptance.md#status-vocabulary-cleanup",
+  "reviewed_files": [
+    "skills/openclaw/project_development/templates/acceptance_receipt_slots.md",
+    "skills/openclaw/project_development/templates/maintenance_output_slots.md"
+  ],
+  "reviewed_commands": [
+    "git diff --stat",
+    "node --test src/catalog-reader.test.js"
+  ],
+  "test_status": "passed",
+  "test_output": "9/9 catalog tests passed.",
+  "issue_list": [],
+  "acceptance_summary": "Accepted after template review and catalog verification."
+}
+```
+
 ## Notes
 
 - Reuse previously ratified shared slots from `universal-catalog` where they fit.

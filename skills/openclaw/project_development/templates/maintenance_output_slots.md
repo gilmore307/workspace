@@ -22,6 +22,41 @@ When task states are summarized, reuse the default catalog-registered vocabulari
 - `FOLLOW_UP_TASK_LIST` (`follow_up_task_list`) — follow-up tasks created or needed from maintenance
 - `MAINTENANCE_SUMMARY` (`maintenance_summary`) — concise maintenance summary
 
+## Example JSON
+
+```json
+{
+  "repository_path": "/root/projects/network-framework",
+  "maintenance_status": "needs_attention",
+  "check_time": "2026-04-24T15:45:00Z",
+  "docs_status": "drifted",
+  "task_status_summary": {
+    "ready_to_dispatch": 1,
+    "executing": 2,
+    "blocked": 1,
+    "ready_for_acceptance": 1
+  },
+  "pending_dispatch_list": [
+    "task_docs_spine_cleanup"
+  ],
+  "pending_acceptance_list": [
+    "task_register_status_vocab"
+  ],
+  "blocked_task_list": [
+    "task_configure_repo_remote"
+  ],
+  "dictionary_issue_list": [],
+  "split_issue_list": [],
+  "memory_route_issue_list": [
+    "Move implementation notes from chat into docs/05_decision.md."
+  ],
+  "follow_up_task_list": [
+    "task_reconcile_docs_drift"
+  ],
+  "maintenance_summary": "Docs drift remains and one task is blocked on missing remote configuration."
+}
+```
+
 ## Notes
 
 - Reuse previously ratified shared slots from `universal-catalog` where they fit.

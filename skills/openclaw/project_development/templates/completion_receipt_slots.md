@@ -30,6 +30,29 @@ Reuse the default catalog-registered vocabularies for `task_lifecycle_state`, `r
 - `review_readiness`: `ready`, `not_ready`, `blocked`
 - `test_status`: `passed`, `failed`, `not_run`, `partially_run`, `not_required`
 
+## Example JSON
+
+```json
+{
+  "task_identity": "task_register_status_vocab",
+  "workflow_identity": "skill_cleanup",
+  "task_lifecycle_state": "ready_for_acceptance",
+  "change_summary": "Registered default status vocabularies and updated the skill templates.",
+  "changed_files": [
+    "skills/openclaw/project_development/templates/completion_receipt_slots.md",
+    "skills/openclaw/project_development/references/status-vocabularies.md"
+  ],
+  "command_list": [
+    "git status --short",
+    "node --test src/catalog-reader.test.js"
+  ],
+  "test_status": "passed",
+  "test_output": "9/9 catalog tests passed.",
+  "issue_list": [],
+  "review_readiness": "ready"
+}
+```
+
 ## Notes
 
 - Reuse previously ratified shared slots from `universal-catalog` where they fit.
