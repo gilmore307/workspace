@@ -19,7 +19,7 @@ Current concrete coverage is centered on catalog items such as:
 - `config`
 - `term`
 - `script`
-- default status vocabularies such as `task_lifecycle_state`, `review_readiness`, `acceptance_outcome`, and `test_status`
+- default status vocabularies such as `task_lifecycle_state`, `review_readiness`, `acceptance_outcome`, `test_status`, `maintenance_status`, and `docs_status`
 
 Do not assume a proposed future kind is already formal just because it was discussed in chat.
 

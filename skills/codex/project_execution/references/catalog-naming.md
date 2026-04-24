@@ -17,7 +17,7 @@ It does not turn chat discussion into formal catalog authority.
 - `config`
 - `term`
 - `script`
-- default status vocabularies such as `task_lifecycle_state`, `review_readiness`, `acceptance_outcome`, and `test_status`
+- default status vocabularies such as `task_lifecycle_state`, `review_readiness`, `acceptance_outcome`, `test_status`, `maintenance_status`, and `docs_status`
 
 If a possible future kind is still under discussion, treat it as discussion, not settled authority.
 

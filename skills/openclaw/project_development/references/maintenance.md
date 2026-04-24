@@ -56,7 +56,7 @@ When a project uses a formal maintenance output, current canonical slot names fo
 - `FOLLOW_UP_TASK_LIST` (`follow_up_task_list`)
 - `MAINTENANCE_SUMMARY` (`maintenance_summary`)
 
-Exact nesting is not standardized here. Reuse the default catalog-registered `task_lifecycle_state` vocabulary for grouped task summaries unless the project docs define an override.
+Exact nesting is not standardized here. Reuse the default catalog-registered vocabularies for `task_lifecycle_state`, `maintenance_status`, and `docs_status` unless the project docs define an override.
 
 Suggested path:
 
@@ -65,6 +65,14 @@ Suggested path:
 ```
 
 This skill does not define retention for maintenance outputs.
+
+## Default Maintenance Vocabularies
+
+Use these defaults unless the project docs define an explicit override:
+
+- `maintenance_status`: `healthy`, `needs_attention`, `blocked`
+- `docs_status`: `aligned`, `drifted`, `blocked`
+- `task_lifecycle_state`: `designing`, `ready_to_dispatch`, `dispatched`, `executing`, `blocked`, `ready_for_acceptance`, `accepted`, `rejected`, `closed`, `cancelled`
 
 ## Status Summary
 

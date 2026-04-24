@@ -37,6 +37,18 @@ These defaults should be reused from `universal-catalog` unless the project docs
 - `partially_run`
 - `not_required`
 
+## maintenance_status
+
+- `healthy`
+- `needs_attention`
+- `blocked`
+
+## docs_status
+
+- `aligned`
+- `drifted`
+- `blocked`
+
 ## Override rule
 
 A project may override these vocabularies only when it documents the replacement values and the conversion boundary clearly.
