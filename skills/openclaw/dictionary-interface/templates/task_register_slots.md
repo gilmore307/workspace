@@ -2,7 +2,7 @@
 
 This template describes useful information slots for a machine-readable task register.
 
-It is not the authority for exact CSV columns or schema keys. Use `universal-dictionary` for field names.
+It is not the authority for exact CSV columns or schema keys. Use `universal-catalog` for field names.
 
 Suggested slots:
 

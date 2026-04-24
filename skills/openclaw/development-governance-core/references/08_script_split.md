@@ -34,7 +34,7 @@ When reviewing Codex output, OpenClaw checks:
 
 - Did Codex create new files?
 - For each new file, which split gate was met?
-- Are new files named with `universal-dictionary` terms?
+- Are new files named with `universal-catalog` terms?
 - Did Codex create generic folders such as `utils`, `helpers`, or `common`?
 - Is the split useful for future understanding or modification?
 - Would an internal function have been better?

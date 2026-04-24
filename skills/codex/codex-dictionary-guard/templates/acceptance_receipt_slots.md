@@ -2,7 +2,7 @@
 
 This template describes required information slots for OpenClaw acceptance receipts.
 
-It is not the authority for exact JSON keys. Use `universal-dictionary` for field names.
+It is not the authority for exact JSON keys. Use `universal-catalog` for field names.
 
 Required slots:
 

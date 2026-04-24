@@ -2,7 +2,7 @@
 
 This template describes required information slots for a Codex execution key.
 
-It is not the authority for exact JSON keys. Use `universal-dictionary` for field names.
+It is not the authority for exact JSON keys. Use `universal-catalog` for field names.
 
 Required slots:
 
@@ -18,5 +18,6 @@ Required slots:
 - test expectation
 - expected output
 - constraints
+- naming authority reference when naming may be required
 - output reference when required
 - completion receipt reference

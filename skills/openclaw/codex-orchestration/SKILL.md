@@ -1,6 +1,6 @@
 ---
 name: codex-orchestration
-description: Orchestrate bounded Codex implementation work inside an OpenClaw-managed software project. Use when sizing medium-granularity tasks, preparing execution keys, writing Codex task prompts, checking completion receipts, performing acceptance review, rejecting or accepting work, or handling post-acceptance commit and push responsibility. Not for defining the overall project docs spine or owning the universal dictionary.
+description: Orchestrate bounded Codex implementation work inside an OpenClaw-managed software project. Use when sizing medium-granularity tasks, preparing execution keys, writing Codex task prompts, checking completion receipts, performing acceptance review, rejecting or accepting work, or handling post-acceptance commit and push responsibility. Not for defining the overall project docs spine or owning the universal catalog.
 ---
 
 # Codex Orchestration
@@ -40,6 +40,13 @@ Avoid:
 ## Review rule
 
 Passing tests is not final acceptance. OpenClaw must check scope, evidence, changed paths, acceptance criteria, and documentation impact.
+
+## Naming authority rule
+
+- Before dispatching work that requires naming, OpenClaw should check `universal-catalog` first.
+- Codex should reuse approved names instead of improvising fresh permanent vocabulary.
+- If no approved name exists, OpenClaw should treat that as catalog work or authorize only a temporary implementation name.
+- If Codex introduces a temporary name anyway, Codex must report it explicitly in the completion receipt for OpenClaw review and registration.
 
 ## Docs ownership rule
 

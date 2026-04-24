@@ -5,7 +5,7 @@ OpenClaw writes an acceptance receipt.
 
 These are different objects.
 
-This reference defines review responsibilities and required information slots. Exact schema keys and status values belong to `universal-dictionary`.
+This reference defines review responsibilities and required information slots. Exact schema keys and status values belong to `universal-catalog`.
 
 ## Completion Receipt
 
@@ -41,10 +41,11 @@ A completion receipt should include:
 - test status
 - test output
 - issue list
+- temporary new names introduced, if any
 - output reference when applicable
 - acceptance readiness signal
 
-The exact field names should come from `universal-dictionary`.
+The exact field names should come from `universal-catalog`.
 
 Codex may report readiness or not-readiness. Codex must not report final acceptance or rejection.
 
@@ -60,10 +61,11 @@ When Codex returns a completion receipt, OpenClaw checks:
 6. Test status is consistent with test output.
 7. Required output exists or is not required.
 8. Issues are honest and specific.
-9. Naming follows `universal-dictionary`.
-10. Any new file has a valid split reason.
-11. Acceptance criteria are satisfied.
-12. Docs or decisions are updated if the implementation changed project reality.
+9. Naming follows `universal-catalog`.
+10. Any temporary new names are reported explicitly for OpenClaw review.
+11. Any new file has a valid split reason.
+12. Acceptance criteria are satisfied.
+13. Docs or decisions are updated if the implementation changed project reality.
 
 ## Acceptance Receipt
 
@@ -90,7 +92,7 @@ An acceptance receipt should communicate:
 - next task reference when needed
 - acceptance summary
 
-The exact field names and status values should come from `universal-dictionary`.
+The exact field names and status values should come from `universal-catalog`.
 
 ## Post-Acceptance Stewardship
 
@@ -118,7 +120,7 @@ Acceptance checks include:
 - tests
 - output
 - allowed scope
-- dictionary alignment
+- catalog alignment
 - docs drift
 - decision impact
 - split discipline

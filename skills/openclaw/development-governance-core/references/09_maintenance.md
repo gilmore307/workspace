@@ -31,7 +31,7 @@ Check:
 9. Accepted changes that alter project reality are reflected in docs.
 10. Formal choices are captured in `docs/05_decision.md`.
 11. Project-specific memory has been routed into project docs.
-12. Formal names follow `universal-dictionary`.
+12. Formal names follow `universal-catalog`.
 13. Extra files or modules have valid split gates.
 14. Codex did not modify blocked paths.
 15. No global memory is carrying project details that belong in project docs.
@@ -56,7 +56,7 @@ Maintenance output should include these information slots:
 - follow-up task list
 - maintenance summary
 
-The exact field names should come from `universal-dictionary`.
+The exact field names should come from `universal-catalog`.
 
 Suggested path:
 
@@ -70,7 +70,7 @@ This skill does not define retention for maintenance outputs.
 
 A compact status summary should group tasks by lifecycle state.
 
-The status values should come from `universal-dictionary` or from the project-local task model while the dictionary is being prepared.
+The status values should come from `universal-catalog` or from the project-local task model while the catalog is being prepared.
 
 ## Docs Drift Check
 

@@ -15,10 +15,12 @@ Use the relevant ones before handing off work:
 
 - Respect the exact scope; do not expand it without approval.
 - Preserve naming consistency with the existing codebase and docs.
+- Reuse names from `universal-catalog` when naming is part of the task; do not casually invent new permanent names.
 - Do not claim completion without evidence.
 - Run the smallest meaningful verification step before declaring success.
 - Update docs and acceptance artifacts when the task requires them.
 - Surface uncertainty instead of improvising hidden assumptions.
+- If you introduced any temporary new names, report them explicitly for OpenClaw review instead of self-registering them.
 
 ## Review focus
 
@@ -71,6 +73,14 @@ Add one entry per stable pattern.
 - **Severity:** medium
 - **Last seen:** 2026-04-23
 - **Example task or path:** general Codex delegation workflow
+
+- **Pattern:** unregistered naming drift
+- **Typical failure:** invents a new field, path label, config key, repo name, or filename token without checking `universal-catalog`, then treats that new name as settled
+- **Prevention warning:** instruct Codex to reuse catalog-approved names first and require explicit reporting of any temporary new names it had to introduce
+- **Review check:** compare new formal names against `universal-catalog`; reject silent new vocabulary and require OpenClaw registration review
+- **Severity:** high
+- **Last seen:** 2026-04-23
+- **Example task or path:** naming-sensitive implementation and dispatch workflow
 
 ## Update rule
 

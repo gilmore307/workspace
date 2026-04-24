@@ -1,6 +1,6 @@
 # Workflow
 
-Field names and table columns in this document should follow `universal-dictionary` when formalized.
+Field names and table columns in this document should follow `universal-catalog` when formalized.
 
 ## Workflow Summary
 

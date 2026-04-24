@@ -84,7 +84,7 @@ Defines:
 - accepted tasks not yet closed
 - next planned dispatch
 
-Machine-readable task state may also live under a project-local register path such as `.openclaw/task/register/`. Exact filenames and fields should follow `universal-dictionary`.
+Machine-readable task state may also live under a project-local register path such as `.openclaw/task/register/`. Exact filenames and fields should follow `universal-catalog`.
 
 ## 05_decision.md
 

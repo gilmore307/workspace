@@ -62,9 +62,9 @@ After acceptance, OpenClaw is responsible for committing and pushing the accepte
 
 ## Dictionary Rule
 
-This repository uses `universal-dictionary` as the authority for formal words, field names, status values, schema keys, file-name tokens, and forbidden synonyms.
+This repository uses `universal-catalog` as the authority for formal words, field names, status values, schema keys, file-name tokens, repository names, shared paths, shared config keys, and forbidden synonyms.
 
-Do not introduce new formal names casually. If a new term is needed, record a project decision or create a dictionary update task.
+Do not introduce new formal names casually. If a new term is needed, record a project decision or create a catalog update task.
 
 ## Split Rule
 

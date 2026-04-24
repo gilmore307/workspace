@@ -1,6 +1,6 @@
 # Decision
 
-Field names and status values in this document should follow `universal-dictionary` when formalized.
+Field names and status values in this document should follow `universal-catalog` when formalized.
 
 ## Decision Summary
 

@@ -105,7 +105,7 @@ final/
 v2/
 ```
 
-Use names from the `universal-dictionary` when possible.
+Use names from the `universal-catalog` when possible.
 
 ## Codex Scope
 
@@ -120,4 +120,4 @@ A good project shape makes it easy to specify:
 - output references
 - receipt references
 
-Exact field names for these slots should come from `universal-dictionary`.
+Exact field names for these slots should come from `universal-catalog`.

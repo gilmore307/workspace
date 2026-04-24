@@ -59,7 +59,7 @@ Only OpenClaw may produce:
 - rejection outcome
 - task closure
 
-The exact status names for these concepts should come from `universal-dictionary`.
+The exact status names for these concepts should come from `universal-catalog`.
 
 ## Anti-Patterns
 

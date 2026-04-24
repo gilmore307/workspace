@@ -13,7 +13,7 @@ Do not claim final acceptance. Report readiness only when implementation and tes
 <dictionary_aligned_execution_key_json_here>
 ```
 
-The execution key field names must follow `universal-dictionary`.
+The execution key field names must follow `universal-catalog`.
 
 ## Required Behavior
 
@@ -22,7 +22,10 @@ The execution key field names must follow `universal-dictionary`.
 - Do not modify blocked files or paths.
 - Stay inside the dispatched task boundary; do not expand scope without approval.
 - Keep the task at its given medium granularity; do not fracture it into extra sub-tasks or silently widen it.
-- Use formal names approved by `universal-dictionary`.
+- Use formal names approved by `universal-catalog`.
+- Prefer existing catalog names before proposing any new names.
+- Do not register new names yourself.
+- If you must introduce a temporary new name to finish the bounded task, report it explicitly in the completion receipt with the reason and affected paths.
 - Do not create extra files unless a script split gate is met.
 - Run required tests when possible.
 - Return a completion receipt using the dictionary-aligned receipt schema.
@@ -39,5 +42,6 @@ Return a structured completion receipt that communicates:
 - commands run
 - test status and output
 - issues
+- temporary new names introduced, if any
 - output reference when applicable
 - readiness for OpenClaw acceptance review

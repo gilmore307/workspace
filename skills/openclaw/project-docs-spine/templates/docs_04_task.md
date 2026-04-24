@@ -1,6 +1,6 @@
 # Task
 
-Field names, table columns, and status values in this document should follow `universal-dictionary` when formalized.
+Field names, table columns, and status values in this document should follow `universal-catalog` when formalized.
 
 ## Task Status Summary
 
@@ -38,4 +38,4 @@ Machine-readable task records may live at:
 .openclaw/task/register/
 ```
 
-Exact filenames and fields should follow `universal-dictionary`.
+Exact filenames and fields should follow `universal-catalog`.

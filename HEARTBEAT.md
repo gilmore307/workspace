@@ -1,7 +1,4 @@
-# HEARTBEAT.md Template
+# HEARTBEAT
 
-```markdown
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
-
-# Add tasks below when you want the agent to check something periodically.
-```
+- Review recent work for new shared names, repo identifiers, path fragments, config defaults, or templates that belong in `universal-catalog`.
+- If Codex introduced temporary names, surface them for OpenClaw registration review and update relevant skills or docs when the naming rule changed.

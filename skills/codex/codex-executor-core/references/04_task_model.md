@@ -4,7 +4,7 @@ OpenClaw turns workflow into bounded tasks.
 
 A task is not a vague wish. A task is a bounded work unit with a goal, scope, acceptance reference, edit boundary, test expectation, output requirement, and lifecycle state.
 
-This reference defines task governance. It does not own the exact task field names or status values. Those belong to `universal-dictionary`.
+This reference defines task governance. It does not own the exact task field names or status values. Those belong to `universal-catalog`.
 
 ## Task Status Flow
 
@@ -20,7 +20,7 @@ designing
   -> closed or cancelled
 ```
 
-The exact status names should come from `universal-dictionary`.
+The exact status names should come from `universal-catalog`.
 
 ## State Ownership
 
@@ -70,7 +70,7 @@ Optional slots:
 - next task reference
 - closure time
 
-The exact field names for these slots should be loaded from `universal-dictionary`.
+The exact field names for these slots should be loaded from `universal-catalog`.
 
 ## Task Quality Rules
 
@@ -128,7 +128,7 @@ Do not create a new task just because it can be phrased separately.
 
 A project may maintain a machine-readable task register in its project-local control path.
 
-The register should use field names approved by `universal-dictionary`.
+The register should use field names approved by `universal-catalog`.
 
 `docs/04_task.md` remains the human-readable task summary.
 

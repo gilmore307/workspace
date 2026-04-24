@@ -4,7 +4,7 @@ Passing tests means a task may be ready for review. It does not automatically me
 
 Only OpenClaw may produce the final acceptance outcome.
 
-Field names and status values in this document should follow `universal-dictionary` when formalized.
+Field names and status values in this document should follow `universal-catalog` when formalized.
 
 ## Acceptance Summary
 
@@ -48,6 +48,6 @@ Rejection reasons:
 - missing evidence
 - failed acceptance condition
 - modified blocked path
-- naming drift against `universal-dictionary`
+- naming drift against `universal-catalog`
 - unnecessary split
 - docs drift not handled

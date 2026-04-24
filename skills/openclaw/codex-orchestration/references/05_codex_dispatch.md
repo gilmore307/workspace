@@ -4,7 +4,7 @@ OpenClaw dispatches Codex through a task package called an execution key.
 
 The execution key is a bounded instruction contract, not a casual chat request.
 
-This reference defines the required information slots. Exact schema keys are owned by `universal-dictionary`.
+This reference defines the required information slots. Exact schema keys are owned by `universal-catalog`.
 
 ## Dispatch Principle
 
@@ -45,7 +45,7 @@ An execution key should include:
 - output reference when required
 - completion receipt reference
 
-Use the exact field names from `universal-dictionary`.
+Use the exact field names from `universal-catalog`.
 
 ## Suggested Path
 
@@ -55,7 +55,7 @@ Use the exact field names from `universal-dictionary`.
 
 This path is a default only. If a project chooses another control path, document it in `docs/01_context.md` or `OPENCLAW.md`.
 
-The path naming should also be synchronized with `universal-dictionary` when the dictionary project defines file-name tokens.
+The path naming should also be synchronized with `universal-catalog` when the catalog project defines file-name tokens.
 
 ## Dispatch Checklist
 
@@ -68,6 +68,7 @@ Before dispatching Codex, OpenClaw checks:
 - Are required tests named or clearly not required?
 - Are output and receipt references provided when needed?
 - Are dictionary constraints included?
+- Are naming lookups against `universal-catalog` included when Codex may need to name something?
 - Are script split gates included?
 - Are docs protected unless Codex is explicitly asked to edit them?
 
@@ -77,7 +78,8 @@ Include constraints such as:
 
 ```text
 Do not add new production dependencies without approval.
-Use formal names approved by universal-dictionary.
+Use formal names approved by universal-catalog.
+Do not self-register new names; report temporary new names for OpenClaw review.
 Do not modify docs/03_acceptance.md unless explicitly requested.
 Do not create extra files unless a script split gate is met.
 Do not touch secrets, .env, credentials, or sibling repositories.
@@ -86,7 +88,7 @@ Return a completion receipt.
 
 ## Example Execution Key
 
-The concrete JSON schema should come from `universal-dictionary`.
+The concrete JSON schema should come from `universal-catalog`.
 
 This skill should not be treated as the authority for exact key names.
 
