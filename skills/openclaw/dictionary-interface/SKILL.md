@@ -1,45 +1,43 @@
 ---
 name: dictionary-interface
-description: Interface project governance and task artifacts with the universal-catalog project. Use when deciding how naming discipline affects tasks, receipts, fields, status values, file-name tokens, repository names, shared paths, or shared config keys; when temporary local names are needed before universal-catalog is ready; or when naming drift must be surfaced without redesigning the whole project. Not for owning the universal catalog itself.
+description: Interface project governance and task artifacts with universal-catalog. Use when OpenClaw or Codex needs a formal shared name for a field, template, repo, path, config key, or later catalog-owned token; when existing catalog names must be reused; when missing names must be registered; or when Codex introduced a temporary name that OpenClaw must review and register. Not for owning the universal-catalog schema itself.
 ---
 
 # Dictionary Interface
 
-Use this skill to manage the boundary between current project work and the `universal-catalog` authority.
+Use this skill to keep implementation naming aligned with `universal-catalog`.
 
 ## Core rule
 
-This skill governs the interface to naming authority, not the naming authority itself.
+OpenClaw owns registration discipline. Codex does not.
 
-## Naming control rule
+## Required behavior
 
-- OpenClaw should look up formal names in `universal-catalog` before dispatching Codex work that needs naming.
-- If an approved name exists, reuse it.
-- If no approved name exists, OpenClaw should add or queue a catalog update instead of letting Codex silently mint permanent vocabulary.
-- Codex may use a temporary new name only when blocked otherwise, and must report that name back for OpenClaw review and registration.
+- Check `universal-catalog` before dispatching naming-sensitive work.
+- Reuse an existing catalog name when it already fits.
+- If the catalog is missing a needed shared name, treat that as OpenClaw work:
+  - update `universal-catalog`, or
+  - explicitly accept a temporary local name and review it after implementation.
+- Do not let Codex silently establish permanent naming authority.
+- Review recent work regularly for names that now belong in `universal-catalog`.
 
-## Engineering doctrine
+## Codex rule
 
-Apply these principles when naming decisions affect implementation and review:
+- Codex should prefer existing catalog names.
+- Codex should not register names into `universal-catalog`.
+- If Codex must introduce a temporary new name to finish a bounded task, Codex must report it in the completion receipt so OpenClaw can review and register, rename, or reject it.
 
-- Structure before implementation.
-- Boundaries before wiring.
-- Small coherent change before broad refactor.
-- Clarity before cleverness.
-- Root cause before patch.
-- Explicit contracts before hidden behavior.
-- Tests follow behavior.
-- Remove stale implementation.
-- Acceptance over aesthetic polish.
+## Current catalog reality
 
-## Fallback rule
+Treat `universal-catalog` as the shared authority for the kinds it currently owns, especially:
 
-If `universal-catalog` is not ready yet:
+- `field`
+- `template`
+- `repo`
+- `path`
+- `config`
 
-- use explicit project-local names
-- record that they are temporary
-- keep the later alignment point visible in docs or decisions
-- keep Codex from treating those temporary names as self-approved standards
+If a future kind is only being discussed, do not write this skill as if that kind already exists.
 
 ## Resources
 

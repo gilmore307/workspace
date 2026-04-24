@@ -1,98 +1,75 @@
 # Dictionary Interface
 
-OpenClaw owns naming discipline, but this skill does not own the fixed vocabulary.
+This skill is about how OpenClaw and Codex interact with `universal-catalog` during normal project work.
 
-The source of truth for formal words, field names, status names, file-name tokens, schema keys, repository names, shared path tokens, and shared config keys is the separate `universal-catalog` project.
+It does not define the catalog schema.
+It does not decide catalog kinds on its own.
+It does not let Codex self-register names.
 
-## Core Principle
+## What `universal-catalog` currently is
 
-```text
-Do not define fixed vocabulary inside this development skill.
-Use the universal catalog as the authority.
-```
+Right now `universal-catalog` is the shared register for stable server-wide referenced values used across future trading-oriented work.
 
-This skill may describe required information slots, but the exact field names should come from `universal-catalog`.
+Current concrete coverage is centered on catalog items such as:
 
-Example distinction:
+- `field`
+- `template`
+- `repo`
+- `path`
+- `config`
 
-```text
-This skill may require: a task identity slot.
-The universal catalog owns: the exact field name for that slot.
-```
+Do not assume a proposed future kind is already formal just because it was discussed in chat.
 
-## When OpenClaw Names Anything
+## Operational rule
 
-Before creating or accepting a formal name, OpenClaw should check the universal catalog for:
+When naming matters:
 
-- the approved term
-- the approved field name
-- the approved status value
-- the approved file-name token
-- any forbidden synonyms
-- any project-specific override policy
+1. Check whether `universal-catalog` already has a suitable shared name.
+2. If yes, reuse it.
+3. If no, decide whether the work should pause for catalog registration or proceed with an explicitly temporary name.
+4. If temporary naming is allowed, make sure Codex reports it back for OpenClaw review.
+5. After the task, OpenClaw decides whether to register, rename, or reject that temporary name.
 
-If the catalog does not yet contain the term, OpenClaw should not casually invent one. It should either:
+## OpenClaw responsibilities
 
-1. create a catalog update task, or
-2. record a temporary local term with a decision and mark it for catalog review.
+OpenClaw should:
 
-Codex should not register names directly into `universal-catalog`. If Codex must introduce a temporary new name to complete bounded implementation work, Codex must report:
+- keep `universal-catalog` updated as an ongoing maintenance responsibility
+- prefer catalog-approved names in task packages, schemas, receipts, paths, and templates
+- treat missing shared names as catalog gaps rather than as permission for casual invention
+- review Codex-reported temporary names and register the accepted ones itself
+- update related skills when naming policy or catalog authority changes
 
-- the proposed name
-- where it was introduced
-- why the existing catalog did not fit
-- whether the name should be registered, renamed, or rejected
+## Codex responsibilities
 
-## What This Skill Still Enforces
+Codex should:
 
-Even without owning the vocabulary, this skill enforces discipline:
+- reuse catalog-approved names first
+- avoid inventing new permanent-looking formal names
+- avoid self-registering anything into `universal-catalog`
+- report every temporary new name it introduced, including where and why it was needed
 
-- one concept should not acquire multiple names
-- new terms should not be invented for variety
-- formal fields should be stable
-- Codex should not introduce naming drift
-- ambiguous local names should be reviewed before acceptance
-- generic folders or files should not become junk drawers
+## What counts as drift
 
-## Schema Templates
+Naming drift includes cases like:
 
-Templates in this skill are interface drafts, not vocabulary authority.
+- two names for one shared concept
+- a new shared field or config key invented without catalog review
+- path, repo, or template naming that ignores an existing catalog entry
+- Codex introducing a temporary name and failing to report it
+- project docs or receipts pretending a name is formal when it has not been reviewed
 
-When a template contains concrete keys, treat them as provisional names that must be synchronized with `universal-catalog` before formal use.
+## Acceptance check
 
-If `universal-catalog` uses a different approved key, prefer the catalog and update the local template or adapter.
+Before accepting naming-sensitive work, check:
 
-## Dictionary Drift
+- Was an existing catalog name reused where possible?
+- Did Codex report every temporary new name?
+- Does any new shared name now need registration in `universal-catalog`?
+- Do docs, code, and task artifacts use the same accepted name for the same concept?
 
-Dictionary drift happens when:
+## Important restraint
 
-- Codex introduces an unregistered field
-- two files use different names for the same concept
-- a project-specific synonym becomes permanent without review
-- a template diverges from `universal-catalog`
-- task receipts use a field not registered in the catalog
+Do not overstate catalog authority.
 
-Name drift also happens when Codex invents a permanent-looking name without reporting it back for OpenClaw registration review.
-
-Dictionary drift is an acceptance concern. OpenClaw may reject or revise Codex output when naming drift affects maintainability or formal interfaces.
-
-## Local Exceptions
-
-A project may use a local term when:
-
-- the concept is truly project-specific
-- the universal catalog does not yet cover it
-- the term is documented in project docs
-- the exception is recorded in `docs/05_decision.md`
-- a follow-up catalog task is created when the term should become universal
-
-## Review Checklist
-
-Before accepting Codex output, check:
-
-- Are new formal fields registered or marked for catalog review?
-- Did Codex introduce a synonym for an existing concept?
-- Did filenames, directories, JSON keys, CSV columns, and docs use the same term for the same concept?
-- Did Codex report every temporary new name it introduced during implementation?
-- Did Codex create generic folders without a project decision?
-- Do task package and receipt schemas still match the catalog-approved interface?
+If `universal-catalog` does not yet formally own a category, say that plainly instead of pretending the authority already exists.
