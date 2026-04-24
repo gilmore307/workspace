@@ -1,6 +1,6 @@
 ---
 name: development-governance-core
-description: Govern the non-Codex core of a formal software project managed by OpenClaw. Use when defining project boundaries, repository shape, control paths, scope exclusions, split gates, maintenance expectations, or long-term coherence rules. Not for writing Codex task prompts, reviewing completion receipts, or handling naming authority details.
+description: Govern the non-Codex core of a formal software project managed by OpenClaw. Use for broadly development-related requests whenever OpenClaw needs to shape the project before or around implementation: defining project boundaries, repository shape, control paths, scope exclusions, split gates, maintenance expectations, or long-term coherence rules. This includes requests like develop/build/start/create a new project when the first need is to establish the project shape correctly. Not for writing Codex task prompts, reviewing completion receipts, or handling naming authority details.
 ---
 
 # Development Governance Core

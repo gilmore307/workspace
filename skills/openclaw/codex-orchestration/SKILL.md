@@ -1,6 +1,6 @@
 ---
 name: codex-orchestration
-description: Orchestrate bounded Codex implementation work inside an OpenClaw-managed software project. Use when sizing medium-granularity tasks, preparing execution keys, writing Codex task prompts, checking completion receipts, performing acceptance review, rejecting or accepting work, or handling post-acceptance commit and push responsibility. Not for defining the overall project docs spine or owning the universal catalog.
+description: Orchestrate bounded Codex implementation work inside an OpenClaw-managed software project. Use for broadly development-related requests whenever implementation should be handed to Codex instead of being hand-coded directly: sizing medium-granularity tasks, preparing execution keys, writing Codex task prompts, dispatching new-project scaffolds or feature work, checking completion receipts, performing acceptance review, rejecting or accepting work, or handling post-acceptance commit and push responsibility. This should trigger on requests to develop/build/create/start/implement software work unless the task is a trivial direct edit. Not for defining the overall project docs spine or owning the universal catalog.
 ---
 
 # Codex Orchestration
