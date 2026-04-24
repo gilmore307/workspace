@@ -1,6 +1,6 @@
 ---
 name: codex-executor-core
-description: Execute a bounded software-development task as Codex inside an OpenClaw-managed project. Use when Codex receives an execution key, must stay inside allowed and blocked path boundaries, implement changes, run required verification, and return a completion receipt for OpenClaw review. Not for deciding project scope, acceptance authority, or governance policy.
+description: Execute a bounded software-development task as Codex inside an OpenClaw-managed project. Use when Codex receives a task package or execution key, must stay inside allowed and blocked path boundaries, implement changes, run required verification, and return a completion report for OpenClaw review. Not for deciding project scope, acceptance authority, or governance policy.
 ---
 
 # Codex Executor Core
@@ -34,7 +34,7 @@ When implementing, follow these principles:
 - Do not silently expand scope.
 - Keep work at the given task granularity.
 - Run required verification when possible.
-- Return a structured completion receipt.
+- Return the completion report format the task asks for.
 - Report readiness for review, not final acceptance.
 
 ## Do not do these

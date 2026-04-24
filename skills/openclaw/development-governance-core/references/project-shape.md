@@ -120,4 +120,4 @@ A good project shape makes it easy to specify:
 - output references
 - receipt references
 
-Exact field names for these slots should come from `universal-catalog`.
+Exact field names for these slots are not standardized here.

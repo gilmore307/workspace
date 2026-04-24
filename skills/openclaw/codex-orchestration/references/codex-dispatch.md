@@ -4,7 +4,9 @@ OpenClaw dispatches Codex through a task package called an execution key.
 
 The execution key is a bounded instruction contract, not a casual chat request.
 
-This reference defines the required information slots. Exact schema keys are owned by `universal-catalog`.
+This reference defines the minimum information a Codex task package should communicate.
+
+Exact execution-key schema is not standardized here.
 
 ## Dispatch Principle
 
@@ -26,7 +28,7 @@ OpenClaw must provide:
 - output reference
 - receipt reference
 
-## Required Execution Key Slots
+## Common Execution Key Contents
 
 An execution key should include:
 
@@ -45,7 +47,7 @@ An execution key should include:
 - output reference when required
 - completion receipt reference
 
-Use the exact field names from `universal-catalog`.
+If a project formalizes exact key names, document them in the project instead of assuming they already exist.
 
 ## Suggested Path
 
@@ -55,7 +57,7 @@ Use the exact field names from `universal-catalog`.
 
 This path is a default only. If a project chooses another control path, document it in `docs/01_context.md` or the repository root `README.md`.
 
-The path naming should also be synchronized with `universal-catalog` when the catalog project defines file-name tokens.
+Path naming is not standardized here beyond being explicit and documented.
 
 ## Dispatch Checklist
 
@@ -88,7 +90,7 @@ Return a completion receipt.
 
 ## Example Execution Key
 
-The concrete JSON schema should come from `universal-catalog`.
+No canonical JSON schema is defined here yet.
 
 This skill should not be treated as the authority for exact key names.
 

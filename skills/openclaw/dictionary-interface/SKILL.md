@@ -1,6 +1,6 @@
 ---
 name: dictionary-interface
-description: Interface project governance and task artifacts with universal-catalog. Use when OpenClaw or Codex needs a formal shared name for a field, template, repo, path, config key, or later catalog-owned token; when existing catalog names must be reused; when missing names must be registered; or when Codex introduced a temporary name that OpenClaw must review and register. Not for owning the universal-catalog schema itself.
+description: Interface project governance and task artifacts with universal-catalog. Use when OpenClaw or Codex needs a formal shared name for a field, template, repo, path, or config key; when existing catalog names must be reused; when missing names must be registered; or when Codex introduced a temporary name that OpenClaw must review and register. Not for owning the universal-catalog schema itself.
 ---
 
 # Dictionary Interface

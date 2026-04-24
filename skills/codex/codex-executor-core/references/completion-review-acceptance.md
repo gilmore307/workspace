@@ -5,7 +5,9 @@ OpenClaw writes an acceptance receipt.
 
 These are different objects.
 
-This reference defines review responsibilities and required information slots. Exact schema keys and status values belong to `universal-catalog`.
+This reference defines review responsibilities and the minimum information OpenClaw should expect.
+
+Exact receipt schemas and status labels are not standardized here.
 
 ## Completion Receipt
 
@@ -30,7 +32,7 @@ Suggested path:
 
 ## Completion Receipt Slots
 
-A completion receipt should include:
+When a project uses a formal completion receipt, it should include enough information to show:
 
 - task identity
 - workflow identity
@@ -45,7 +47,7 @@ A completion receipt should include:
 - output reference when applicable
 - acceptance readiness signal
 
-The exact field names should come from `universal-catalog`.
+Exact field names are not standardized here.
 
 Codex may report readiness or not-readiness. Codex must not report final acceptance or rejection.
 
@@ -77,7 +79,7 @@ Suggested path:
 .openclaw/task/acceptance_receipt/{task_identity}_acceptance_receipt.json
 ```
 
-An acceptance receipt should communicate:
+When a project uses an acceptance receipt, it should communicate:
 
 - task identity
 - workflow identity
@@ -92,7 +94,7 @@ An acceptance receipt should communicate:
 - next task reference when needed
 - acceptance summary
 
-The exact field names and status values should come from `universal-catalog`.
+Exact field names and status labels are not standardized here.
 
 ## Post-Acceptance Stewardship
 

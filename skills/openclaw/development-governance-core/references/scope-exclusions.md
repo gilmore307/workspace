@@ -15,7 +15,7 @@ Out of scope:
 - release policy
 - backup policy
 - secret rotation policy
-- universal dictionary ownership
+- universal-catalog schema ownership
 - fixed vocabulary maintenance
 
 These may be handled by separate skills, project-specific docs, or dedicated projects when needed. Fixed vocabulary belongs to the separate `universal-catalog` project.

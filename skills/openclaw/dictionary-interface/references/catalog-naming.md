@@ -8,7 +8,7 @@ It does not let Codex self-register names.
 
 ## What `universal-catalog` currently is
 
-Right now `universal-catalog` is the shared register for stable server-wide referenced values used across future trading-oriented work.
+Right now `universal-catalog` is the shared register for stable server-wide referenced values used across trading work on this machine.
 
 Current concrete coverage is centered on catalog items such as:
 
