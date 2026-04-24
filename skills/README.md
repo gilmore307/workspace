@@ -8,7 +8,6 @@ Canonical checked-in skill sources for this host.
 
 ## Codex skills
 
-- `codex/codex_executor_core`
-- `codex/codex_dictionary_guard`
+- `codex/project_execution`
 
 These are source directories, not temporary packaging workdirs.
