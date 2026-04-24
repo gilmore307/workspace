@@ -80,6 +80,26 @@ Use files or append-only log storage with retention for operational logs. Use ob
 
 Use CSV when a table-like artifact has strong human-review value and is primarily meant to be opened, inspected, shared, or archived by a person rather than queried transactionally. Good CSV candidates include summary reports, review tables, audit exports, and small hand-checkable snapshots.
 
+## Table granularity rule
+
+A dedicated SQL table is justified when a dataset is large enough, structurally stable enough, or queried often enough to benefit from database behavior.
+
+Good SQL-table candidates include:
+
+- large fixed-schema datasets, such as thousands of stock bars or time-series rows
+- datasets that need indexed lookup, filtering, aggregation, joins, or constraints
+- datasets that will be appended to or updated over time while preserving a stable schema
+- datasets that multiple workflows need to query consistently
+
+Avoid creating a dedicated SQL table for tiny isolated datasets whose main value is storage or human inspection. For example, a 10-row fixed-format sample is usually better as CSV or JSON unless it participates in a larger relational workflow.
+
+Ask before adding a table:
+
+- Is the schema stable and worth naming?
+- Is the row count or growth path large enough to justify database management?
+- Will code query it repeatedly, join it, filter it, or enforce constraints?
+- Would CSV/JSON be simpler and equally reliable?
+
 ## Large-data rule
 
 When disk is finite, prioritize active data integrity over exhaustive auditability.
