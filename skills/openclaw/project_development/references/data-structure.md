@@ -57,6 +57,8 @@ Migrations are not responsible for:
 
 SQL is for data with long-term storage value and structured query value.
 
+Before adding a SQL table, prove SQL is more appropriate than CSV, JSON, file/object storage, log retention, cache, or a disposable artifact. The default is not "data means SQL"; the storage choice must match the data's long-term value, query pattern, update frequency, and human-review needs.
+
 Put data in SQL when it is:
 
 - durable project/application state that must survive restarts
@@ -79,6 +81,8 @@ Do not put data in SQL by default when it is:
 Use files or append-only log storage with retention for operational logs. Use object/file storage for large blobs and generated artifacts. Use explicit pruning for caches and temporary data.
 
 Use CSV when a table-like artifact has strong human-review value and is primarily meant to be opened, inspected, shared, or archived by a person rather than queried transactionally. Good CSV candidates include summary reports, review tables, audit exports, and small hand-checkable snapshots.
+
+Use JSON or CSV for small isolated structured data when there is no strong query, join, index, constraint, transaction, or multi-workflow consistency need.
 
 ## Table granularity rule
 
@@ -140,6 +144,7 @@ Route database facts to the narrowest project doc:
 Before dispatching implementation that touches durable data, define:
 
 - active database/table names
+- why SQL is justified over CSV, JSON, file/object storage, logs, cache, or generated artifacts
 - migration file naming/location
 - whether any bootstrap rows are small and stable enough to belong in a migration
 - forbidden data duplication paths
