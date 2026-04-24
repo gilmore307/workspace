@@ -23,7 +23,7 @@ For a small project:
 
 ```text
 repo/
-  OPENCLAW.md
+  README.md
   AGENTS.md
   docs/
   src/
@@ -45,7 +45,7 @@ A medium project may have clearer peer roots:
 
 ```text
 repo/
-  OPENCLAW.md
+  README.md
   AGENTS.md
   docs/
   src/

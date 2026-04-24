@@ -1,4 +1,6 @@
-# OpenClaw Project Control
+# <project-name>
+
+Short project purpose here.
 
 This repository is managed by OpenClaw.
 

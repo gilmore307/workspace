@@ -53,7 +53,7 @@ Use the exact field names from `universal-catalog`.
 .openclaw/task/execution_key/{task_identity}_execution_key.json
 ```
 
-This path is a default only. If a project chooses another control path, document it in `docs/01_context.md` or `OPENCLAW.md`.
+This path is a default only. If a project chooses another control path, document it in `docs/01_context.md` or the repository root `README.md`.
 
 The path naming should also be synchronized with `universal-catalog` when the catalog project defines file-name tokens.
 
@@ -68,7 +68,6 @@ Before dispatching Codex, OpenClaw checks:
 - Are required tests named or clearly not required?
 - Are output and receipt references provided when needed?
 - Are dictionary constraints included?
-- Are naming lookups against `universal-catalog` included when Codex may need to name something?
 - Are script split gates included?
 - Are docs protected unless Codex is explicitly asked to edit them?
 

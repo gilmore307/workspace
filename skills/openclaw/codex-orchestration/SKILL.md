@@ -59,7 +59,7 @@ If the task is accepted, OpenClaw is responsible for creating the commit and pus
 
 ## Resources
 
-- `references/04_task_model.md`
-- `references/05_codex_dispatch.md`
-- `references/06_completion_review_acceptance.md`
+- `references/task-model.md`
+- `references/codex-dispatch.md`
+- `references/completion-review-acceptance.md`
 - `templates/`

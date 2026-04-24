@@ -50,6 +50,6 @@ Use diagrams and tables freely when they make project structure or workflow clea
 
 ## Resources
 
-- `references/01_project_docs.md`
-- `references/07_project_memory.md`
+- `references/project-docs.md`
+- `references/project-memory.md`
 - `templates/`

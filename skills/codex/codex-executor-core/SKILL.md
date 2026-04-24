@@ -48,9 +48,9 @@ When implementing, follow these principles:
 
 ## Resources
 
-- `references/04_task_model.md`
-- `references/05_codex_dispatch.md`
-- `references/06_completion_review_acceptance.md`
+- `references/task-model.md`
+- `references/codex-dispatch.md`
+- `references/completion-review-acceptance.md`
 - `templates/codex_task_prompt.md`
 - `templates/execution_key_slots.md`
 - `templates/completion_receipt_slots.md`

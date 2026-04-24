@@ -40,10 +40,10 @@ Maintenance is not optional polish. Check that docs, task state, receipts, proje
 
 ## Resources
 
-- `references/00_role_boundary.md`
-- `references/02_project_shape.md`
-- `references/08_script_split.md`
-- `references/09_maintenance.md`
-- `references/10_scope_exclusions.md`
-- `templates/OPENCLAW.md`
+- `references/role-boundary.md`
+- `references/project-shape.md`
+- `references/script-split.md`
+- `references/maintenance.md`
+- `references/scope-exclusions.md`
+- `templates/root-readme.md`
 - `templates/maintenance_output_slots.md`
