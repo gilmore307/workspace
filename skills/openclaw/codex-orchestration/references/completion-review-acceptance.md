@@ -8,7 +8,7 @@ These are different objects.
 This reference defines review responsibilities and the minimum information OpenClaw should expect.
 
 Exact receipt container shapes and status labels are not standardized here.
-Canonical completion-receipt slot names may still be standardized and reused across projects.
+Canonical completion-receipt and acceptance-receipt slot names may still be standardized and reused across projects.
 
 ## Completion Receipt
 
@@ -80,22 +80,22 @@ Suggested path:
 .openclaw/task/acceptance_receipt/{task_identity}_acceptance_receipt.json
 ```
 
-When a project uses an acceptance receipt, it should communicate:
+When a project uses an acceptance receipt, current canonical slot names for these concepts are:
 
-- task identity
-- workflow identity
-- acceptance outcome
-- acceptance reference
-- reviewed files
-- reviewed commands
-- test status
-- test output
-- issue list
-- decision references
-- next task reference when needed
-- acceptance summary
+- `TASK_IDENTITY` (`task_identity`)
+- `WORKFLOW_IDENTITY` (`workflow_identity`)
+- `ACCEPTANCE_OUTCOME` (`acceptance_outcome`)
+- `ACCEPTANCE_REFERENCE` (`acceptance_reference`)
+- `REVIEWED_FILES` (`reviewed_files`)
+- `REVIEWED_COMMANDS` (`reviewed_commands`)
+- `TEST_STATUS` (`test_status`)
+- `TEST_OUTPUT` (`test_output`)
+- `ISSUE_LIST` (`issue_list`)
+- `DECISION_REFERENCES` (`decision_references`) when relevant
+- `NEXT_TASK_REFERENCE` (`next_task_reference`) when needed
+- `ACCEPTANCE_SUMMARY` (`acceptance_summary`)
 
-Exact field names and status labels are not standardized here.
+Exact nesting and value vocabularies are not standardized here.
 
 ## Post-Acceptance Stewardship
 
