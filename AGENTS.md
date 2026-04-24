@@ -22,6 +22,11 @@ Do not manually reread startup files unless:
 2. The provided context is missing something you need
 3. You need a deeper follow-up read beyond the provided startup context
 
+### Default development startup rule
+
+This workspace is primarily run as an OpenClaw-managed project workspace.
+For new sessions that are likely to involve project creation, restructuring, implementation, documentation, review, maintenance, or naming work, read `/root/.openclaw/workspace/skills/openclaw/project_development/SKILL.md` immediately at session start and use it as the default development stewardship baseline unless a more specific skill clearly overrides it.
+
 ## Memory
 
 You wake up fresh each session. These files are your continuity:
