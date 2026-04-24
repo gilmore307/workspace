@@ -7,7 +7,8 @@ These are different objects.
 
 This reference defines review responsibilities and the minimum information OpenClaw should expect.
 
-Exact receipt schemas and status labels are not standardized here.
+Exact receipt container shapes and status labels are not standardized here.
+Canonical completion-receipt slot names may still be standardized and reused across projects.
 
 ## Completion Receipt
 
@@ -32,22 +33,22 @@ Suggested path:
 
 ## Completion Receipt Slots
 
-When a project uses a formal completion receipt, it should include enough information to show:
+When a project uses a formal completion receipt, current canonical slot names for these concepts are:
 
-- task identity
-- workflow identity
-- task lifecycle state or readiness state
-- change summary
-- changed file list
-- command list
-- test status
-- test output
-- issue list
-- temporary new names introduced, if any
-- output reference when applicable
-- acceptance readiness signal
+- `TASK_IDENTITY` (`task_identity`)
+- `WORKFLOW_IDENTITY` (`workflow_identity`)
+- `TASK_LIFECYCLE_STATE` (`task_lifecycle_state`) when the project records one
+- `CHANGE_SUMMARY` (`change_summary`)
+- `CHANGED_FILES` (`changed_files`)
+- `COMMAND_LIST` (`command_list`)
+- `TEST_STATUS` (`test_status`)
+- `TEST_OUTPUT` (`test_output`)
+- `ISSUE_LIST` (`issue_list`)
+- `TEMPORARY_NEW_NAMES` (`temporary_new_names`) when applicable
+- `OUTPUT_REFERENCE` (`output_reference`) when applicable
+- `REVIEW_READINESS` (`review_readiness`)
 
-Exact field names are not standardized here.
+Exact nesting and value vocabularies are not standardized here.
 
 Codex may report readiness or not-readiness. Codex must not report final acceptance or rejection.
 

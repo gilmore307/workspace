@@ -29,7 +29,7 @@ When a project formalizes execution-key slots, use the canonical slot names regi
 
 ## Completion Receipt
 
-If the task provides a formal receipt schema, follow it.
+If the task provides a formal completion-receipt schema, use the canonical slot names registered in `universal-catalog`.
 If not, return a clear structured report with:
 
 - what changed
