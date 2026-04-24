@@ -103,6 +103,7 @@ Does not own:
 
 Use this file to describe runtime flow and ownership, not to restate everything the repo is about.
 When a project has multiple runtime responsibilities, prefer an ordered function/layer model over loose narrative prose.
+Once a project has entered real design, dispatch, or restructuring work, `02_workflow.md` should not remain a top-level all-`Not yet defined` shell; define the runtime shape and leave only unresolved subfields as `Not yet defined`.
 If a workflow needs acceptance notes, keep them short and point to `03_acceptance.md` for the canonical gate.
 
 ### 03_acceptance.md

@@ -9,14 +9,91 @@ Prefer an ordered function/layer model when the project has multiple runtime res
 Do not restate broad scope, dependency inventory, current task board state, or durable decision rationale.
 Keep acceptance notes short here and use `03_acceptance.md` as the canonical acceptance surface.
 
-## Workflow Summary
+Do not leave this file as one large top-level `Not yet defined` placeholder once the project has entered real design, dispatch, or restructuring work.
+At that point, define the runtime shape here and leave only the still-unsettled subfields as `Not yet defined`.
+
+## Purpose
 
 Not yet defined.
 
-## Workflow Details
+## Target Runtime Layers
 
 Not yet defined.
 
-## Workflow-Linked Acceptance
+## Operating Principles
+
+Not yet defined.
+
+---
+
+## Function 1, Not yet defined
+
+### Purpose
+
+Not yet defined.
+
+### Trigger Conditions
+
+Current triggers:
+
+- Not yet defined.
+
+Target runtime triggers:
+
+- Not yet defined.
+
+### Main Owner
+
+Not yet defined.
+
+### Main Outputs
+
+Not yet defined.
+
+### Workflow
+
+Not yet defined.
+
+### Flow
+
+Not yet defined.
+
+---
+
+## Function 2, Not yet defined
+
+### Purpose
+
+Not yet defined.
+
+### Trigger Conditions
+
+Current triggers:
+
+- Not yet defined.
+
+Target runtime triggers:
+
+- Not yet defined.
+
+### Main Owner
+
+Not yet defined.
+
+### Main Outputs
+
+Not yet defined.
+
+### Workflow
+
+Not yet defined.
+
+### Flow
+
+Not yet defined.
+
+---
+
+## Cross-Function Operating Pattern
 
 Not yet defined.
