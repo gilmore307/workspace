@@ -11,8 +11,8 @@ Do not claim final acceptance. Report readiness only when implementation and tes
 
 Use the execution key or task package provided by OpenClaw.
 
-The exact JSON schema is not standardized in this template yet.
-When a project formalizes it, align it with `universal-catalog`.
+The exact JSON wrapper is still project-defined.
+When a project formalizes execution-key slots, use the canonical slot names registered in `universal-catalog`.
 
 ## Required Behavior
 

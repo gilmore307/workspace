@@ -6,7 +6,8 @@ The execution key is a bounded instruction contract, not a casual chat request.
 
 This reference defines the minimum information a Codex task package should communicate.
 
-Exact execution-key schema is not standardized here.
+Exact execution-key container shape is not standardized here.
+Canonical execution-key slot names may still be standardized and reused across projects.
 
 ## Dispatch Principle
 
@@ -47,7 +48,25 @@ An execution key should include:
 - output reference when required
 - completion receipt reference
 
-If a project formalizes exact key names, document them in the project instead of assuming they already exist.
+Current canonical slot names for these concepts are:
+
+- `TASK_IDENTITY` (`task_identity`)
+- `WORKFLOW_IDENTITY` (`workflow_identity`)
+- `REPOSITORY_PATH` (`repository_path`)
+- `TASK_GOAL` (`task_goal`)
+- `TASK_SCOPE` (`task_scope`)
+- `ACCEPTANCE_REFERENCE` (`acceptance_reference`)
+- `DECISION_REFERENCES` (`decision_references`) when relevant
+- `ALLOWED_PATHS` (`allowed_paths`)
+- `BLOCKED_PATHS` (`blocked_paths`)
+- `TEST_EXPECTATION` (`test_expectation`)
+- `TEST_COMMANDS` (`test_commands`) when concrete commands are known
+- `EXPECTED_OUTPUT` (`expected_output`)
+- `CONSTRAINTS` (`constraints`)
+- `OUTPUT_REFERENCE` (`output_reference`) when a separate output target exists
+- `COMPLETION_RECEIPT_REFERENCE` (`completion_receipt_reference`)
+
+If a project formalizes exact nesting or wrapper key names, document that in the project instead of assuming one universal object shape already exists.
 
 ## Suggested Path
 
