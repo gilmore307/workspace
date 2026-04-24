@@ -28,5 +28,4 @@ Do not invent formal shared names just because a gap exists.
 
 ## Resources
 
-- `references/03_dictionary_interface.md`
-- `templates/`
+- `references/catalog-naming.md`

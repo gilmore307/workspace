@@ -41,5 +41,4 @@ If a future kind is only being discussed, do not write this skill as if that kin
 
 ## Resources
 
-- `references/03_dictionary_interface.md`
-- `templates/`
+- `references/catalog-naming.md`
