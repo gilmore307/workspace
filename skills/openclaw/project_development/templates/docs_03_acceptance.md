@@ -1,8 +1,7 @@
 # Acceptance
 
 Only OpenClaw may produce final acceptance.
-If acceptance criteria are not settled yet, write `Not yet defined` instead of inventing them.
-Treat `Not yet defined` as a current gap marker that must be filled before work depending on that acceptance slot can be accepted cleanly.
+If an acceptance slot is unresolved, record the gap in `04_task.md` and fill it before dependent work can be accepted cleanly.
 
 Boundary:
 Own consolidated acceptance rules, verification commands, review evidence, and rejection reasons here.
@@ -10,20 +9,31 @@ Do not use this file for project purpose, runtime architecture, dependency expla
 
 ## Acceptance Summary
 
-Not yet defined.
+Summarize the accepted current slice and the next acceptance gate.
 
 ## Acceptance Rules
 
-Not yet defined.
+### For current shipped code
+
+- Record the rules the currently shipped code must continue to satisfy.
+
+### For docs-only changes
+
+- Record how documentation-only changes are reviewed and accepted.
+
+### For the next code-bearing slice
+
+- Record the gate the next implementation slice must satisfy before acceptance.
 
 ## Verification Commands
 
-Not yet defined.
+- List the current required verification commands.
+- State which existing command path future slices must extend instead of inventing parallel verification paths.
 
 ## Required Review Evidence
 
-Not yet defined.
+- List the evidence OpenClaw requires during review.
 
 ## Rejection Reasons
 
-Not yet defined.
+- List the conditions that force rejection or return.

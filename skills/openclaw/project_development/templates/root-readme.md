@@ -1,9 +1,7 @@
-# Project Name
-
-Not yet defined.
+# [project-name]
 
 Only keep sections that are already true for the repository.
-If something is not settled yet, write `Not yet defined` instead of inventing details.
+If a repository-level slot is unresolved, record the gap in `docs/04_task.md` and fill it before the repo depends on it.
 
 This repository is managed by OpenClaw.
 
@@ -68,7 +66,7 @@ After acceptance, OpenClaw is responsible for committing and pushing the accepte
 ## Dictionary Rule
 
 If this repository uses `universal-catalog` as the authority for formal naming, state that here.
-If not yet formalized, write `Not yet defined`.
+If formal naming authority is still being decided, record the open gap in `docs/04_task.md` instead of inventing it here.
 
 ## Split Rule
 
@@ -89,4 +87,4 @@ Do not require this for generated, vendor, cache, build-artifact, or other dispo
 ## Project Control Path
 
 If this repository uses a project-local control path, document it here.
-If not yet decided, write `Not yet defined`.
+If the control path is still undecided, record the open gap in `docs/04_task.md` instead of parking it in this README.

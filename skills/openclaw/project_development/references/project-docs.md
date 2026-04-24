@@ -35,11 +35,11 @@ If two docs need the same fact:
 - mention or link to it from the other doc
 - remove stale duplicate wording
 
-If something is not settled yet, write `Not yet defined` instead of filling multiple docs with speculative structure.
+If something is not settled yet, mark it as an explicit open gap instead of filling multiple docs with speculative structure.
 
-Use `Not yet defined` as an active gap marker, not as a parked conclusion.
+Use an open gap marker as an active work signal, not as a parked conclusion.
 It records that the project has reached a slot that still needs a real definition.
-Once dispatch, implementation, review, or acceptance depends on that slot, come back and replace `Not yet defined` with current reality.
+Once dispatch, implementation, review, or acceptance depends on that slot, come back and replace the gap marker with current reality.
 
 ## Boundary map
 
@@ -107,8 +107,8 @@ Does not own:
 
 Use this file to describe runtime flow and ownership, not to restate everything the repo is about.
 When a project has multiple runtime responsibilities, prefer an ordered function/layer model over loose narrative prose.
-Once a project has entered real design, dispatch, or restructuring work, `02_workflow.md` should not remain a top-level all-`Not yet defined` shell; define the runtime shape and leave only unresolved subfields as `Not yet defined`.
-If a workflow needs acceptance notes, keep them short and point to `03_acceptance.md` for the canonical gate.
+Once a project has entered real design, dispatch, or restructuring work, `02_workflow.md` should not remain a top-level shell of unresolved headings; define the runtime shape and route any still-open questions into explicit task/decision follow-up.
+If a workflow needs acceptance notes, keep them short here and point to `03_acceptance.md` for the canonical gate.
 
 ### 03_acceptance.md
 
@@ -179,7 +179,7 @@ Does not own:
 - unratified ideas presented as settled
 
 Use this file when a choice changes project shape, architecture, dependency policy, naming convention, task model, or acceptance criteria.
-If a choice is not ratified yet, keep it out of this file or write `Not yet defined` in the relevant narrower doc.
+If a choice is not ratified yet, keep it out of this file and track the open question in the relevant narrower doc or task register.
 
 ### 06_memory.md
 

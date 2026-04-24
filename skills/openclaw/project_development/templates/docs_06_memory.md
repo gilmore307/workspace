@@ -1,8 +1,7 @@
 # Project Memory
 
 Use this file only for project-local durable memory that does not fit scope, context, workflow, acceptance, task, or decision.
-If there is no durable project memory yet, write `Not yet defined`.
-Treat `Not yet defined` as a current gap marker that should be replaced once real project-local continuity exists here.
+If this file is empty in substance, write `None.` and keep it short.
 
 Boundary:
 This is the overflow file for durable project continuity only after the narrower docs have been ruled out.
@@ -10,16 +9,20 @@ Do not use it as a convenience dump for content that really belongs in `00_scope
 
 ## Durable Project Notes
 
-Not yet defined.
+- Record project-local continuity that does not belong in the narrower docs.
+- Write `None.` when empty.
 
 ## Recurring Risks
 
-Not yet defined.
+- Record recurring project-specific risks.
+- Write `None.` when empty.
 
 ## Resumption Notes
 
-Not yet defined.
+- Record short notes that help the next session resume the project cleanly.
+- Write `None.` when empty.
 
 ## Maintenance Notes
 
-Not yet defined.
+- Record durable maintenance observations specific to this project.
+- Write `None.` when empty.

@@ -1,8 +1,7 @@
 # Task
 
 Use this file for current task state only.
-If structured task tracking is not ready yet, write `Not yet defined`.
-Treat `Not yet defined` as a current gap marker that should turn into real task state once the project has enough structure to dispatch or review work.
+If task structure is still being formed, fill it immediately once the project reaches dispatch or review work.
 
 Boundary:
 Own only the current queue, dispatch state, blocked state, pending acceptance state, and recently accepted work here.
@@ -10,28 +9,34 @@ Do not turn this file into architecture notes, decision rationale, or repeated a
 
 ## Task Status Summary
 
-Not yet defined.
+- Report counts by lifecycle state.
 
 ## Active Tasks
 
-Not yet defined.
+- Record tasks currently being designed, dispatched, or executed.
+- Write `None.` when this section is empty.
 
 ## Next Dispatch
 
-Not yet defined.
+- Record the next bounded tasks eligible for dispatch.
+- Write `None.` when this section is empty.
 
 ## Pending Acceptance
 
-Not yet defined.
+- Record tasks waiting on OpenClaw acceptance.
+- Write `None.` when this section is empty.
 
 ## Blocked Tasks
 
-Not yet defined.
+- Record tasks that cannot move without an external unblock.
+- Write `None.` when this section is empty.
 
 ## Recently Accepted
 
-Not yet defined.
+- Record recently accepted tasks that still matter to current project continuity.
+- Write `None.` when this section is empty.
 
 ## Notes
 
-Not yet defined.
+- Record short operational notes that affect current task handling.
+- Write `None.` when this section is empty.
