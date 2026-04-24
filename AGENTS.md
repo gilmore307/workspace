@@ -240,6 +240,10 @@ When delegating implementation work to Codex:
 - Remove stale implementation.
 - Acceptance over aesthetic polish.
 
+## Repo Discipline
+
+- When a file-editing task is complete, commit the resulting changes and push them to GitHub unless explicitly told otherwise.
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
