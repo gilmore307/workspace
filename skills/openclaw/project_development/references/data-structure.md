@@ -53,6 +53,33 @@ Migrations are not responsible for:
 - frequently changing configuration data
 - high-volume active datasets
 
+## Storage placement rule
+
+SQL is for data with long-term storage value and structured query value.
+
+Put data in SQL when it is:
+
+- durable project/application state that must survive restarts
+- relational or query-heavy data with stable schema expectations
+- canonical metadata used by multiple workflows or tools
+- low- to medium-churn reference/config records that are not secrets
+- task/state/checkpoint data that needs transactional consistency
+- data that benefits from indexes, constraints, joins, or uniqueness rules
+
+Do not put data in SQL by default when it is:
+
+- high-volume logs or traces
+- frequent append-only runtime noise
+- transient cache data
+- generated artifacts that can be rebuilt
+- large binary blobs, media, screenshots, or documents
+- raw model transcripts or verbose debugging output with limited long-term value
+- temporary import/export staging data
+
+Use files or append-only log storage with retention for operational logs. Use object/file storage for large blobs and generated artifacts. Use explicit pruning for caches and temporary data.
+
+Use CSV when a table-like artifact has strong human-review value and is primarily meant to be opened, inspected, shared, or archived by a person rather than queried transactionally. Good CSV candidates include summary reports, review tables, audit exports, and small hand-checkable snapshots.
+
 ## Large-data rule
 
 When disk is finite, prioritize active data integrity over exhaustive auditability.
