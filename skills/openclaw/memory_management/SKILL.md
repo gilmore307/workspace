@@ -1,6 +1,6 @@
 ---
 name: memory_management
-description: Route, promote, deduplicate, and flush workspace memory into the correct canonical home. Use when deciding where information should live across project docs, USER.md, TOOLS.md, AGENTS.md, MEMORY.md, memory/HANDOFF.md, and memory/YYYY-MM-DD.md; when handling memory flushes; or when correcting misplaced durable memory.
+description: Route, promote, deduplicate, flush workspace memory, and manually clean expired memory-core dreaming narrative sessions. Use when deciding where information should live across project docs, USER.md, TOOLS.md, AGENTS.md, MEMORY.md, memory/HANDOFF.md, and memory/YYYY-MM-DD.md; when handling memory flushes; when correcting misplaced durable memory; or when inspecting/removing expired dreaming-narrative sessions.
 ---
 
 # Memory Management
@@ -23,6 +23,7 @@ Do not default to daily memory when a more canonical file exists.
 - Put same-day trace notes in `memory/YYYY-MM-DD.md`.
 - Keep one fact in one canonical home whenever possible.
 - When a fact is promoted into its real home, avoid leaving redundant long-term copies behind in daily memory.
+- When explicitly asked, inspect and remove expired `dreaming-narrative-*` sessions with archive-first cleanup.
 
 ## Default workflow
 
@@ -39,6 +40,7 @@ Do not default to daily memory when a more canonical file exists.
 - Do not mirror one project's durable facts into global memory when project docs are the real authority.
 - Do not create timestamped variants of a canonical daily memory file.
 - Do not overwrite bootstrap/reference files during restricted flushes when the instruction says they are read-only.
+- Do not remove ordinary user/project/chat sessions through the dreaming cleanup path.
 
 ## Resources
 
@@ -46,3 +48,5 @@ Do not default to daily memory when a more canonical file exists.
 - `references/routing.md`
 - `references/write-rules.md`
 - `references/promotion.md`
+- `references/dreaming-cleanup.md`
+- `scripts/cleanup_expired_dreaming_sessions.py`

@@ -34,3 +34,14 @@ Examples:
 - promoting a durable operating rule into `AGENTS.md`
 - deciding whether a fact deserves `MEMORY.md`
 - removing redundant daily-memory copies after promotion
+
+## 4. Clean expired dreaming narrative sessions
+
+Read `references/dreaming-cleanup.md` when the user asks about expired or inactive `dreaming-narrative-*` sessions.
+
+Examples:
+
+- "how many dreaming sessions are stale"
+- "remove expired dreaming sessions"
+- "why didn't dreaming cleanup delete completed narrative sessions"
+- "archive old memory-core dreaming sessions"
