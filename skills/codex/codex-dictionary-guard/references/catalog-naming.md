@@ -16,6 +16,7 @@ It does not turn chat discussion into formal catalog authority.
 - `path`
 - `config`
 - `term`
+- `script`
 
 If a possible future kind is still under discussion, treat it as discussion, not settled authority.
 

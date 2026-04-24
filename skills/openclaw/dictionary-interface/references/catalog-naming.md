@@ -18,6 +18,7 @@ Current concrete coverage is centered on catalog items such as:
 - `path`
 - `config`
 - `term`
+- `script`
 
 Do not assume a proposed future kind is already formal just because it was discussed in chat.
 
