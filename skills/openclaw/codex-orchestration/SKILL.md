@@ -65,3 +65,4 @@ If the task is accepted, OpenClaw is responsible for creating the commit and pus
 - `templates/`
 
 Keep the local `templates/codex_task_prompt.md` copy aligned with the canonical `CODEX_TASK_PROMPT_TEMPLATE` registered in `universal-catalog`.
+When scripts need the file locator for that canonical prompt, prefer the registered `CODEX_TASK_PROMPT_TEMPLATE_PATH` entry instead of hardcoding the template path.

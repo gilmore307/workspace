@@ -41,6 +41,7 @@ Maintenance is not optional polish. Check that docs, task state, receipts, proje
 ## Canonical template rule
 
 When `universal-catalog` governs fixed-location repository docs, prefer the canonical root README and docs-spine template files registered there instead of letting local copies drift.
+When automation needs the file path for one of those canonical templates, prefer the matching registered template-path entry instead of hardcoding the raw path.
 
 ## Resources
 

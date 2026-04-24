@@ -38,6 +38,7 @@ Reflect these principles in project docs and structure decisions:
 ## Canonical template rule
 
 When `universal-catalog` governs fixed-location repository docs, prefer the canonical file-level template items there instead of letting local skill copies drift.
+When scripts need the direct file locator for one of those canonical templates, prefer the matching registered template-path entry instead of hardcoding `storage/templates/...` paths.
 
 ## Directory README rule
 

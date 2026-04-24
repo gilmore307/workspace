@@ -21,6 +21,7 @@ docs/06_memory.md
 ```
 
 When these fixed-location files are governed through `universal-catalog`, register the file-level templates themselves rather than treating every section heading as a catalog field.
+If scripts or automation also need direct locators for those canonical template files, register matching template-path entries instead of scattering raw `storage/templates/...` strings.
 
 ## 00_scope.md
 
