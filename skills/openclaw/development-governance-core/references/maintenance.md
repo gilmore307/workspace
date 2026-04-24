@@ -40,23 +40,23 @@ Check:
 
 ## Maintenance Output
 
-Maintenance output should include these information slots:
+When a project uses a formal maintenance output, current canonical slot names for these concepts are:
 
-- project path
-- maintenance status
-- check time
-- document status
-- task status summary
-- pending dispatch list
-- pending acceptance list
-- blocked task list
-- dictionary issue list
-- split issue list
-- memory route issue list
-- follow-up task list
-- maintenance summary
+- `REPOSITORY_PATH` (`repository_path`)
+- `MAINTENANCE_STATUS` (`maintenance_status`)
+- `CHECK_TIME` (`check_time`)
+- `DOCS_STATUS` (`docs_status`)
+- `TASK_STATUS_SUMMARY` (`task_status_summary`)
+- `PENDING_DISPATCH_LIST` (`pending_dispatch_list`)
+- `PENDING_ACCEPTANCE_LIST` (`pending_acceptance_list`)
+- `BLOCKED_TASK_LIST` (`blocked_task_list`)
+- `DICTIONARY_ISSUE_LIST` (`dictionary_issue_list`)
+- `SPLIT_ISSUE_LIST` (`split_issue_list`)
+- `MEMORY_ROUTE_ISSUE_LIST` (`memory_route_issue_list`)
+- `FOLLOW_UP_TASK_LIST` (`follow_up_task_list`)
+- `MAINTENANCE_SUMMARY` (`maintenance_summary`)
 
-Exact field names are not standardized here.
+Exact nesting and value vocabularies are not standardized here.
 
 Suggested path:
 
