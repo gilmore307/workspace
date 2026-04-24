@@ -20,7 +20,7 @@ Optional:
 docs/06_memory.md
 ```
 
-Keep markdown templates for these fixed-location files in the relevant skills rather than registering them in `universal-catalog`.
+Keep markdown templates for these fixed-location files in this skill rather than registering them in `universal-catalog`.
 If automation needs a concrete source-file locator, use `script` entries for actual source files, not markdown doc templates.
 
 ## 00_scope.md

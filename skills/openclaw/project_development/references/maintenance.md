@@ -56,7 +56,7 @@ When a project uses a formal maintenance output, current canonical slot names fo
 - `FOLLOW_UP_TASK_LIST` (`follow_up_task_list`)
 - `MAINTENANCE_SUMMARY` (`maintenance_summary`)
 
-Exact nesting and value vocabularies are not standardized here.
+Exact nesting is not standardized here. Reuse the default catalog-registered `task_lifecycle_state` vocabulary for grouped task summaries unless the project docs define an override.
 
 Suggested path:
 
@@ -70,7 +70,7 @@ This skill does not define retention for maintenance outputs.
 
 A compact status summary should group tasks by lifecycle state.
 
-Status labels should come from the project's documented task model.
+Status labels should come from the project's documented task model, defaulting to the catalog-registered `task_lifecycle_state` values when the project has not defined an override.
 
 ## Docs Drift Check
 

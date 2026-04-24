@@ -3,7 +3,8 @@
 Use these canonical slot names when a project writes a formal acceptance receipt.
 This template standardizes slot concepts and field names, not one mandatory JSON wrapper.
 
-Exact JSON nesting, path naming, and value vocabularies remain project-defined unless the project documents them explicitly.
+Exact JSON nesting and path naming remain project-defined unless the project documents them explicitly.
+Reuse the default catalog-registered vocabularies for `acceptance_outcome` and `test_status` unless the project docs define an override.
 
 ## Required Slots
 
@@ -23,8 +24,12 @@ Exact JSON nesting, path naming, and value vocabularies remain project-defined u
 - `DECISION_REFERENCES` (`decision_references`) — related decision records when relevant
 - `NEXT_TASK_REFERENCE` (`next_task_reference`) — next linked task when follow-up work is needed
 
+## Default Vocabularies
+
+- `acceptance_outcome`: `accepted`, `rejected`, `returned`, `blocked`
+- `test_status`: `passed`, `failed`, `not_run`, `partially_run`, `not_required`
+
 ## Notes
 
 - Reuse previously ratified shared slots from `universal-catalog` where they fit.
-- Standardizing slot names here does not standardize acceptance-outcome vocabularies, issue classifications, or one single receipt container shape.
 - Only OpenClaw writes the acceptance receipt and final acceptance outcome.

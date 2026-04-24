@@ -4,14 +4,11 @@ Canonical checked-in skill sources for this host.
 
 ## OpenClaw skills
 
-- `openclaw/development-governance-core`
-- `openclaw/project-docs-spine`
-- `openclaw/codex-orchestration`
-- `openclaw/dictionary-interface`
+- `openclaw/project_development`
 
 ## Codex skills
 
-- `codex/codex-executor-core`
-- `codex/codex-dictionary-guard`
+- `codex/codex_executor_core`
+- `codex/codex_dictionary_guard`
 
 These are source directories, not temporary packaging workdirs.

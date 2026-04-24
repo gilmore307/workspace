@@ -7,8 +7,9 @@ These are different objects.
 
 This reference defines review responsibilities and the minimum information OpenClaw should expect.
 
-Exact receipt container shapes and status labels are not standardized here.
-Canonical completion-receipt and acceptance-receipt slot names may still be standardized and reused across projects.
+Exact receipt container shapes are not standardized here.
+Canonical completion-receipt and acceptance-receipt slot names may be standardized and reused across projects.
+Default status vocabularies should reuse the catalog-registered values for `task_lifecycle_state`, `review_readiness`, `acceptance_outcome`, and `test_status` unless the project docs explicitly override them.
 
 ## Completion Receipt
 
@@ -48,9 +49,14 @@ When a project uses a formal completion receipt, current canonical slot names fo
 - `OUTPUT_REFERENCE` (`output_reference`) when applicable
 - `REVIEW_READINESS` (`review_readiness`)
 
-Exact nesting and value vocabularies are not standardized here.
+Default completion vocabularies:
 
-Codex may report readiness or not-readiness. Codex must not report final acceptance or rejection.
+- `task_lifecycle_state`: `designing`, `ready_to_dispatch`, `dispatched`, `executing`, `blocked`, `ready_for_acceptance`, `accepted`, `rejected`, `closed`, `cancelled`
+- `review_readiness`: `ready`, `not_ready`, `blocked`
+- `test_status`: `passed`, `failed`, `not_run`, `partially_run`, `not_required`
+
+Codex may report readiness or not-readiness.
+Codex must not report final acceptance or rejection.
 
 ## OpenClaw Review Checklist
 
@@ -95,7 +101,10 @@ When a project uses an acceptance receipt, current canonical slot names for thes
 - `NEXT_TASK_REFERENCE` (`next_task_reference`) when needed
 - `ACCEPTANCE_SUMMARY` (`acceptance_summary`)
 
-Exact nesting and value vocabularies are not standardized here.
+Default acceptance vocabularies:
+
+- `acceptance_outcome`: `accepted`, `rejected`, `returned`, `blocked`
+- `test_status`: `passed`, `failed`, `not_run`, `partially_run`, `not_required`
 
 ## Post-Acceptance Stewardship
 
@@ -111,7 +120,8 @@ Do not leave accepted work uncommitted unless the Owner explicitly wants a diffe
 
 Only OpenClaw writes the final acceptance outcome.
 
-Codex may say the task is ready for review. OpenClaw decides whether the task is accepted, rejected, returned, or blocked.
+Codex may say the task is ready for review.
+OpenClaw decides whether the task is accepted, rejected, returned, or blocked.
 
 ## Do Not Confuse Test With Acceptance
 

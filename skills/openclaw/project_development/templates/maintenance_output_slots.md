@@ -3,7 +3,8 @@
 Use these canonical slot names when a project writes a formal maintenance output.
 This template standardizes slot concepts and field names, not one mandatory JSON wrapper.
 
-Exact JSON nesting, path naming, retention, and value vocabularies remain project-defined unless the project documents them explicitly.
+Exact JSON nesting, path naming, and retention remain project-defined unless the project documents them explicitly.
+When task states are summarized, reuse the default catalog-registered `task_lifecycle_state` vocabulary unless the project docs define an override.
 
 ## Required Slots
 
@@ -24,5 +25,5 @@ Exact JSON nesting, path naming, retention, and value vocabularies remain projec
 ## Notes
 
 - Reuse previously ratified shared slots from `universal-catalog` where they fit.
-- Standardizing slot names here does not standardize maintenance-status vocabularies, docs-status values, retention policy, or one single output container shape.
+- `maintenance_status` and `docs_status` remain project-defined unless the project documents defaults explicitly.
 - Report only maintenance findings the project can state concretely.

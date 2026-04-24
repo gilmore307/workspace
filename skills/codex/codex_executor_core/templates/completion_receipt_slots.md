@@ -3,7 +3,8 @@
 Use these canonical slot names when a project writes a formal completion receipt.
 This template standardizes slot concepts and field names, not one mandatory JSON wrapper.
 
-Exact JSON nesting, path naming, and value vocabularies remain project-defined unless the project documents them explicitly.
+Exact JSON nesting and path naming remain project-defined unless the project documents them explicitly.
+Reuse the default catalog-registered vocabularies for `task_lifecycle_state`, `review_readiness`, and `test_status` unless the project docs define an override.
 
 ## Required Slots
 
@@ -23,8 +24,13 @@ Exact JSON nesting, path naming, and value vocabularies remain project-defined u
 - `TEMPORARY_NEW_NAMES` (`temporary_new_names`) — temporary names introduced during execution, when applicable
 - `OUTPUT_REFERENCE` (`output_reference`) — output path or artifact reference when applicable
 
+## Default Vocabularies
+
+- `task_lifecycle_state`: `designing`, `ready_to_dispatch`, `dispatched`, `executing`, `blocked`, `ready_for_acceptance`, `accepted`, `rejected`, `closed`, `cancelled`
+- `review_readiness`: `ready`, `not_ready`, `blocked`
+- `test_status`: `passed`, `failed`, `not_run`, `partially_run`, `not_required`
+
 ## Notes
 
 - Reuse previously ratified shared slots from `universal-catalog` where they fit.
-- Standardizing slot names here does not standardize task-state labels, review-readiness values, test-status vocabularies, or one single receipt container shape.
 - Codex may report readiness or not-readiness, but must not report final acceptance or rejection.

@@ -1,6 +1,6 @@
 ---
-name: codex-dictionary-guard
-description: Guard naming when Codex works in a project that uses universal-catalog. Use when Codex must reuse catalog-approved names, including registered term definitions where relevant, avoid silent naming drift, and report any temporary new names for OpenClaw review instead of self-registering them. Not for defining the universal-catalog schema itself.
+name: codex_dictionary_guard
+description: Guard naming inside a project that uses universal-catalog. Use when Codex must reuse approved names, keep new names temporary, and report naming drift or temporary names for OpenClaw review.
 ---
 
 # Codex Dictionary Guard
