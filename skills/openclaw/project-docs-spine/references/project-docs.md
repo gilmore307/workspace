@@ -20,6 +20,8 @@ Optional:
 docs/06_memory.md
 ```
 
+When these fixed-location files are governed through `universal-catalog`, register the file-level templates themselves rather than treating every section heading as a catalog field.
+
 ## 00_scope.md
 
 Defines:

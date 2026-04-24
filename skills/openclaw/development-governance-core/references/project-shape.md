@@ -120,4 +120,6 @@ A good project shape makes it easy to specify:
 - output references
 - receipt references
 
+For fixed-location repository docs such as `README.md` and `docs/00_scope.md` through `docs/06_memory.md`, prefer registering the reusable file-level templates in `universal-catalog` when that catalog path is in use.
+
 Exact field names for these slots are not standardized here.
