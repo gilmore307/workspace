@@ -2,6 +2,7 @@
 
 Describe only workflows that are already real.
 If a workflow or control path is not settled yet, write `Not yet defined`.
+Treat `Not yet defined` as a current gap marker that must be filled before dispatch or implementation can safely rely on that workflow slot.
 
 Boundary:
 Own runtime flow, ownership boundaries, triggers, actors, and outputs here.

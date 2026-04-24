@@ -37,6 +37,10 @@ If two docs need the same fact:
 
 If something is not settled yet, write `Not yet defined` instead of filling multiple docs with speculative structure.
 
+Use `Not yet defined` as an active gap marker, not as a parked conclusion.
+It records that the project has reached a slot that still needs a real definition.
+Once dispatch, implementation, review, or acceptance depends on that slot, come back and replace `Not yet defined` with current reality.
+
 ## Boundary map
 
 ### 00_scope.md

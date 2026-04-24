@@ -2,6 +2,7 @@
 
 Use this file only for project-local durable memory that does not fit scope, context, workflow, acceptance, task, or decision.
 If there is no durable project memory yet, write `Not yet defined`.
+Treat `Not yet defined` as a current gap marker that should be replaced once real project-local continuity exists here.
 
 Boundary:
 This is the overflow file for durable project continuity only after the narrower docs have been ruled out.

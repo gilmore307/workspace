@@ -2,6 +2,7 @@
 
 Only OpenClaw may produce final acceptance.
 If acceptance criteria are not settled yet, write `Not yet defined` instead of inventing them.
+Treat `Not yet defined` as a current gap marker that must be filled before work depending on that acceptance slot can be accepted cleanly.
 
 Boundary:
 Own consolidated acceptance rules, verification commands, review evidence, and rejection reasons here.

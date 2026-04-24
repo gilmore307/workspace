@@ -2,6 +2,7 @@
 
 Fill this file only with scope decisions that are already real.
 If something is not settled yet, write `Not yet defined`.
+Treat `Not yet defined` as a current gap marker that must be filled once scope-dependent work reaches this boundary.
 
 Boundary:
 Keep only project purpose, in-scope/out-of-scope boundary, owner intent, and scope rules here.

@@ -2,6 +2,7 @@
 
 Fill this file only with current concrete project context.
 If something is not settled yet, write `Not yet defined`.
+Treat `Not yet defined` as a current gap marker that must be filled once work depends on that context.
 
 Boundary:
 Keep only why the project exists, related systems, environment, dependencies, and constraints here.
