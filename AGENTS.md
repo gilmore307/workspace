@@ -50,7 +50,11 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 
 - **Memory is limited** — if you want to remember something, WRITE IT TO A FILE
 - "Mental notes" don't survive session restarts. Files do.
-- When someone says "remember this" → update `memory/YYYY-MM-DD.md` or relevant file
+- Stable human preferences belong in `USER.md`.
+- Workspace-specific environment and secret-handling notes belong in `TOOLS.md`.
+- Durable operating rules belong in `AGENTS.md`.
+- `memory/YYYY-MM-DD.md` is for day logs and session history, not the canonical home for stable user preferences or workspace rules.
+- When someone says "remember this" → choose the canonical file instead of defaulting to daily memory.
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
