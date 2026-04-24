@@ -20,8 +20,8 @@ Optional:
 docs/06_memory.md
 ```
 
-When these fixed-location files are governed through `universal-catalog`, register the file-level templates themselves rather than treating every section heading as a catalog field.
-If scripts or automation also need direct locators for those canonical template files, register matching `script` entries with full addresses instead of scattering raw path strings.
+Keep markdown templates for these fixed-location files in the relevant skills rather than registering them in `universal-catalog`.
+If automation needs a concrete source-file locator, use `script` entries for actual source files, not markdown doc templates.
 
 ## 00_scope.md
 

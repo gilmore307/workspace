@@ -11,7 +11,7 @@ It does not turn chat discussion into formal catalog authority.
 `universal-catalog` currently centers on shared stable items such as:
 
 - `field`
-- `template`
+- `output`
 - `repo`
 - `path`
 - `config`
@@ -44,5 +44,5 @@ Avoid:
 
 - two names for one shared concept
 - replacing an accepted catalog name with a fresh synonym
-- inventing a shared field, repo label, path label, config key, or term definition without reporting it
+- inventing a shared field, output key, repo label, path label, script locator, config key, or term definition without reporting it
 - pretending an unreviewed name is already formal

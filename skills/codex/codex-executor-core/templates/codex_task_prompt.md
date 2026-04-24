@@ -36,12 +36,12 @@ The task package should communicate the bounded task clearly, including the equi
 - Do not modify blocked files or paths.
 - Stay inside the dispatched task boundary; do not expand scope without approval.
 - Keep the task at its given medium granularity; do not fracture it into extra sub-tasks or silently widen it.
-- Reuse names, templates, and approved term definitions already registered in `universal-catalog` when they fit.
-- Do not register new names, templates, or terms yourself.
+- Reuse names, output templates, and approved term definitions already registered in `universal-catalog` when they fit.
+- Do not register new names, outputs, or terms yourself.
 - If you must introduce a temporary new name or term, report it explicitly for OpenClaw review.
 - Do not create extra files unless a split gate is met.
 - Do not modify `README.md`, the docs spine, or other governance docs unless the task explicitly allows it.
-- If the task does edit fixed-location repository docs governed by `universal-catalog`, prefer the canonical file-level templates registered there.
+- If the task edits fixed-location repository docs, follow the relevant skill-local markdown templates or project conventions instead of expecting `universal-catalog` to provide those markdown files.
 - Run required tests when possible.
 
 ## Completion Receipt

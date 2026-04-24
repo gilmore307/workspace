@@ -13,7 +13,7 @@ Right now `universal-catalog` is the shared register for stable server-wide refe
 Current concrete coverage is centered on catalog items such as:
 
 - `field`
-- `template`
+- `output`
 - `repo`
 - `path`
 - `config`
@@ -37,7 +37,7 @@ When naming matters:
 OpenClaw should:
 
 - keep `universal-catalog` updated as an ongoing maintenance responsibility
-- prefer catalog-approved names in task packages, schemas, receipts, paths, and templates
+- prefer catalog-approved names in task packages, schemas, receipts, paths, outputs, and script locators
 - treat missing shared names as catalog gaps rather than as permission for casual invention
 - review Codex-reported temporary names and register the accepted ones itself
 - update related skills when naming policy or catalog authority changes
@@ -56,8 +56,8 @@ Codex should:
 Naming drift includes cases like:
 
 - two names for one shared concept
-- a new shared field, config key, or term definition invented without catalog review
-- path, repo, template, or term naming that ignores an existing catalog entry
+- a new shared field, output key, script locator, config key, or term definition invented without catalog review
+- path, repo, output, script, or term naming that ignores an existing catalog entry
 - Codex introducing a temporary name and failing to report it
 - project docs or receipts pretending a name is formal when it has not been reviewed
 

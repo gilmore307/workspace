@@ -38,10 +38,10 @@ Apply these principles when shaping, reviewing, or constraining implementation w
 
 Maintenance is not optional polish. Check that docs, task state, receipts, project memory routing, boundary READMEs, and post-acceptance bookkeeping still match reality.
 
-## Canonical template rule
+## Markdown template rule
 
-When `universal-catalog` governs fixed-location repository docs, prefer the canonical root README and docs-spine template files registered there instead of letting local copies drift.
-When automation needs the full file address for one of those canonical templates, prefer the matching registered `script` entry instead of hardcoding the raw path.
+Keep root README and docs-spine markdown templates in the relevant skills instead of registering them in `universal-catalog`.
+Use `script` entries only for concrete source-file addresses that automation consumes directly.
 
 ## Resources
 

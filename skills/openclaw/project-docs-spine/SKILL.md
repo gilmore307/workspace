@@ -35,10 +35,10 @@ Reflect these principles in project docs and structure decisions:
 - `README.md` files and routine post-acceptance project docs updates belong to OpenClaw by default.
 - Codex should only touch these docs when there is an explicit doc-only delegation exception.
 
-## Canonical template rule
+## Markdown template rule
 
-When `universal-catalog` governs fixed-location repository docs, prefer the canonical file-level template items there instead of letting local skill copies drift.
-When scripts need the direct file locator for one of those canonical templates, prefer the matching registered `script` entry with the full address instead of hardcoding raw paths.
+Keep fixed-location repository markdown templates in the relevant skills instead of registering them in `universal-catalog`.
+Do not treat `storage/templates/` as the home for these markdown files.
 
 ## Directory README rule
 
