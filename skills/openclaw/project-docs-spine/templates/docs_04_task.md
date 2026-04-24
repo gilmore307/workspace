@@ -1,41 +1,32 @@
 # Task
 
-Field names, table columns, and status values in this document should follow `universal-catalog` when formalized.
+Use this file for current task state only.
+If structured task tracking is not ready yet, write `Not yet defined`.
 
 ## Task Status Summary
 
-Summarize active tasks by lifecycle state.
+Not yet defined.
 
-| lifecycle state | count |
-|---|---:|
-|  | 0 |
+## Active Tasks
 
-## Active Task List
-
-Use dictionary-approved columns for task identity, task name, lifecycle state, workflow reference, acceptance reference, executor, priority, and update time.
-
-| task identity | task name | lifecycle state | workflow reference | acceptance reference | executor | priority | updated time |
-|---|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |  |
+Not yet defined.
 
 ## Next Dispatch
 
+Not yet defined.
 
 ## Pending Acceptance
 
+Not yet defined.
 
-## Blocked Task
+## Blocked Tasks
 
+Not yet defined.
 
 ## Recently Accepted
 
+Not yet defined.
 
 ## Notes
 
-Machine-readable task records may live at:
-
-```text
-.openclaw/task/register/
-```
-
-Exact filenames and fields should follow `universal-catalog`.
+Not yet defined.

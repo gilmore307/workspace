@@ -1,53 +1,24 @@
 # Acceptance
 
-Passing tests means a task may be ready for review. It does not automatically mean accepted.
-
-Only OpenClaw may produce the final acceptance outcome.
-
-Field names and status values in this document should follow `universal-catalog` when formalized.
+Only OpenClaw may produce final acceptance.
+If acceptance criteria are not settled yet, write `Not yet defined` instead of inventing them.
 
 ## Acceptance Summary
 
-| acceptance identity | workflow reference | lifecycle state | note |
-|---|---|---|---|
-|  |  |  |  |
+Not yet defined.
 
-## Acceptance Rule: <name>
+## Acceptance Rules
 
-Workflow reference:
+Not yet defined.
 
-Applies to:
+## Verification Commands
 
-The task or workflow is accepted only if:
+Not yet defined.
 
-1. 
-2. 
-3. 
+## Required Review Evidence
 
-Required commands:
+Not yet defined.
 
-```bash
-<command>
-```
+## Rejection Reasons
 
-If no test is needed, state why.
-
-Required output:
-
-Required review evidence:
-
-- completion receipt
-- changed files
-- command output
-- test output when applicable
-- produced output when applicable
-- acceptance receipt
-
-Rejection reasons:
-
-- missing evidence
-- failed acceptance condition
-- modified blocked path
-- naming drift against `universal-catalog`
-- unnecessary split
-- docs drift not handled
+Not yet defined.

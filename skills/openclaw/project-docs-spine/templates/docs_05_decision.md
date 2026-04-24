@@ -1,33 +1,12 @@
 # Decision
 
-Field names and status values in this document should follow `universal-catalog` when formalized.
+Use this file only for real project-shaping decisions.
+If no decision record exists yet, write `Not yet defined`.
 
 ## Decision Summary
 
-| decision identity | lifecycle state | title | date | note |
-|---|---|---|---|---|
-|  |  |  |  |  |
+Not yet defined.
 
-## Decision: <title>
+## Decisions
 
-Lifecycle state:
-
-Date:
-
-Context:
-
-Decision:
-
-Reason:
-
-Options considered:
-
-### Option kept
-
-
-### Option rejected
-
-
-Impact:
-
-Follow-up task:
+Not yet defined.

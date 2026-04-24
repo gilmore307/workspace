@@ -1,20 +1,6 @@
 # Acceptance Receipt Slots
 
-This template describes required information slots for OpenClaw acceptance receipts.
+Formal acceptance receipt schema is not fixed in this template yet.
 
-It is not the authority for exact JSON keys. Use `universal-catalog` for field names.
-
-Required slots:
-
-- task identity
-- workflow identity
-- acceptance outcome
-- acceptance reference
-- reviewed file list
-- reviewed command list
-- test status
-- test output
-- issue list
-- decision references
-- next task reference when needed
-- acceptance summary
+If a project later formalizes it, align field names with `universal-catalog`.
+Until then, capture only the review outcome, evidence, issues, and next action the project actually needs.

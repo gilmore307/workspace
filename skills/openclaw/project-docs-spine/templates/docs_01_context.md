@@ -1,34 +1,28 @@
 # Context
 
+Fill this file only with current concrete project context.
+If something is not settled yet, write `Not yet defined`.
+
 ## Why This Project Exists
 
+Not yet defined.
 
 ## Related Systems
 
-| system_name | relationship | note |
-|---|---|---|
-|  |  |  |
+Not yet defined.
 
 ## Environment
 
+Not yet defined.
 
 ## Dependencies
 
-| dependency_name | dependency_type | note |
-|---|---|---|
-|  |  |  |
+Not yet defined.
 
 ## OpenClaw / Codex Setup
 
-OpenClaw owns project governance and acceptance.
-Codex owns implementation and completion receipts.
-
-Default project control path:
-
-```text
-.openclaw/task/
-```
+Not yet defined.
 
 ## Important Constraints
 
-- 
+Not yet defined.

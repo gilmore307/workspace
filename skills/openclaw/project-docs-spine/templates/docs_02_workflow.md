@@ -1,34 +1,16 @@
 # Workflow
 
-Field names and table columns in this document should follow `universal-catalog` when formalized.
+Describe only workflows that are already real.
+If a workflow or control path is not settled yet, write `Not yet defined`.
 
 ## Workflow Summary
 
-| workflow identity | workflow name | lifecycle state | note |
-|---|---|---|---|
-|  |  |  |  |
+Not yet defined.
 
-## Workflow: <name>
+## Workflow Details
 
-Purpose:
+Not yet defined.
 
-Inputs:
+## Workflow-Linked Acceptance
 
-Steps:
-
-1. OpenClaw defines the route.
-2. OpenClaw defines acceptance.
-3. OpenClaw creates a bounded task.
-4. OpenClaw dispatches Codex.
-5. Codex implements and returns a completion receipt.
-6. OpenClaw reviews output.
-7. OpenClaw writes an acceptance receipt.
-8. OpenClaw updates docs, decisions, or next tasks.
-
-Expected output:
-
-Acceptance reference:
-
-Codex involvement:
-
-OpenClaw review point:
+Not yet defined.

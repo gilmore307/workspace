@@ -1,27 +1,28 @@
 # Scope
 
+Fill this file only with scope decisions that are already real.
+If something is not settled yet, write `Not yet defined`.
+
 ## Purpose
 
-Describe what this project is for.
+Not yet defined.
 
 ## In Scope
 
-- 
+Not yet defined.
 
 ## Out of Scope
 
-- 
+Not yet defined.
 
 ## Owner Intent
 
-Describe the Owner's stable intent for this project.
+Not yet defined.
 
 ## Boundary Rules
 
-- 
+Not yet defined.
 
 ## Out-of-Scope Signals
 
-A request may be out of scope when:
-
-- 
+Not yet defined.

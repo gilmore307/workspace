@@ -1,23 +1,12 @@
 # Execution Key Slots
 
-This template describes required information slots for a Codex execution key.
+Formal execution-key schema is not fixed in this template yet.
 
-It is not the authority for exact JSON keys. Use `universal-catalog` for field names.
+If a project later formalizes it, align field names with `universal-catalog`.
+Until then, make sure the task package clearly communicates:
 
-Required slots:
-
-- task identity
-- workflow identity
-- repository path
-- task goal
-- task scope
-- acceptance reference
-- decision references when relevant
-- allowed paths
-- blocked paths
-- test expectation
-- expected output
-- constraints
-- naming authority reference when naming may be required
-- output reference when required
-- completion receipt reference
+- goal and scope
+- allowed and blocked paths
+- test expectations
+- output expectations
+- naming guidance when relevant

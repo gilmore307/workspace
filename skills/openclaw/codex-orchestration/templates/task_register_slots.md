@@ -1,21 +1,6 @@
 # Task Register Slots
 
-This template describes useful information slots for a machine-readable task register.
+Formal machine-readable task-register schema is not fixed in this template yet.
 
-It is not the authority for exact CSV columns or schema keys. Use `universal-catalog` for field names.
-
-Suggested slots:
-
-- task identity
-- task name or label
-- task lifecycle state
-- workflow reference
-- acceptance reference
-- Owner or responsible party
-- executor
-- priority
-- creation time
-- update time
-- output reference when required
-- receipt reference
-- issue list when applicable
+If a project later formalizes it, align field names with `universal-catalog`.
+Until then, record only the minimum task state the project actually uses.

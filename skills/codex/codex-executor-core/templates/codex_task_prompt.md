@@ -9,11 +9,10 @@ Do not claim final acceptance. Report readiness only when implementation and tes
 
 ## Execution Key
 
-```json
-<catalog_aligned_execution_key_json_here>
-```
+Use the execution key or task package provided by OpenClaw.
 
-The execution key field names must follow `universal-catalog`.
+The exact JSON schema is not standardized in this template yet.
+When a project formalizes it, align it with `universal-catalog`.
 
 ## Required Behavior
 
@@ -22,26 +21,20 @@ The execution key field names must follow `universal-catalog`.
 - Do not modify blocked files or paths.
 - Stay inside the dispatched task boundary; do not expand scope without approval.
 - Keep the task at its given medium granularity; do not fracture it into extra sub-tasks or silently widen it.
-- Use formal names approved by `universal-catalog`.
-- Prefer existing catalog names before proposing any new names.
+- Reuse names already approved in `universal-catalog` when they fit.
 - Do not register new names yourself.
-- If you must introduce a temporary new name to finish the bounded task, report it explicitly in the completion receipt with the reason and affected paths.
-- Do not create extra files unless a script split gate is met.
+- If you must introduce a temporary new name, report it explicitly for OpenClaw review.
+- Do not create extra files unless a split gate is met.
 - Run required tests when possible.
-- Return a completion receipt using the dictionary-aligned receipt schema.
 
 ## Completion Receipt
 
-Return a structured completion receipt that communicates:
+If the task provides a formal receipt schema, follow it.
+If not, return a clear structured report with:
 
-- task identity
-- workflow identity
-- readiness or lifecycle state
-- change summary
-- changed files
+- what changed
 - commands run
-- test status and output
-- issues
+- test outcome
+- issues or blockers
 - temporary new names introduced, if any
-- output reference when applicable
-- readiness for OpenClaw acceptance review
+- readiness for OpenClaw review

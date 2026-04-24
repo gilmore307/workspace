@@ -1,6 +1,9 @@
-# <project-name>
+# Project Name
 
-Short project purpose here.
+Not yet defined.
+
+Only keep sections that are already true for the repository.
+If something is not settled yet, write `Not yet defined` instead of inventing details.
 
 This repository is managed by OpenClaw.
 
@@ -64,9 +67,8 @@ After acceptance, OpenClaw is responsible for committing and pushing the accepte
 
 ## Dictionary Rule
 
-This repository uses `universal-catalog` as the authority for formal words, field names, status values, schema keys, file-name tokens, repository names, shared paths, shared config keys, and forbidden synonyms.
-
-Do not introduce new formal names casually. If a new term is needed, record a project decision or create a catalog update task.
+If this repository uses `universal-catalog` as the authority for formal naming, state that here.
+If not yet formalized, write `Not yet defined`.
 
 ## Split Rule
 
@@ -86,17 +88,5 @@ Do not require this for generated, vendor, cache, build-artifact, or other dispo
 
 ## Project Control Path
 
-Default project-local task exchange path:
-
-```text
-.openclaw/task/
-  register/
-  execution_key/
-  completion_receipt/
-  acceptance_receipt/
-  output/
-```
-
-This project may override the path if documented.
-
-No retention policy is defined by default.
+If this repository uses a project-local control path, document it here.
+If not yet decided, write `Not yet defined`.
