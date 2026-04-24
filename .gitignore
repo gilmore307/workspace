@@ -1,0 +1,11 @@
+.openclaw/
+state/
+codex/
+revised-skill-work/
+skill-review-dev/
+split-skills/
+updated-skill-bundles/
+four-skill-suite/
+codex-skill-suite/
+*.skill
+*.zip
