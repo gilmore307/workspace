@@ -3,6 +3,10 @@
 Only OpenClaw may produce final acceptance.
 If acceptance criteria are not settled yet, write `Not yet defined` instead of inventing them.
 
+Boundary:
+Own consolidated acceptance rules, verification commands, review evidence, and rejection reasons here.
+Do not use this file for project purpose, runtime architecture, dependency explanation, or current task queue state.
+
 ## Acceptance Summary
 
 Not yet defined.

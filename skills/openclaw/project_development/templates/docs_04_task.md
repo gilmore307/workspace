@@ -3,6 +3,10 @@
 Use this file for current task state only.
 If structured task tracking is not ready yet, write `Not yet defined`.
 
+Boundary:
+Own only the current queue, dispatch state, blocked state, pending acceptance state, and recently accepted work here.
+Do not turn this file into architecture notes, decision rationale, or repeated acceptance policy.
+
 ## Task Status Summary
 
 Not yet defined.

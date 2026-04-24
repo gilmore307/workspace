@@ -2,6 +2,8 @@
 
 Project docs are OpenClaw's stable workbench for each formal repository.
 
+## Required docs spine
+
 Every formal repository should have:
 
 ```text
@@ -23,89 +25,158 @@ docs/06_memory.md
 Keep markdown templates for these fixed-location files in this skill rather than registering them in `universal-catalog`.
 If automation needs a concrete source-file locator, use `script` entries for actual source files, not markdown doc templates.
 
-## 00_scope.md
+## Core boundary rule
 
-Defines:
+Each durable fact should have one canonical home.
+Do not make multiple docs agree by copy-pasting the same prose.
+If two docs need the same fact:
+
+- keep the full statement in the narrower home
+- mention or link to it from the other doc
+- remove stale duplicate wording
+
+If something is not settled yet, write `Not yet defined` instead of filling multiple docs with speculative structure.
+
+## Boundary map
+
+### 00_scope.md
+
+Owns:
 
 - what the project does
 - what the project does not do
 - current boundary
-- project owner intent
-- major non-goals
-- when a request is out of scope
+- owner intent
+- non-goals
+- out-of-scope signals
 
-## 01_context.md
+Does not own:
 
-Defines:
+- project history or rationale beyond concise owner intent
+- dependencies or environment assumptions
+- workflow steps
+- acceptance commands
+- current task state
+- decision records
+
+### 01_context.md
+
+Owns:
 
 - why the project exists
-- dependencies
 - related systems
 - environment assumptions
+- dependencies
 - external tools
 - users or consumers
 - integration points
+- important constraints
 
-## 02_workflow.md
+Does not own:
 
-Defines:
+- in-scope / out-of-scope lists
+- current workflow sequencing
+- acceptance gates
+- current task board state
+- ratified decision records
+
+### 02_workflow.md
+
+Owns:
 
 - how the project operates
-- major workflows
-- workflow-specific acceptance sections
-- human steps
-- automated steps
+- ordered runtime layers, functions, or workflows when those are real
+- triggers
+- actors and ownership boundaries
+- outputs produced by each workflow/function
 - where OpenClaw participates
 - where Codex participates
-- what output is produced by each workflow
+- workflow-local handoff rules
 
-## 03_acceptance.md
+Does not own:
+
+- broad scope lists
+- dependency cataloging
+- the canonical acceptance checklist
+- the current task register
+- durable decision rationale
+
+Use this file to describe runtime flow and ownership, not to restate everything the repo is about.
+When a project has multiple runtime responsibilities, prefer an ordered function/layer model over loose narrative prose.
+If a workflow needs acceptance notes, keep them short and point to `03_acceptance.md` for the canonical gate.
+
+### 03_acceptance.md
 
 Required for every formal repository.
 
-Defines:
+Owns:
 
 - the consolidated acceptance view across workflows
 - how tasks are accepted
-- required test commands
+- required verification commands
 - required output checks
+- required review evidence
 - rejection conditions
 - when a task can move to `accepted`
 
-Acceptance is numbered `03` because it must sit directly under workflow. A workflow without acceptance is not finishable. `docs/02_workflow.md` should carry per-workflow acceptance rules; `docs/03_acceptance.md` should consolidate them for review and dispatch.
+Does not own:
 
-## 04_task.md
+- project purpose
+- dependency explanation
+- current queue/dispatch state
+- long decision history
 
-Human-readable project task state.
+Acceptance is numbered `03` because it must sit directly under workflow. A workflow without acceptance is not finishable.
+`docs/02_workflow.md` may mention workflow-local checks, but `docs/03_acceptance.md` is the canonical acceptance surface.
 
-Defines:
+### 04_task.md
+
+Owns human-readable current task state.
+
+Owns:
 
 - active tasks
-- queued tasks
+- queued or ready-to-dispatch tasks
 - blocked tasks
-- ready-for-acceptance tasks
-- accepted tasks not yet closed
+- pending-acceptance tasks
+- recently accepted tasks not yet closed
 - next planned dispatch
 
-Structured task state may also live under a project-local register path such as `.openclaw/task/register/`.
+Does not own:
 
+- durable project rationale
+- full workflow explanation
+- canonical acceptance rules
+- speculative future architecture
+
+Structured task state may also live under a project-local register path such as `.openclaw/task/register/`.
 If a project uses it, document the filenames and fields in project docs instead of pretending a shared schema already exists.
 
-## 05_decision.md
+### 05_decision.md
 
-Defines formal project choices:
+Owns formal ratified project choices.
+
+Owns:
 
 - decision id
 - decision date
 - context
 - chosen option
-- rejected alternatives
+- rejected alternatives when they matter
 - reason
 - revisit condition
 
-Use this file when a choice changes project shape, architecture, dependency policy, naming convention, task model, or acceptance criteria.
+Does not own:
 
-## 06_memory.md
+- current task board state
+- general workflow narration
+- dependency inventory
+- unratified ideas presented as settled
+
+Use this file when a choice changes project shape, architecture, dependency policy, naming convention, task model, or acceptance criteria.
+If a choice is not ratified yet, keep it out of this file or write `Not yet defined` in the relevant narrower doc.
+
+### 06_memory.md
 
 Optional.
 
@@ -119,6 +190,16 @@ Examples:
 - stable but informal project knowledge
 
 Do not use `docs/06_memory.md` as a dumping ground. Prefer the narrower docs when possible.
+
+## Change discipline
+
+When editing project docs:
+
+- update the one canonical home first
+- update neighboring docs only when their boundary truly changed
+- prefer cross-reference over duplication
+- remove stale text instead of letting overlap accumulate
+- reject docs that blur scope, context, workflow, acceptance, task, and decision into interchangeable prose
 
 ## Directory README Rule
 
