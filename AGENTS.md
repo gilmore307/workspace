@@ -236,6 +236,8 @@ When delegating implementation work to Codex:
 - Keep a `README.md` in each meaningful maintained directory to explain the directory boundary, key files, and subdirectory purpose.
 - Exclude generated, vendor, cache, build-artifact, and other disposable directories unless there is a specific reason to document them.
 - Use diagrams and tables freely in project docs when they improve clarity.
+- Every maintained file set should have explicit ownership boundaries: each file should have a clear role, a clear class of information it owns, and as little overlap as possible with neighboring files.
+- When two files seem to need the same fact, pick the narrower canonical home, cross-reference if needed, and remove stale duplicated prose instead of letting overlap accumulate.
 
 ## Code Principles
 

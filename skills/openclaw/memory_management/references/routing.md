@@ -3,6 +3,7 @@
 ## Destination order
 
 Choose the narrowest authoritative home that will still be true later.
+Each memory file should own a distinct class of information instead of overlapping loosely with neighboring files.
 
 1. Project docs
 2. `USER.md`
@@ -87,6 +88,19 @@ Use for:
 - activity trace pending later promotion
 
 Do not use daily memory as the canonical home for stable preferences, tool notes, or workspace rules.
+
+## Canonical ownership standard
+
+Use this standard whenever routing feels ambiguous:
+
+- `USER.md` owns stable human preferences.
+- `TOOLS.md` owns host-specific operational notes.
+- `AGENTS.md` owns durable workspace rules.
+- `MEMORY.md` owns sparse cross-session continuity.
+- `memory/HANDOFF.md` owns active resumption context.
+- `memory/YYYY-MM-DD.md` owns same-day trace notes.
+
+If a note does not clearly fit one of these homes, narrow the wording or move it to the more authoritative adjacent file instead of creating overlap.
 
 ## Non-homes
 

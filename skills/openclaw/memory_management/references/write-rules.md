@@ -5,6 +5,7 @@
 Before writing, decide whether the fact belongs in project docs, `USER.md`, `TOOLS.md`, `AGENTS.md`, `MEMORY.md`, `memory/HANDOFF.md`, or the daily memory file.
 
 Do not write first and classify later unless the user explicitly wants a raw checkpoint.
+Each memory file should keep a narrow role; do not let a file drift into a catch-all just because it is convenient.
 
 ## Daily memory rules
 
@@ -28,6 +29,7 @@ Common constraints include:
 ## Deduplication rule
 
 If the same durable fact exists in both a canonical home and daily memory, prefer keeping the canonical copy.
+If the same class of information starts appearing across multiple canonical files, tighten the boundary and restate the rule explicitly instead of accepting long-term overlap.
 
 When safe and appropriate:
 

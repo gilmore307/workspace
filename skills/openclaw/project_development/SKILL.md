@@ -29,7 +29,8 @@ Apply these principles across planning, docs, dispatch, review, and maintenance:
 ## Required behavior
 
 - Shape the repository before broad implementation.
-- Keep docs and directory boundaries authoritative.
+- Keep docs, directory, and maintained-file boundaries authoritative.
+- Give each maintained file a clear ownership role and reduce overlap instead of letting neighboring files become interchangeable.
 - Dispatch Codex work at medium task granularity.
 - Review completion receipts before acceptance.
 - Keep naming aligned with `universal-catalog`.
