@@ -63,3 +63,5 @@ If the task is accepted, OpenClaw is responsible for creating the commit and pus
 - `references/codex-dispatch.md`
 - `references/completion-review-acceptance.md`
 - `templates/`
+
+Keep the local `templates/codex_task_prompt.md` copy aligned with the canonical `CODEX_TASK_PROMPT_TEMPLATE` registered in `universal-catalog`.

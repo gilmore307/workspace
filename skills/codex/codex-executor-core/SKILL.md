@@ -54,3 +54,5 @@ When implementing, follow these principles:
 - `templates/codex_task_prompt.md`
 - `templates/execution_key_slots.md`
 - `templates/completion_receipt_slots.md`
+
+Keep the local `templates/codex_task_prompt.md` copy aligned with the canonical `CODEX_TASK_PROMPT_TEMPLATE` registered in `universal-catalog`.
