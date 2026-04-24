@@ -17,6 +17,7 @@ Current concrete coverage is centered on catalog items such as:
 - `repo`
 - `path`
 - `config`
+- `term`
 
 Do not assume a proposed future kind is already formal just because it was discussed in chat.
 
@@ -54,8 +55,8 @@ Codex should:
 Naming drift includes cases like:
 
 - two names for one shared concept
-- a new shared field or config key invented without catalog review
-- path, repo, or template naming that ignores an existing catalog entry
+- a new shared field, config key, or term definition invented without catalog review
+- path, repo, template, or term naming that ignores an existing catalog entry
 - Codex introducing a temporary name and failing to report it
 - project docs or receipts pretending a name is formal when it has not been reviewed
 

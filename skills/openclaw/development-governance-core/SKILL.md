@@ -38,6 +38,10 @@ Apply these principles when shaping, reviewing, or constraining implementation w
 
 Maintenance is not optional polish. Check that docs, task state, receipts, project memory routing, boundary READMEs, and post-acceptance bookkeeping still match reality.
 
+## Canonical template rule
+
+When `universal-catalog` governs fixed-location repository docs, prefer the canonical root README and docs-spine template files registered there instead of letting local copies drift.
+
 ## Resources
 
 - `references/role-boundary.md`

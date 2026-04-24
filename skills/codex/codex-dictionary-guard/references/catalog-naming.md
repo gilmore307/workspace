@@ -15,6 +15,7 @@ It does not turn chat discussion into formal catalog authority.
 - `repo`
 - `path`
 - `config`
+- `term`
 
 If a possible future kind is still under discussion, treat it as discussion, not settled authority.
 
@@ -42,5 +43,5 @@ Avoid:
 
 - two names for one shared concept
 - replacing an accepted catalog name with a fresh synonym
-- inventing a shared field, repo label, path label, or config key without reporting it
+- inventing a shared field, repo label, path label, config key, or term definition without reporting it
 - pretending an unreviewed name is already formal
