@@ -31,6 +31,7 @@ Apply these principles across planning, docs, dispatch, review, and maintenance:
 - Shape the repository before broad implementation.
 - Keep docs, directory, and maintained-file boundaries authoritative.
 - Give each maintained file a clear ownership role and reduce overlap instead of letting neighboring files become interchangeable.
+- Define durable data ownership, migration responsibility, backup/restore expectations, and retention tradeoffs before implementation touches databases or high-volume storage.
 - Dispatch Codex work at medium task granularity.
 - Review completion receipts before acceptance.
 - Keep naming aligned with `universal-catalog`.
@@ -46,5 +47,6 @@ Apply these principles across planning, docs, dispatch, review, and maintenance:
 
 - `references/skill-map.md`
 - `references/status-vocabularies.md`
+- `references/data-structure.md`
 - `references/`
 - `templates/`

@@ -4,10 +4,11 @@ Use this map to choose the smallest relevant reference set instead of loading ev
 
 ## 1. Project shape and boundary
 
-Read these when defining or correcting the repository boundary, split rules, control path, or long-term project shape:
+Read these when defining or correcting the repository boundary, split rules, control path, durable data boundary, or long-term project shape:
 
 - `references/role-boundary.md`
 - `references/project-shape.md`
+- `references/data-structure.md` when durable storage, database schema, migrations, retention, backup, or high-volume data is involved
 - `references/script-split.md`
 - `references/scope-exclusions.md`
 
@@ -51,4 +52,5 @@ Read these when a task needs formal names, default shared vocabularies, or catal
 Read these when checking project health after or between execution waves:
 
 - `references/maintenance.md`
+- `references/data-structure.md` when maintenance includes database drift, migration status, backups, retention, or disk pressure
 - `templates/maintenance_output_slots.md`
