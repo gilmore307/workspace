@@ -85,5 +85,6 @@ If `trading-main/registry/` does not yet formally own a category, say that plain
 
 - Concrete entries live in the SQL-backed `trading_registry` table.
 - `registry/<kind>.md` files define kind boundaries, ranges, and rejection rules only.
+- Kind Markdown files must not list concrete active rows.
 - `registry/current.csv` is generated from SQL for GitHub visibility and must not be hand-edited.
-- If a new kind is introduced, update both the Markdown boundary file and the SQL kind constraint in the same reviewed change.
+- If a new kind is introduced, update the Markdown boundary file, helper kind list, SQL kind constraint, and generated CSV snapshot in the same reviewed change.

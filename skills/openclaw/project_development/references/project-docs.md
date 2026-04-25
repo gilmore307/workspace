@@ -22,6 +22,8 @@ Optional:
 docs/06_memory.md
 ```
 
+Do not extend the docs spine with template or registry material. If a file is a reusable drafting surface, route it to `templates/`. If a file defines registered vocabulary or kind boundaries, route it to the project registry.
+
 Keep markdown templates for these fixed-location files in this skill rather than registering them in `trading-main/registry/`.
 If automation needs a concrete source-file locator, use `script` entries for actual source files, not markdown doc templates.
 
