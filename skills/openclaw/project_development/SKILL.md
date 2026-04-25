@@ -35,6 +35,7 @@ Apply these principles across planning, docs, dispatch, review, and maintenance:
 - Dispatch Codex work at medium task granularity.
 - Review completion receipts before acceptance.
 - Keep naming aligned with `trading-main/registry/`.
+- For registry entry changes, use SQL migrations and regenerate `registry/current.csv`.
 - Reuse the default registry-registered status vocabularies unless the project docs explicitly override them.
 - Treat maintenance as real stewardship, not optional polish.
 

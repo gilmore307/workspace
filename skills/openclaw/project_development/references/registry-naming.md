@@ -10,6 +10,8 @@ It does not let Codex self-register names.
 
 Right now `trading-main/registry/` is the shared register for stable server-wide referenced values used across OpenClaw-managed project work on this machine.
 
+SQL is the source of truth for concrete registry entries. Kind Markdown files define scope and range only. `registry/current.csv` is the GitHub-visible generated snapshot of the active SQL table.
+
 Current concrete coverage is centered on registry items such as:
 
 - `field`
@@ -29,7 +31,7 @@ When naming matters:
 
 1. Check whether `trading-main/registry/` already has a suitable shared name or default vocabulary value.
 2. If yes, reuse it.
-3. If no, decide whether the work should pause for registry registration or proceed with an explicitly temporary name.
+3. If no, decide whether the work should pause for SQL registry registration or proceed with an explicitly temporary name.
 4. If temporary naming is allowed, make sure Codex reports it back for OpenClaw review.
 5. After the task, OpenClaw decides whether to register, rename, or reject that temporary name.
 
@@ -38,6 +40,8 @@ When naming matters:
 OpenClaw should:
 
 - keep `trading-main/registry/` updated as an ongoing maintenance responsibility
+- register concrete entries through SQL migrations, not Markdown tables
+- regenerate `registry/current.csv` after SQL registry updates
 - prefer registry-approved names in task packages, schemas, receipts, paths, outputs, script locators, and shared status vocabularies
 - treat missing shared names as registry gaps rather than as permission for casual invention
 - review Codex-reported temporary names and register the accepted ones itself
@@ -76,3 +80,10 @@ Before accepting naming-sensitive work, check:
 Do not overstate registry authority.
 
 If `trading-main/registry/` does not yet formally own a category, say that plainly instead of pretending the authority already exists.
+
+## Registry storage rule
+
+- Concrete entries live in the SQL-backed `trading_registry` table.
+- `registry/<kind>.md` files define kind boundaries, ranges, and rejection rules only.
+- `registry/current.csv` is generated from SQL for GitHub visibility and must not be hand-edited.
+- If a new kind is introduced, update both the Markdown boundary file and the SQL kind constraint in the same reviewed change.

@@ -5,7 +5,7 @@ Track open questions in the task doc until they are ratified here.
 
 Boundary:
 Keep only ratified project-shaping decisions here.
-Do not log current task state, broad workflow prose, dependency catalogs, or unratified ideas as if they were settled.
+Do not log current task state, broad workflow prose, dependency inventories, or unratified ideas as if they were settled.
 
 ## Decision Summary
 

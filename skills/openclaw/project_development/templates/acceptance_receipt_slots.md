@@ -43,10 +43,10 @@ Reuse the default registry-registered vocabularies for `acceptance_outcome` and 
   ],
   "reviewed_commands": [
     "git diff --stat",
-    "node --test src/catalog-reader.test.js"
+    "node --test helpers/registry/registry-reader.test.js"
   ],
   "test_status": "passed",
-  "test_output": "9/9 catalog tests passed.",
+  "test_output": "13/13 registry helper tests passed.",
   "issue_list": [],
   "acceptance_summary": "Accepted after template review and registry verification."
 }

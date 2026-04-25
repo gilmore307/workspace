@@ -44,10 +44,10 @@ Reuse the default registry-registered vocabularies for `task_lifecycle_state`, `
   ],
   "command_list": [
     "git status --short",
-    "node --test src/catalog-reader.test.js"
+    "node --test helpers/registry/registry-reader.test.js"
   ],
   "test_status": "passed",
-  "test_output": "9/9 catalog tests passed.",
+  "test_output": "13/13 registry helper tests passed.",
   "issue_list": [],
   "review_readiness": "ready"
 }

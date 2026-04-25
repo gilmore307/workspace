@@ -18,7 +18,7 @@ Out of scope:
 - trading-main registry schema ownership
 - fixed vocabulary maintenance
 
-These may be handled by separate skills, project-specific docs, or dedicated projects when needed. Fixed vocabulary belongs to the separate `trading-main/registry/` project.
+These may be handled by separate skills, project-specific docs, or dedicated projects when needed. Fixed vocabulary belongs to the `trading-main` registry.
 
 ## Why Storage Policy Is Excluded
 

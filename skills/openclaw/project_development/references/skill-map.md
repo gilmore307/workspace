@@ -40,11 +40,11 @@ Read these when reviewing returned work, deciding acceptance, or writing accepta
 - `templates/completion_receipt_slots.md`
 - `templates/acceptance_receipt_slots.md`
 
-## 5. Naming and catalog discipline
+## 5. Naming and registry discipline
 
 Read these when a task needs formal names, default shared vocabularies, or registry review:
 
-- `references/catalog-naming.md`
+- `references/registry-naming.md`
 - `references/status-vocabularies.md`
 
 ## 6. Maintenance passes
