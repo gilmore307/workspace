@@ -65,7 +65,7 @@ After acceptance, OpenClaw is responsible for committing and pushing the accepte
 
 ## Dictionary Rule
 
-If this repository uses `universal-catalog` as the authority for formal naming, state that here.
+If this repository uses `trading-main/registry/` as the authority for formal naming, state that here.
 If formal naming authority is still being decided, record the open gap in `docs/04_task.md` instead of inventing it here.
 
 ## Split Rule

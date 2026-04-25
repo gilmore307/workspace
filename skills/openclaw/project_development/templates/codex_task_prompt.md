@@ -12,7 +12,7 @@ Do not claim final acceptance. Report readiness only when implementation and tes
 Use the execution key or task package provided by OpenClaw.
 
 The exact JSON wrapper remains project-defined.
-When a project formalizes execution-key slots, use the canonical slot names registered in `universal-catalog`.
+When a project formalizes execution-key slots, use the canonical slot names registered in `trading-main/registry/`.
 
 The task package should communicate the bounded task clearly, including the equivalent of:
 
@@ -36,17 +36,17 @@ The task package should communicate the bounded task clearly, including the equi
 - Do not modify blocked files or paths.
 - Stay inside the dispatched task boundary; do not expand scope without approval.
 - Keep the task at its given medium granularity; do not fracture it into extra sub-tasks or silently widen it.
-- Reuse names, output templates, and approved term definitions already registered in `universal-catalog` when they fit.
+- Reuse names, output templates, and approved term definitions already registered in `trading-main/registry/` when they fit.
 - Do not register new names, outputs, or terms yourself.
 - If you must introduce a temporary new name or term, report it explicitly for OpenClaw review.
 - Do not create extra files unless a split gate is met.
 - Do not modify `README.md`, the docs spine, or other governance docs unless the task explicitly allows it.
-- If the task edits fixed-location repository docs, follow the relevant skill-local markdown templates or project conventions instead of expecting `universal-catalog` to provide those markdown files.
+- If the task edits fixed-location repository docs, follow the relevant skill-local markdown templates or project conventions instead of expecting `trading-main/registry/` to provide those markdown files.
 - Run required tests when possible.
 
 ## Completion Receipt
 
-If the task provides a formal completion-receipt schema, use the canonical slot names registered in `universal-catalog`.
+If the task provides a formal completion-receipt schema, use the canonical slot names registered in `trading-main/registry/`.
 If not, return a clear structured report that covers at least:
 
 - task identity and workflow identity when the task package provides them

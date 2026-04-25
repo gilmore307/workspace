@@ -4,7 +4,7 @@ Use these canonical slot names when a project writes a formal acceptance receipt
 This template standardizes slot concepts and field names, not one mandatory JSON wrapper.
 
 Exact JSON nesting and path naming remain project-defined unless the project documents them explicitly.
-Reuse the default catalog-registered vocabularies for `acceptance_outcome` and `test_status` unless the project docs define an override.
+Reuse the default registry-registered vocabularies for `acceptance_outcome` and `test_status` unless the project docs define an override.
 
 ## Required Slots
 
@@ -48,11 +48,11 @@ Reuse the default catalog-registered vocabularies for `acceptance_outcome` and `
   "test_status": "passed",
   "test_output": "9/9 catalog tests passed.",
   "issue_list": [],
-  "acceptance_summary": "Accepted after template review and catalog verification."
+  "acceptance_summary": "Accepted after template review and registry verification."
 }
 ```
 
 ## Notes
 
-- Reuse previously ratified shared slots from `universal-catalog` where they fit.
+- Reuse previously ratified shared slots from `trading-main/registry/` where they fit.
 - Only OpenClaw writes the acceptance receipt and final acceptance outcome.

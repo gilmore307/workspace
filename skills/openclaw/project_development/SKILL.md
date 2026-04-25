@@ -1,6 +1,6 @@
 ---
 name: project_development
-description: Steward an OpenClaw-managed software project end to end: project shape, docs spine, Codex dispatch and review, maintenance, and universal-catalog naming discipline. Use for creating, restructuring, implementing, documenting, or reviewing a project when OpenClaw owns the development boundary.
+description: Steward an OpenClaw-managed software project end to end: project shape, docs spine, Codex dispatch and review, maintenance, and trading-main registry naming discipline. Use for creating, restructuring, implementing, documenting, or reviewing a project when OpenClaw owns the development boundary.
 ---
 
 # Project Development
@@ -34,8 +34,8 @@ Apply these principles across planning, docs, dispatch, review, and maintenance:
 - Define durable data ownership, migration responsibility, backup/restore expectations, and retention tradeoffs before implementation touches databases or high-volume storage.
 - Dispatch Codex work at medium task granularity.
 - Review completion receipts before acceptance.
-- Keep naming aligned with `universal-catalog`.
-- Reuse the default catalog-registered status vocabularies unless the project docs explicitly override them.
+- Keep naming aligned with `trading-main/registry/`.
+- Reuse the default registry-registered status vocabularies unless the project docs explicitly override them.
 - Treat maintenance as real stewardship, not optional polish.
 
 ## Ownership rule

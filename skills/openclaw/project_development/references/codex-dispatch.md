@@ -89,7 +89,7 @@ Before dispatching Codex, OpenClaw checks:
 - Are required tests named or clearly not required?
 - Are output and receipt references provided when needed?
 - Are dictionary constraints included?
-- Are naming lookups against `universal-catalog` included when Codex may need to name something?
+- Are naming lookups against `trading-main/registry/` included when Codex may need to name something?
 - Are script split gates included?
 - Are docs protected unless Codex is explicitly asked to edit them?
 
@@ -99,7 +99,7 @@ Include constraints such as:
 
 ```text
 Do not add new production dependencies without approval.
-Use formal names approved by universal-catalog.
+Use formal names approved by trading-main registry.
 Do not self-register new names; report temporary new names for OpenClaw review.
 Do not modify docs/03_acceptance.md unless explicitly requested.
 Do not create extra files unless a script split gate is met.

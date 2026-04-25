@@ -4,7 +4,7 @@ Use these canonical slot names when a project writes a formal completion receipt
 This template standardizes slot concepts and field names, not one mandatory JSON wrapper.
 
 Exact JSON nesting and path naming remain project-defined unless the project documents them explicitly.
-Reuse the default catalog-registered vocabularies for `task_lifecycle_state`, `review_readiness`, and `test_status` unless the project docs define an override.
+Reuse the default registry-registered vocabularies for `task_lifecycle_state`, `review_readiness`, and `test_status` unless the project docs define an override.
 
 ## Required Slots
 
@@ -55,5 +55,5 @@ Reuse the default catalog-registered vocabularies for `task_lifecycle_state`, `r
 
 ## Notes
 
-- Reuse previously ratified shared slots from `universal-catalog` where they fit.
+- Reuse previously ratified shared slots from `trading-main/registry/` where they fit.
 - Codex may report readiness or not-readiness, but must not report final acceptance or rejection.

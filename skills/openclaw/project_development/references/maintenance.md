@@ -31,7 +31,7 @@ Check:
 9. Accepted changes that alter project reality are reflected in docs.
 10. Formal choices are captured in `docs/05_decision.md`.
 11. Project-specific memory has been routed into project docs.
-12. Formal names reuse existing `universal-catalog` entries where they already exist.
+12. Formal names reuse existing `trading-main/registry/` entries where they already exist.
 13. Extra files or modules have valid split gates.
 14. Codex did not modify blocked paths.
 15. No global memory is carrying project details that belong in project docs.
@@ -56,7 +56,7 @@ When a project uses a formal maintenance output, current canonical slot names fo
 - `FOLLOW_UP_TASK_LIST` (`follow_up_task_list`)
 - `MAINTENANCE_SUMMARY` (`maintenance_summary`)
 
-Exact nesting is not standardized here. Reuse the default catalog-registered vocabularies for `task_lifecycle_state`, `maintenance_status`, and `docs_status` unless the project docs define an override.
+Exact nesting is not standardized here. Reuse the default registry-registered vocabularies for `task_lifecycle_state`, `maintenance_status`, and `docs_status` unless the project docs define an override.
 
 Suggested path:
 
@@ -78,7 +78,7 @@ Use these defaults unless the project docs define an explicit override:
 
 A compact status summary should group tasks by lifecycle state.
 
-Status labels should come from the project's documented task model, defaulting to the catalog-registered `task_lifecycle_state` values when the project has not defined an override.
+Status labels should come from the project's documented task model, defaulting to the registry-registered `task_lifecycle_state` values when the project has not defined an override.
 
 ## Docs Drift Check
 

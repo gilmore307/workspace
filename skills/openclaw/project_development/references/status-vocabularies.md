@@ -1,7 +1,7 @@
 # Default Status Vocabularies
 
 Use these default vocabularies when a project records formal status fields.
-These defaults should be reused from `universal-catalog` unless the project docs explicitly define an override.
+These defaults should be reused from `trading-main/registry/` unless the project docs explicitly define an override.
 
 ## task_lifecycle_state
 

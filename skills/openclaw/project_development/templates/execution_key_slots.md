@@ -4,7 +4,7 @@ Use these canonical slot names when a project writes a formal execution key.
 This template standardizes slot concepts and field names, not one mandatory JSON wrapper.
 
 Exact JSON nesting and path naming remain project-defined unless the project documents them explicitly.
-If the project also records `task_lifecycle_state` or `test_status`, reuse the default catalog-registered vocabularies unless the project docs define an override.
+If the project also records `task_lifecycle_state` or `test_status`, reuse the default registry-registered vocabularies unless the project docs define an override.
 
 ## Required Slots
 
@@ -29,5 +29,5 @@ If the project also records `task_lifecycle_state` or `test_status`, reuse the d
 
 ## Notes
 
-- Register or reuse these field names in `universal-catalog`.
+- Register or reuse these field names in `trading-main/registry/`.
 - Include naming guidance in the task package or constraints when the task may require new names.

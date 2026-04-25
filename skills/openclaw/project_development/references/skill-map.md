@@ -42,7 +42,7 @@ Read these when reviewing returned work, deciding acceptance, or writing accepta
 
 ## 5. Naming and catalog discipline
 
-Read these when a task needs formal names, default shared vocabularies, or catalog review:
+Read these when a task needs formal names, default shared vocabularies, or registry review:
 
 - `references/catalog-naming.md`
 - `references/status-vocabularies.md`

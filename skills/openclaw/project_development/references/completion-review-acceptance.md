@@ -9,7 +9,7 @@ This reference defines review responsibilities and the minimum information OpenC
 
 Exact receipt container shapes are not standardized here.
 Canonical completion-receipt and acceptance-receipt slot names may be standardized and reused across projects.
-Default status vocabularies should reuse the catalog-registered values for `task_lifecycle_state`, `review_readiness`, `acceptance_outcome`, and `test_status` unless the project docs explicitly override them.
+Default status vocabularies should reuse the registry-registered values for `task_lifecycle_state`, `review_readiness`, `acceptance_outcome`, and `test_status` unless the project docs explicitly override them.
 
 ## Completion Receipt
 
@@ -70,7 +70,7 @@ When Codex returns a completion receipt, OpenClaw checks:
 6. Test status is consistent with test output.
 7. Required output exists or is not required.
 8. Issues are honest and specific.
-9. Naming follows `universal-catalog`.
+9. Naming follows `trading-main/registry/`.
 10. Any temporary new names are reported explicitly for OpenClaw review.
 11. Any new file has a valid split reason.
 12. Acceptance criteria are satisfied.
@@ -133,7 +133,7 @@ Acceptance checks include:
 - tests
 - output
 - allowed scope
-- catalog alignment
+- registry alignment
 - docs drift
 - decision impact
 - split discipline

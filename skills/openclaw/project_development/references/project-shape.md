@@ -105,7 +105,7 @@ final/
 v2/
 ```
 
-Use names from the `universal-catalog` when possible.
+Use names from the `trading-main/registry/` when possible.
 
 ## Codex Scope
 
@@ -120,6 +120,6 @@ A good project shape makes it easy to specify:
 - output references
 - receipt references
 
-For fixed-location repository docs such as `README.md` and `docs/00_scope.md` through `docs/06_memory.md`, keep the markdown templates in this skill instead of registering them in `universal-catalog`.
+For fixed-location repository docs such as `README.md` and `docs/00_scope.md` through `docs/06_memory.md`, keep the markdown templates in this skill instead of registering them in `trading-main/registry/`.
 
 Exact field names for these slots are not standardized here.

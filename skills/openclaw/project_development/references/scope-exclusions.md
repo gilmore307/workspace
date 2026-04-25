@@ -15,10 +15,10 @@ Out of scope:
 - release policy
 - backup policy
 - secret rotation policy
-- universal-catalog schema ownership
+- trading-main registry schema ownership
 - fixed vocabulary maintenance
 
-These may be handled by separate skills, project-specific docs, or dedicated projects when needed. Fixed vocabulary belongs to the separate `universal-catalog` project.
+These may be handled by separate skills, project-specific docs, or dedicated projects when needed. Fixed vocabulary belongs to the separate `trading-main/registry/` project.
 
 ## Why Storage Policy Is Excluded
 

@@ -51,11 +51,11 @@ Registry:
 - `/root/secrets/registry.json`
 
 Rules for secret storage, lookup, and use:
-- never put secret values into workspace files, git-tracked config, or `universal-catalog`
-- when a secret needs a shared reviewed name, register a `kind = config` entry in `universal-catalog` whose payload is the secret alias, not the secret value and not the raw file contents
+- never put secret values into workspace files, git-tracked config, or `trading-main/registry/`
+- when a secret needs a shared reviewed name, register a `kind = config` entry in `trading-main/registry/` whose payload is the secret alias, not the secret value and not the raw file contents
 - keep the real secret material only under `/root/secrets/...`
 - prefer alias-based resolution over hard-coded paths in project code
-- helpers should resolve secrets in this order: catalog config key → secret alias → `/root/secrets/registry.json` entry → local secret file
+- helpers should resolve secrets in this order: registry config key → secret alias → `/root/secrets/registry.json` entry → local secret file
 - token/password helpers should usually return trimmed secret text; SSH-key style helpers may return the resolved path when the consumer needs a file path instead of inline text
 
 ## Projects Root
