@@ -45,7 +45,7 @@ Store local secrets outside the workspace under `/root/secrets/` and refer to th
 
 Examples:
 - `github` → source-level GitHub JSON secret file for git operations; JSON key `pat`
-- `okx` → source-level OKX JSON secret file for crypto data/trading access; JSON keys `api_key`, `secret_key`, `passphrase`
+- `okx` → source-level OKX JSON secret file for crypto data/trading access; JSON keys `api_key`, `secret_key`, `passphrase`, `allowed_ip_address`, `api_key_remark_name`
 - `network-framework` → source-level network-framework JSON secret file, if revived; prefer JSON keys over split files
 
 Registry:
@@ -54,7 +54,7 @@ Registry:
 Rules for secret storage, lookup, and use:
 - never put secret values into workspace files, git-tracked config, or `trading-main/registry/`
 - one provider/source should normally use one JSON secret file: `/root/secrets/<source>.json`
-- JSON secret keys should use registered/canonical snake_case names when shared, e.g. `api_key`, `secret_key`, `passphrase`, `pat`
+- JSON secret keys should use registered/canonical snake_case names when shared, e.g. `api_key`, `secret_key`, `passphrase`, `allowed_ip_address`, `api_key_remark_name`, `pat`
 - when a secret needs a shared reviewed name, register a `kind = config` entry in `trading-main/registry/` whose payload is the source-level secret alias, not the secret value and not the raw file contents; the registry `path` may mirror the local JSON file path
 - keep the real secret material only under `/root/secrets/...`
 - prefer alias-based resolution over hard-coded paths in project code
