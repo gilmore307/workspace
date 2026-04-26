@@ -10,7 +10,7 @@ It does not let Codex self-register names.
 
 Right now `trading-main/registry/` is the shared register for stable server-wide referenced values used across OpenClaw-managed project work on this machine.
 
-SQL is the source of truth for concrete registry entries. Kind Markdown files define scope and range only. `registry/current.csv` is the GitHub-visible generated snapshot of the active SQL table. Registry id is the stable automation reference; key is a human-readable label and may be renamed by reviewed migration.
+SQL is the source of truth for concrete registry entries. Kind Markdown files define scope and range only. `registry/current.csv` is the GitHub-visible generated snapshot of the active SQL table. Registry id is the stable automation reference; key is a human-readable output/display label and may be renamed by reviewed migration. Registered helper APIs must not take key as input.
 
 Current concrete coverage is centered on registry items such as:
 
@@ -77,7 +77,7 @@ Before accepting naming-sensitive work, check:
 - Did Codex report every temporary new name?
 - Does any new shared name or shared status vocabulary now need registration in `trading-main/registry/`?
 - Do docs, code, and task artifacts use the same accepted name for the same concept?
-- Does automation use id-based dereferencing rather than key-based lookup unless the key lookup is explicitly unsafe/debug-only?
+- Does automation use id-based dereferencing and avoid key-input helper APIs?
 - Do new field entries include non-empty `applies_to`?
 
 ## Important restraint
@@ -98,4 +98,4 @@ If `trading-main/registry/` does not yet formally own a category, say that plain
 
 ## Key lookup restraint
 
-Registry keys are useful for humans, review, and debugging, but automation should not treat them as stable identifiers. Helper functions that dereference by key should carry an `Unsafe` suffix or an equivalent warning.
+Registry keys are useful for humans, review, and display, but registered helper APIs should not take keys as input. Human debugging can use direct SQL queries instead of adding key-input helper APIs.
