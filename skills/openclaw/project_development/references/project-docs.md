@@ -206,9 +206,9 @@ When a repository contains shared helper code, distinguish code existence from p
 
 If helper code exists without package metadata, version policy, runtime version, installation method, and import/call examples, document it as internal-only or not-yet-packaged. Do not let component repositories treat loose helper files as runtime dependencies.
 
-Before cross-repository helper consumption, accept a language/distribution strategy such as Node package, Python package, CLI/internal maintenance tool, or another explicit contract.
+Before cross-repository helper consumption, accept a language/distribution strategy such as Python package, CLI/internal maintenance tool, or another explicit contract.
 
-For `trading-main`, the accepted runtime helper package strategy is Python: package metadata in root `pyproject.toml`, source under `helpers/python/`, import package `trading_registry`, and installation into the shared `.venv`. JavaScript helper files under `helpers/registry/` are internal maintenance/test code unless a future Node package decision changes that.
+For `trading-main`, the accepted runtime helper package strategy is Python-only: package metadata in root `pyproject.toml`, source under `helpers/python/`, import package `trading_registry`, and installation into the shared `.venv`.
 
 ## Change discipline
 
