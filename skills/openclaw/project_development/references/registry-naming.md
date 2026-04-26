@@ -88,7 +88,7 @@ If `trading-main/registry/` does not yet formally own a category, say that plain
 
 ## Registry storage rule
 
-In `trading-main`, registry operating guidance lives in `docs/07_registry.md`; concrete entries still live in SQL and kind boundaries still live under `registry/kinds/`.
+In `trading-main`, registry operating guidance lives in `docs/08_registry.md`; concrete entries still live in SQL and kind boundaries still live under `registry/kinds/`.
 
 - Concrete entries live in the SQL-backed `trading_registry` table.
 - Use nullable `trading_registry.path` for direct locators/addresses on entity-like entries. Do not use `path` as a registry kind.

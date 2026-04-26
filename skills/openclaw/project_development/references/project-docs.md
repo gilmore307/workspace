@@ -24,7 +24,7 @@ docs/06_memory.md
 
 Do not extend the default docs spine with reusable template material or registry source-of-truth files. If a file is a reusable drafting surface, route it to `templates/`. If a file defines registered vocabulary or kind boundaries, route it to the project registry.
 
-Project-specific exception: `trading-main` may include `docs/07_registry.md` as the registry operating guide because that repository owns the active SQL-backed trading registry. This does not move registry kind definitions or concrete entries into docs.
+Project-specific exception: `trading-main` may include `docs/07_helpers.md`, `docs/08_registry.md`, and `docs/09_templates.md` as platform-function guides because that repository owns shared helpers, the active SQL-backed trading registry, and reusable trading templates. This does not move helper code, registry kind definitions, concrete registry entries, or template drafts into docs.
 
 Keep markdown templates for these fixed-location files in this skill rather than registering them in `trading-main/registry/`.
 If automation needs a concrete source-file locator, use `script` entries for actual source files, not markdown doc templates.
