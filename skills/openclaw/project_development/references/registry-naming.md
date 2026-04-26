@@ -78,6 +78,7 @@ Before accepting naming-sensitive work, check:
 - Does any new shared name or shared status vocabulary now need registration in `trading-main/registry/`?
 - Do docs, code, and task artifacts use the same accepted name for the same concept?
 - Does automation use id-based dereferencing rather than key-based lookup unless the key lookup is explicitly unsafe/debug-only?
+- Do new field entries include `applies_to` when their usage surface is known?
 
 ## Important restraint
 
@@ -89,6 +90,7 @@ If `trading-main/registry/` does not yet formally own a category, say that plain
 
 - Concrete entries live in the SQL-backed `trading_registry` table.
 - Use nullable `trading_registry.path` for direct locators/addresses on entity-like entries. Do not use `path` as a registry kind.
+- Use nullable `trading_registry.applies_to` for field usage/source scope when a field is tied to a known table, file, contract, template, or data shape.
 - `registry/<kind>.md` files define kind boundaries, ranges, and rejection rules only.
 - Kind Markdown files must not list concrete active rows.
 - `registry/current.csv` is generated from SQL for GitHub visibility and must not be hand-edited.
