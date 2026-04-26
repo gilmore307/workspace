@@ -91,11 +91,11 @@ If `trading-main/registry/` does not yet formally own a category, say that plain
 - Concrete entries live in the SQL-backed `trading_registry` table.
 - Use nullable `trading_registry.path` for direct locators/addresses on entity-like entries. Do not use `path` as a registry kind.
 - Every `field` entry must have non-empty `trading_registry.applies_to`; use semicolon-separated scopes when a field belongs to multiple tables, files, contracts, templates, or data shapes.
-- `registry/<kind>.md` files define kind boundaries, ranges, and rejection rules only.
-- Kind Markdown files must not list concrete active rows.
+- `trading-main/registry/kinds/<kind>.md` files define kind boundaries, ranges, and rejection rules only.
+- Kind Markdown files under `trading-main/registry/kinds/` must not list concrete active rows.
 - `registry/current.csv` is generated from SQL for GitHub visibility and must not be hand-edited.
 - The CSV export command is registered as `REGISTRY_EXPORT_CURRENT_CSV_HELPER`.
-- If a new kind is introduced, update the Markdown boundary file, helper kind list, SQL kind constraint, and generated CSV snapshot in the same reviewed change.
+- If a new kind is introduced, update the `registry/kinds/<kind>.md` boundary file, helper kind list, SQL kind constraint, and generated CSV snapshot in the same reviewed change.
 
 ## Key lookup restraint
 
