@@ -200,6 +200,14 @@ Examples:
 
 Do not use `docs/06_memory.md` as a dumping ground. Prefer the narrower docs when possible.
 
+## Shared helper package discipline
+
+When a repository contains shared helper code, distinguish code existence from package readiness.
+
+If helper code exists without package metadata, version policy, runtime version, installation method, and import/call examples, document it as internal-only or not-yet-packaged. Do not let component repositories treat loose helper files as runtime dependencies.
+
+Before cross-repository helper consumption, accept a language/distribution strategy such as Node package, Python package, CLI/internal maintenance tool, or another explicit contract.
+
 ## Change discipline
 
 When editing project docs:
