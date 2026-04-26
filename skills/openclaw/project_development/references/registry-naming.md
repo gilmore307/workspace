@@ -10,17 +10,20 @@ It does not let Codex self-register names.
 
 Right now `trading-main/registry/` is the shared register for stable server-wide referenced values used across OpenClaw-managed project work on this machine.
 
-SQL is the source of truth for concrete registry entries. Kind Markdown files define scope and range only. `registry/current.csv` is the GitHub-visible generated snapshot of the active SQL table.
+SQL is the source of truth for concrete registry entries. Kind Markdown files define scope and range only. `registry/current.csv` is the GitHub-visible generated snapshot of the active SQL table. Registry id is the stable automation reference; key is a human-readable label and may be renamed by reviewed migration.
 
 Current concrete coverage is centered on registry items such as:
 
 - `field`
 - `output`
 - `repo`
-- `path`
 - `config`
 - `term`
 - `script`
+- `artifact_type`
+- `manifest_type`
+- `ready_signal_type`
+- `request_type`
 - default status vocabularies such as `task_lifecycle_state`, `review_readiness`, `acceptance_outcome`, `test_status`, `maintenance_status`, and `docs_status`
 
 Do not assume a proposed future kind is already formal just because it was discussed in chat.
@@ -62,7 +65,7 @@ Naming drift includes cases like:
 
 - two names for one shared concept
 - a new shared field, output key, script locator, config key, term definition, or default status value invented without registry review
-- path, repo, output, script, term, or status naming that ignores an existing registry entry
+- repo, output, script, term, status, or path-locator naming that ignores an existing registry entry
 - Codex introducing a temporary name and failing to report it
 - project docs or receipts pretending a name is formal when it has not been reviewed
 
@@ -74,6 +77,7 @@ Before accepting naming-sensitive work, check:
 - Did Codex report every temporary new name?
 - Does any new shared name or shared status vocabulary now need registration in `trading-main/registry/`?
 - Do docs, code, and task artifacts use the same accepted name for the same concept?
+- Does automation use id-based dereferencing rather than key-based lookup unless the key lookup is explicitly unsafe/debug-only?
 
 ## Important restraint
 
@@ -84,7 +88,12 @@ If `trading-main/registry/` does not yet formally own a category, say that plain
 ## Registry storage rule
 
 - Concrete entries live in the SQL-backed `trading_registry` table.
+- Use nullable `trading_registry.path` for direct locators/addresses on entity-like entries. Do not use `path` as a registry kind.
 - `registry/<kind>.md` files define kind boundaries, ranges, and rejection rules only.
 - Kind Markdown files must not list concrete active rows.
 - `registry/current.csv` is generated from SQL for GitHub visibility and must not be hand-edited.
 - If a new kind is introduced, update the Markdown boundary file, helper kind list, SQL kind constraint, and generated CSV snapshot in the same reviewed change.
+
+## Key lookup restraint
+
+Registry keys are useful for humans, review, and debugging, but automation should not treat them as stable identifiers. Helper functions that dereference by key should carry an `Unsafe` suffix or an equivalent warning.
