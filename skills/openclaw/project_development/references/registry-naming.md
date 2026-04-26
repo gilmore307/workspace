@@ -76,6 +76,7 @@ Before accepting naming-sensitive work, check:
 - Was an existing registry name reused where possible?
 - Did Codex report every temporary new name?
 - Does any new shared name or shared status vocabulary now need registration in `trading-main/registry/`?
+- Did the work introduce global helpers, reusable templates, or shared fields that must be recorded in `trading-main` before cross-repository use?
 - Do docs, code, and task artifacts use the same accepted name for the same concept?
 - Does automation use id-based dereferencing and avoid key-input helper APIs?
 - Do new field entries include non-empty `applies_to`?
