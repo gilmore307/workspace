@@ -208,6 +208,8 @@ If helper code exists without package metadata, version policy, runtime version,
 
 Before cross-repository helper consumption, accept a language/distribution strategy such as Node package, Python package, CLI/internal maintenance tool, or another explicit contract.
 
+For `trading-main`, the accepted runtime helper package strategy is Python: package metadata in root `pyproject.toml`, source under `helpers/python/`, import package `trading_registry`, and installation into the shared `.venv`. JavaScript helper files under `helpers/registry/` are internal maintenance/test code unless a future Node package decision changes that.
+
 ## Change discipline
 
 When editing project docs:
