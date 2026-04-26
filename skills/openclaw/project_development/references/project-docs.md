@@ -16,15 +16,19 @@ docs/
   05_decision.md
 ```
 
-Optional:
+Optional memory:
 
 ```text
 docs/06_memory.md
 ```
 
-Do not extend the default docs spine with reusable template material or registry source-of-truth files. If a file is a reusable drafting surface, route it to `templates/`. If a file defines registered vocabulary or kind boundaries, route it to the project registry.
+Optional project-specific guides may follow the required spine when they own a clear local planning or operating surface and do not duplicate the required docs. Use numbered names after the spine, such as `docs/07_<topic>.md`, and list every optional guide in `docs/README.md` and the root README docs set when present.
 
-Project-specific exception: `trading-main` may include `docs/07_helpers.md`, `docs/08_registry.md`, and `docs/09_templates.md` as platform-function guides because that repository owns shared helpers, the active SQL-backed trading registry, and reusable trading templates. This does not move helper code, registry kind definitions, concrete registry entries, or template drafts into docs.
+Do not extend docs with reusable template material or registry source-of-truth files. If a file is a reusable drafting surface, route it to `templates/`. If a file defines registered vocabulary or kind boundaries, route it to the project registry.
+
+`trading-main` includes `docs/07_helpers.md`, `docs/08_registry.md`, and `docs/09_templates.md` as platform-function guides because that repository owns shared helpers, the active SQL-backed trading registry, and reusable trading templates. This does not move helper code, registry kind definitions, concrete registry entries, or template drafts into docs.
+
+Component repositories may add optional local guides, for example `trading-data/docs/07_data_domains.md` and `trading-data/docs/08_data_sources.md`, when the topic is component-specific and not a global template/registry source of truth.
 
 Keep markdown templates for these fixed-location files in this skill rather than registering them in `trading-main/registry/`.
 If automation needs a concrete source-file locator, use `script` entries for actual source files, not markdown doc templates.
