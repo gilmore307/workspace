@@ -47,6 +47,7 @@ Examples:
 - `github` → source-level GitHub JSON secret file for git operations; JSON key `pat`
 - `okx` → source-level OKX JSON secret file for crypto data/trading access; JSON keys `api_key`, `secret_key`, `passphrase`, `allowed_ip_address`, `api_key_remark_name`
 - `alpaca` → source-level Alpaca JSON secret file for stock/ETF bars, quotes, trades, and news data access; JSON keys `api_key`, `secret_key`, `endpoint`
+- `fred`, `census`, `bea`, `bls` → source-level economic-data provider JSON secret files; JSON key `api_key`
 - `network-framework` → source-level network-framework JSON secret file, if revived; prefer JSON keys over split files
 
 Registry:
