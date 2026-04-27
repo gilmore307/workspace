@@ -36,8 +36,17 @@ Apply these principles across planning, docs, dispatch, review, and maintenance:
 - Review completion receipts before acceptance.
 - Keep naming aligned with `trading-main/registry/`.
 - For registry entry changes, use SQL migrations and regenerate `registry/current.csv`.
+- Keep code layout terms sharp across repositories: `src/` owns importable/reusable implementation code; `scripts/` owns executable maintenance or operational entrypoints that may call `src/`; `src/` must not depend on `scripts/`; avoid `source/` directories because `source` is reserved for provider/data-source meaning.
 - Reuse the default registry-registered status vocabularies unless the project docs explicitly override them.
 - Treat maintenance as real stewardship, not optional polish.
+
+## Directory and entrypoint rule
+
+- Use `src/` for implementation packages, reusable modules, connectors, validators, normalizers, and pipeline logic.
+- Use `scripts/` only for executable wrappers, one-off maintenance commands, smoke runners, migrations, or operational entrypoints.
+- `scripts/` may import `src/`; `src/` should not import `scripts/`.
+- Registry `kind=script` should name stable callable commands/entrypoints, not ordinary source files or implementation directories.
+- Use `implementation_path`, `source_file`, or `source_dir` for code locations; use `provider` or `data_source` for external data origins.
 
 ## Ownership rule
 
