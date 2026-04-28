@@ -1,6 +1,6 @@
 # Dreaming Session Cleanup
 
-Use this reference only when the user asks to inspect or manually remove expired dreaming sessions.
+Use this reference when the user asks to inspect or remove expired dreaming sessions, or when verifying the runtime self-cleanup path after dreaming narrative sessions end.
 
 ## Scope
 
@@ -13,6 +13,12 @@ dreaming-narrative-
 ```
 
 Do not use it for ordinary user, project, ACP, Codex, or chat sessions.
+
+## Runtime self-cleanup expectation
+
+Dreaming narrative sessions should clean themselves at run end. The runtime first asks the subagent/session runtime to delete the transient narrative session, then runs a fallback scrub. If a completed `dreaming-narrative-*` session remains referenced in `sessions.json`, the fallback should remove the store entry and archive its transcript/trajectory/checkpoint files.
+
+Manual cleanup is the safety net for sessions that predate the self-cleanup fix, failed during cleanup, or are still within the configured TTL.
 
 ## Expired session rule
 

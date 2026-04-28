@@ -23,7 +23,7 @@ Do not default to daily memory when a more canonical file exists.
 - Put same-day trace notes in `memory/YYYY-MM-DD.md`.
 - Keep one fact in one canonical home whenever possible.
 - When a fact is promoted into its real home, avoid leaving redundant long-term copies behind in daily memory.
-- When explicitly asked, inspect and remove expired `dreaming-narrative-*` sessions with archive-first cleanup.
+- When explicitly asked, inspect and remove expired `dreaming-narrative-*` sessions with archive-first cleanup; runtime should also self-clean transient narrative sessions at run end.
 
 ## Default workflow
 
