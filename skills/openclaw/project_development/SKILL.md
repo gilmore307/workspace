@@ -1,6 +1,6 @@
 ---
 name: project_development
-description: Steward an OpenClaw-managed software project end to end: project shape, docs spine, Codex dispatch and review, maintenance, and trading-main registry naming discipline. Use for creating, restructuring, implementing, documenting, or reviewing a project when OpenClaw owns the development boundary.
+description: Steward an OpenClaw-managed software project end to end: project shape, docs spine, Codex dispatch and review, maintenance, and trading-manager registry naming discipline. Use for creating, restructuring, implementing, documenting, or reviewing a project when OpenClaw owns the development boundary.
 ---
 
 # Project Development
@@ -34,8 +34,8 @@ Apply these principles across planning, docs, dispatch, review, and maintenance:
 - Define durable data ownership, migration responsibility, backup/restore expectations, and retention tradeoffs before implementation touches databases or high-volume storage.
 - Dispatch Codex work at medium task granularity.
 - Review completion receipts before acceptance.
-- Keep naming aligned with `trading-main/registry/`.
-- For registry entry changes, use SQL migrations and regenerate `registry/current.csv`.
+- Keep naming aligned with `trading-manager/scripts/registry/`.
+- For registry entry changes, use SQL migrations under `trading-manager/scripts/registry/sql/schema_migrations/` and regenerate `trading-manager/scripts/registry/current.csv`.
 - Keep code layout terms sharp across repositories: `src/` owns importable/reusable implementation code; `scripts/` owns executable maintenance or operational entrypoints that may call `src/`; `src/` must not depend on `scripts/`; avoid `source/` directories because `source` is reserved for provider/data-source meaning.
 - Reuse the default registry-registered status vocabularies unless the project docs explicitly override them.
 - Treat maintenance as real stewardship, not optional polish.
