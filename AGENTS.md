@@ -218,6 +218,12 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## Delegation Discipline
+
+- Avoid sub-agents unless they are clearly necessary for parallelism, isolation, or long-running work.
+- Prefer doing bounded implementation/review directly in the current session when it is practical.
+- If a sub-agent is opened, clean it up promptly after the task ends or is no longer needed.
+
 ## Codex Oversight
 
 When delegating implementation work to Codex:
