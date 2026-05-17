@@ -60,6 +60,7 @@ Use the same docs-spine number ranges across OpenClaw-managed trading repositori
 - `docs/90_*` through `docs/99_*` are reserved for appendices, compatibility notes, audits, or historical reference that must remain visible but should not be read as the normal current path.
 - Do not use `docs/100_*` or higher for active docs. If the docs set grows that large, merge/split/reorder the spine instead of extending past `99`.
 - When a docs file is renamed and registry rows point to it, add a `trading-manager/scripts/registry/sql/schema_migrations/` migration and regenerate `scripts/registry/current.csv`.
+- Keep shared docs-numbering rules here, in this skill. Repository README/docs may list that repository's current docs spine, but they should not duplicate the shared numbering policy text.
 
 ## Ownership rule
 
