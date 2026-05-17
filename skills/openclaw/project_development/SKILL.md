@@ -48,6 +48,19 @@ Apply these principles across planning, docs, dispatch, review, and maintenance:
 - Registry `kind=script` should name stable callable commands/entrypoints, not ordinary source files or implementation directories.
 - Use `implementation_path`, `source_file`, or `source_dir` for code locations; use `provider` or `data_source` for external data origins.
 
+## Docs numbering rule
+
+Use the same docs-spine number ranges across OpenClaw-managed trading repositories unless a repository explicitly documents a narrower local exception:
+
+- `README.md` remains unnumbered and is the entry/index for the repository.
+- `docs/README.md` is optional; use it only as a docs-local index when the docs directory is large.
+- `docs/00_*` through `docs/69_*` are the normal current docs spine, ordered from foundational context to operating details. Keep them in reading order and avoid gaps unless a near-term planned file is explicitly reserved.
+- `docs/70_*` through `docs/79_*` are reserved for optional reference material that is current but not part of the primary reading path.
+- `docs/80_task.md`, `docs/81_decision.md`, and `docs/82_memory.md` are fixed ledger files. Use the `80_*` range for task/decision/memory/governance ledgers because they should sort after the current docs spine and stay stable across reorganizations.
+- `docs/90_*` through `docs/99_*` are reserved for appendices, compatibility notes, audits, or historical reference that must remain visible but should not be read as the normal current path.
+- Do not use `docs/100_*` or higher for active docs. If the docs set grows that large, merge/split/reorder the spine instead of extending past `99`.
+- When a docs file is renamed and registry rows point to it, add a `trading-manager/scripts/registry/sql/schema_migrations/` migration and regenerate `scripts/registry/current.csv`.
+
 ## Ownership rule
 
 - `README.md` files, docs-spine files, acceptance receipts, naming registration, and post-acceptance commits belong to OpenClaw by default.
