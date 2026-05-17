@@ -26,6 +26,8 @@ Do not manually reread startup files unless:
 
 This workspace is primarily run as an OpenClaw-managed project workspace.
 For new sessions that are likely to involve project creation, restructuring, implementation, documentation, review, maintenance, or naming work, read `/root/.openclaw/workspace/skills/openclaw/project_development/SKILL.md` immediately at session start and use it as the default development stewardship baseline unless a more specific skill clearly overrides it.
+After compaction or any session handoff, apply the same rule again before continuing project-development work; do not rely on compacted summary alone for project stewardship rules.
+For repository review/cleanup, use that skill's first-principles codebase-review rule: make active Markdown, source files, scripts, tests, and directory structure direct, orderly, current, elegant, and concise instead of preserving historical development detours.
 
 ## Memory
 

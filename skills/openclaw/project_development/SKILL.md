@@ -1,6 +1,6 @@
 ---
 name: project_development
-description: Steward an OpenClaw-managed software project end to end: first-principles project shape, docs spine, module numbering, source/script boundaries, registry naming, implementation dispatch, review, verification, maintenance, commits, and cross-repository alignment. Use for creating, restructuring, implementing, documenting, reviewing, or closing project work when OpenClaw owns the development boundary.
+description: Steward an OpenClaw-managed software project end to end: first-principles project shape, codebase review, docs spine, module numbering, source/script boundaries, registry naming, implementation dispatch, review, verification, maintenance, commits, and cross-repository alignment. Use for creating, restructuring, implementing, documenting, reviewing, cleaning up, or closing project work when OpenClaw owns the development boundary.
 ---
 
 # Project Development
@@ -19,6 +19,7 @@ Apply these before following any historical route:
 - Structure before implementation.
 - Boundaries before wiring.
 - Current contract before route history.
+- Direct current route before historical development path.
 - One canonical home for each fact.
 - Names are interfaces; register or document them before depending on them.
 - Explicit contracts before hidden behavior.
@@ -30,9 +31,24 @@ Apply these before following any historical route:
 - Remove stale implementation instead of preserving compatibility prose by default.
 - Acceptance over aesthetic polish.
 
+## Codebase review and cleanup rule
+
+When reviewing or cleaning a repository, do not trace or preserve the historical development route unless it is audit material. Rewrite active maintained surfaces to express the current accepted route directly.
+
+Apply this to every maintained surface touched by the review:
+
+- Markdown should be current, direct, concise, and canonical; remove stale detours, transition narratives, duplicated explanations, and apologetic compatibility prose.
+- Source files should have clear ownership, simple boundaries, and names that match the current contract.
+- Scripts should be thin executable entrypoints over reusable `src/` implementation; remove command wrappers that only preserve old routes.
+- Tests should assert current behavior and contracts, not obsolete names or migration history.
+- Directory structure should be orderly: each directory has a clear role, related files sit together, and module numbering aligns across docs, `src/`, `scripts/`, tests, and registry when practical.
+- If a legacy name/path must remain for compatibility, mark it as an explicit compatibility surface; otherwise migrate references to the current route and remove the stale surface.
+
+The target shape is straightforward, elegant, and boring: a new maintainer should understand the current system without learning the path we took to get there.
+
 ## Default workflow
 
-1. Inspect the current repository state, docs spine, source/script layout, tests, and registry references before editing.
+1. Inspect the current repository state, docs spine, Markdown files, source/script layout, tests, directory structure, and registry references before editing.
 2. Decide the canonical home for each fact: project docs, skill rule, registry row, source contract, test, or runtime state.
 3. Shape the docs/source boundary first when the request changes architecture, naming, contracts, or ownership.
 4. Make one coherent acceptance-sized change; do not chain unrelated cleanups just because they are nearby.
