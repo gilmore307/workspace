@@ -22,6 +22,7 @@ Apply these before following any historical route:
 - Direct current route before historical development path.
 - One canonical home for each fact.
 - Names are interfaces; register or document them before depending on them.
+- Semantic/business interface names must be stable and unversioned. Do not add drift suffixes such as `_v1`, `_v2`, `_old`, `_new`, `_legacy`, `_temp`, or `_final` to contract types, registry keys, task ids, storage folder names, table names, public artifact names, or script keys. Put versions in metadata fields such as `schema_version`, `schema_ref`, `contract_version`, migration numbers, or dated immutable evidence paths.
 - Explicit contracts before hidden behavior.
 - Point-in-time evidence before model/trading claims.
 - Safe gates before service, provider, broker, database, or storage mutation.
