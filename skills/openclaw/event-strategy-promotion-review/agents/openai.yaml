@@ -1,0 +1,4 @@
+interface:
+  display_name: "Event Strategy Promotion Review"
+  short_description: "Review event strategy promotions."
+  default_prompt: "Use this skill to review event-family or strategy-failure promotion packets before they enter model decision layers."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Target Context Review"
+  short_description: "Review target context mappings."
+  default_prompt: "Use this skill to review target-to-Layer-2 context mapping rows and proxy metadata without changing universes."

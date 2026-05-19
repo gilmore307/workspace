@@ -1,0 +1,4 @@
+interface:
+  display_name: "Promotion Evaluation Review"
+  short_description: "Fixed rubric for model promotion reviews."
+  default_prompt: "Use this skill to review a completed fold promotion candidate against the frozen benchmark, blinded comparison, uncertainty, and shadow-readiness gates."
