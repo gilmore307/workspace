@@ -1,42 +1,50 @@
 ---
 name: server-error-repair
-description: "Autonomously diagnose, patch, verify, and classify bounded server_error_agent_request failures under strict trading-system safety gates."
+description: "Autonomously diagnose, patch, execute necessary repair actions, verify, and classify server_error_agent_request failures while never mutating broker/account/order/position state."
 ---
 
 # Server Error Repair
 
-Use when handling a `server_error_agent_request` that may need an autonomous bug fix.
+Use when handling a `server_error_agent_request` that needs an autonomous bug fix.
+
+Your mission is to restore the system to the accepted current contract. Do not stop at diagnosis when a repair is possible. Act, verify, and leave a clear machine-readable receipt.
 
 ## Authority
 
-You may repair internal repository bugs when the evidence is bounded and the fix is reversible:
+You may perform actions needed to fix the bug and prove the fix:
 
 - inspect referenced logs, receipts, read models, source, tests, docs, and config templates
 - edit source, tests, scripts, dashboard read-model producers, and repository-owned config templates
-- run non-destructive tests, compile/build/lint checks, read-only probes, and local dry-runs
+- run tests, compile/build/lint checks, probes, local dry-runs, and bounded reproduction commands
+- call provider/source APIs, regenerate missing data, rerun stages, write runtime/model outputs, restart services, apply storage maintenance, or adjust system config when that is the necessary repair path
+- delete, archive, or rewrite generated/runtime artifacts only when directly required for repair and the receipt names exactly what changed
 - mark a failure as `superseded` only when current contracts or task timelines prove the failed route is obsolete
 - recommend retry only after the bug is fixed, superseded, no longer applicable, or credibly transient
 
-## Hard Gates
+## Non-Negotiable Boundary
 
-Do not perform these without an explicit separate gate or approval:
+Never do these:
 
-- provider/API calls for market, economic, SEC, news, calendar, or options data
 - broker/order/fill/account/position mutation
-- destructive storage mutation, artifact deletion, archive pruning, or lifecycle apply
-- model-output database writes, runtime stage writes, or historical model reruns that change durable evidence
-- live service restarts, package installation, OS/system config changes, or firewall/network changes
 - secret printing, copying, migration into repo files, or broad environment dumps
 
-If a fix requires a gated action, stop at diagnosis plus a precise `gated_actions` list.
+If repair requires broker/account/order/position mutation, stop and return `blocked_boundary` with a precise `blocked_actions` list.
+
+For every powerful action, keep scope narrow and leave evidence:
+
+- state why the action was necessary
+- record affected paths, commands, services, providers, or tables without exposing secrets
+- verify the system state after the action
+- prefer current contracts over historical route names
+- do not hide residual risk or unresolved failures
 
 ## Workflow
 
 1. Read the request and referenced evidence. Identify the current accepted route before trusting old stage names.
 2. Classify the fault: code, config, data-gap, external-provider, environment, obsolete-route, duplicate, transient, or insufficient-evidence.
-3. If it is a safe internal bug, patch the smallest repo-owned surface and add or update focused tests.
-4. Run the smallest verification gate that proves the repair. Expand only when the touched boundary requires it.
-5. If the original failing command writes durable model/runtime output, do not rerun it unless the request explicitly authorizes that write; return `repaired_awaiting_retry`.
+3. Choose the smallest action that actually repairs the failure, including provider/source, runtime, service, storage, or system actions when needed.
+4. Patch code/config and add or update focused tests when the repair touches maintained implementation.
+5. Run verification that proves the repair. Expand when the touched boundary requires it.
 6. If the route is obsolete, return `superseded` with the current route evidence and do not pretend the old stage was repaired.
 7. Leave unresolved items explicit. Do not close an error because it is inconvenient.
 
@@ -48,19 +56,20 @@ Return strict JSON only:
 {
   "review_type": "server_error_repair",
   "error_ref": "string",
-  "diagnosis_status": "repaired_verified|repaired_awaiting_retry|superseded|blocked_gate|no_action_needed|not_supported|insufficient_evidence",
+  "diagnosis_status": "repaired_verified|repaired_awaiting_retry|superseded|blocked_boundary|no_action_needed|not_supported|insufficient_evidence",
   "root_cause": "string",
   "repair_attempted": true,
   "repair": {
     "repair_status": "repaired|superseded|blocked|no_action_needed|not_supported",
-    "repair_kind": "code|config|read_model|dashboard|obsolete_route|data_gap|environment|none",
+    "repair_kind": "code|config|read_model|dashboard|obsolete_route|data_gap|provider|runtime|service|storage|system|environment|none",
     "reason": "string",
     "files_changed": ["string"]
   },
   "files_changed": ["string"],
   "verification": ["string"],
-  "retry_recommendation": "retry|wait_for_scheduler|manual_review|do_not_retry|needs_gate",
-  "gated_actions": ["string"],
+  "retry_recommendation": "retry|wait_for_scheduler|manual_review|do_not_retry|blocked_boundary",
+  "actions_taken": ["string"],
+  "blocked_actions": ["string"],
   "blockers": ["string"],
   "rationale": "short evidence-grounded explanation"
 }
