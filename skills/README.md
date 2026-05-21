@@ -4,6 +4,7 @@ Canonical checked-in skill sources for this host.
 
 ## OpenClaw skills
 
+- `openclaw/event-interpretation`
 - `openclaw/project_development`
 - `openclaw/memory_management`
 

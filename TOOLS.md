@@ -66,3 +66,10 @@ Rules for secret storage, lookup, and use:
 ## Projects Root
 
 Store formal repositories under `/root/projects/`.
+
+## SMB
+
+- Host share: `//100.104.174.7/OpenClaw` (Windows: `\\100.104.174.7\OpenClaw`) exposes `/root/projects` for user `openclaw` over Tailscale only.
+- Samba config binds to `lo 100.104.174.7/10` with `hosts allow = 127. 100.64.0.0/10`.
+- `smbd` can start before Tailscale has its address and bind only to localhost; fixed with `/etc/systemd/system/smbd.service.d/10-wait-for-tailscale.conf` waiting briefly for `tailscale0` before start.
+- Quick check: `ss -ltnp '( sport = :445 or sport = :139 )'` should show `100.104.174.7:445` and `100.104.174.7:139`.

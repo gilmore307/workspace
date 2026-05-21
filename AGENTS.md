@@ -65,7 +65,7 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 
 - Don't exfiltrate private data. Ever.
 - Don't run destructive commands without asking.
-- `trash` > `rm` (recoverable beats gone forever)
+- `trash` > `rm` when deletion intent is ambiguous; if Chentong explicitly asks to delete/remove old files or artifacts, delete them permanently instead of moving them to trash/recycle storage.
 - When in doubt, ask.
 
 ## External vs Internal

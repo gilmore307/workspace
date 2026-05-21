@@ -82,6 +82,22 @@ Add one entry per stable pattern.
 - **Last seen:** 2026-04-23
 - **Example task or path:** naming-sensitive implementation and dispatch workflow
 
+- **Pattern:** incomplete clean-start cleanup
+- **Typical failure:** stops or restarts only the currently visible process while leaving older runtime state, receipts, logs, error catalogs, dashboard read models, or generated database feature/model/control-plane rows active
+- **Prevention warning:** for clean-start tasks, explicitly preserve downloaded source data, stop active writers, quarantine active runtime/read-model artifacts, and reset non-source generated DB tables before claiming a clean state
+- **Review check:** verify active runtime paths are empty, dashboard read models no longer contain stale failures, non-source DB tables are zeroed, source tables still retain rows, and services are either intentionally stopped or restarted from the clean baseline
+- **Severity:** high
+- **Last seen:** 2026-05-18
+- **Example task or path:** trading clean-start reset across `trading-manager`, `trading-model`, `trading-execution`, `trading-storage`, and generated DB tables
+
+- **Pattern:** uses trash/recycle storage when direct deletion was requested
+- **Typical failure:** moves obsolete files to trash after Chentong explicitly asked to delete them, leaving the data retained under a different path
+- **Prevention warning:** if the instruction says delete/remove old files or artifacts, use permanent deletion for the targeted files; use trash only when recoverability is requested or deletion intent is ambiguous
+- **Review check:** after deletion, verify both the original path and trash/recycle locations no longer contain the targeted files
+- **Severity:** high
+- **Last seen:** 2026-05-19
+- **Example task or path:** `trading-manager/storage/runtime/agent_error_handling/server_error_catalog.jsonl`
+
 ## Update rule
 
 Only keep patterns that are recurrent, costly, or predictive. Do not turn this into a noisy diary.
