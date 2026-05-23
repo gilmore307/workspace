@@ -5,7 +5,7 @@ description: Review high-frequency news-topic evidence before it can be promoted
 
 # Regime Promotion Review
 
-Use this skill before a repeated news topic can become a `persistent_event_regime` observation. The review decides whether the topic deserves interval status in the global event observation pool. It does not approve Layer 4 training, alpha, trade direction, position sizing, or execution.
+Use this skill before a repeated news topic can become a `persistent_event_regime` observation. The review decides whether the topic deserves interval status in the global event observation pool and whether it may enter the focused event pool for candidate Layer 4 training/evaluation. It does not approve production Layer 4 conditioning, alpha, trade direction, position sizing, or execution.
 
 ## Non-Negotiable Boundaries
 
@@ -15,7 +15,7 @@ Use this skill before a repeated news topic can become a `persistent_event_regim
 - Do not duplicate an existing regime. Merge or mark duplicate coverage when topic/entity evidence overlaps an active regime.
 - Do not promote a short-lived headline cluster into a regime.
 - Do not approve permanent background risk without an explicit decay or staleness review.
-- Do not output buy/sell advice, alpha direction, position sizing, option selection, broker/account actions, or Layer 4 promotion.
+- Do not output buy/sell advice, alpha direction, position sizing, option selection, broker/account actions, or production Layer 4 promotion.
 
 ## Required Inputs
 
@@ -31,7 +31,7 @@ If any required input is missing, return `insufficient_evidence` or `defer` inst
 - proposed `regime_status`: `active`, `shadow_active`, `decaying`, `stale`, or `resolved`
 - material update rule and decay/staleness rule
 - known confounders, co-events, and competing explanations
-- proposed downstream use: global observation only, Layer 10 attribution candidate, or review-required
+- proposed downstream use: global observation only, Layer 10 attribution candidate, focused event pool candidate training/evaluation, or review-required
 
 ## Review Workflow
 
@@ -59,7 +59,7 @@ If any required input is missing, return `insufficient_evidence` or `defer` inst
    - resolution/end rule when applicable
 
 5. Decide output:
-   - `approve`: create or update a `persistent_event_regime` row in the global event observation pool
+   - `approve`: create or update a `persistent_event_regime` row in the global event observation pool and optionally allow focused-pool candidate training/evaluation
    - `defer`: plausible, but missing interval/scope/decay/source evidence
    - `reject`: short-lived cluster, duplicate, noise, no persistent mechanism, or failed PIT integrity
    - `insufficient_evidence`: required evidence is absent
@@ -82,12 +82,12 @@ Return strict JSON only:
   "scope_status": "passed|review_required|failed|insufficient_evidence",
   "duplicate_status": "unique|merge_with_existing|duplicate|insufficient_evidence",
   "decay_rule_status": "passed|failed|insufficient_evidence",
-  "allowed_observation_use": ["global_event_pool", "layer_10_attribution_candidate"],
-  "blocked_model_use": ["layer_4_training", "alpha_direction", "trade_decision", "position_sizing", "execution"],
+  "allowed_observation_use": ["global_event_pool", "focused_event_pool", "layer_10_attribution_candidate", "layer_4_candidate_training_evaluation", "layer_5_validation_candidate"],
+  "blocked_model_use": ["production_layer_4_conditioning", "accepted_layer4_event_family", "alpha_direction", "trade_decision", "position_sizing", "execution"],
   "blocking_issues": ["string"],
   "required_followups": ["string"],
   "rationale": "short evidence-grounded explanation"
 }
 ```
 
-`approve` means the topic may become or update a `persistent_event_regime` observation. It does not mean Layer 10 has proven failure attribution or that Layer 4 may train on the regime.
+`approve` means the topic may become or update a `persistent_event_regime` observation and may be used as a focused-pool candidate for offline Layer 4 training/evaluation. It does not mean Layer 10 has proven production failure attribution, that Layer 5 has validated incremental value, or that Layer 4 may use the regime for production conditioning.
