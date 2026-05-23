@@ -40,6 +40,7 @@ scheduled_known_outcome_later
 unscheduled_surprise
 scheduled_recurring_data_release
 multi_stage_developing_event
+persistent_event_regime
 ```
 
 Core clock meanings:
@@ -60,6 +61,7 @@ Rules by class:
 - `unscheduled_surprise`: examples include sudden news, accidents, lawsuits, regulatory raids, resignations, wars, sanctions, bank runs, or unexpected offerings. `awareness_time` usually equals first credible `published_time`/`available_time`. Do not pretend the specific event was forecastable; only background hazard or vulnerability priors may exist before it.
 - `scheduled_recurring_data_release`: examples include macro releases and routine economic calendars. The event shell is known in advance; the result values, revisions, and surprise-vs-consensus are only valid after release.
 - `multi_stage_developing_event`: examples include investigations, M&A, litigation, bankruptcy, geopolitical escalation, or policy negotiations. Preserve separate stage updates rather than collapsing the whole arc into the first headline.
+- `persistent_event_regime`: examples include pandemic periods, tariff-war periods, sanctions regimes, geopolitical war/escalation periods, banking-system stress, and policy crisis windows. Preserve interval status, last material update, affected scope, and decay/staleness rules. Same-day news is not required once the regime is active, but the active/shadow/decay state must be point-in-time and evidence-backed.
 
 Training implication: scheduled-known events and surprise events must not share the same label construction without an explicit lifecycle feature. A scheduled earnings calendar can influence pre-event exposure/risk before results; a sudden headline can only influence decisions after detection. Mixing them without lifecycle clocks causes leakage and distorted event-risk behavior.
 
@@ -138,6 +140,19 @@ For structured sources such as SEC filings, earnings, macro releases, and offici
 - map known forms/metrics/events through accepted registry/docs vocabularies;
 - use agent interpretation only for narrative context, materiality notes, uncertainty, and scope mapping;
 - keep actual/consensus/previous/revision fields separate from subjective rationale.
+
+For trading-calendar and market-structure events:
+
+- treat them as scheduled event-risk candidates, not as ordinary clock features;
+- preserve `scheduled_time`, `event_window`, `next_market_open_time`, `non_trading_interval_minutes`, `closure_type`, `closure_length_bucket`, `holiday_name`, `early_close_flag`, `pre_holiday_session_flag`, `expiry_window_flag`, `triple_witching_flag`, `index_rebalance_flag`, and certainty/source refs when available;
+- default direction bias to neutral unless there is contemporaneous evidence for directional pressure;
+- express risk through timing proximity, gap risk, liquidity-thinning/forced-flow prior, uncertainty, and impact scope rather than alpha direction.
+
+For persistent event regimes:
+
+- preserve `regime_family`, `regime_status`, `regime_start_time`, optional `regime_end_time`, `last_material_update_time`, `affected_scope`, `affected_entities`, `decay_rule_ref`, `staleness_review_time`, and evidence refs;
+- distinguish a true regime from a short-lived news cluster, duplicate coverage, or noise through `regime-promotion-review`;
+- preserve active/shadow/decay state even without same-day news, but never carry stale pressure without a decay or staleness rule.
 
 For news:
 
