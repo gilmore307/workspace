@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storage Lifecycle Review"
+  short_description: "Review storage lifecycle decisions."
+  default_prompt: "Use this skill to review storage cleanup, archive, delete, restore, or retention decisions before mutation."

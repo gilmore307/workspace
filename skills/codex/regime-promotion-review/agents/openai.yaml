@@ -1,0 +1,4 @@
+interface:
+  display_name: "Regime Promotion Review"
+  short_description: "Review persistent regime candidates."
+  default_prompt: "Use $regime-promotion-review to judge whether this candidate news topic should become a persistent event regime and focused-pool candidate."

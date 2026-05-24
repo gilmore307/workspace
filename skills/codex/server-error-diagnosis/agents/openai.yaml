@@ -1,0 +1,4 @@
+interface:
+  display_name: "Server Error Diagnosis"
+  short_description: "Diagnose server errors safely."
+  default_prompt: "Use this skill to diagnose server-side trading-system errors and propose safe internal repairs."

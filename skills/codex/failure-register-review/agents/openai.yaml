@@ -1,0 +1,4 @@
+interface:
+  display_name: "Failure Register Review"
+  short_description: "Review failed task handling."
+  default_prompt: "Use this skill to decide whether failed manager/component requests should retry, correct, accept-skip, or remain unresolved."

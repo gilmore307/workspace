@@ -36,9 +36,8 @@ Do not:
 
 ## Model Policy
 
-- Use `gpt-5.4-mini` for the synchronous hot path when the event evidence bundle is compact, current, and source coverage is explicit.
-- Escalate to `gpt-5.5` when event evidence is ambiguous, newly discovered, contradictory, legal/regulatory, macro-systemic, earnings-related, filing-related, or the mini review returns invalid JSON.
-- Treat `gpt-5.5` as the quality baseline for periodic comparison on missed-event cases.
+- Use `gpt-5.5` for all synchronous missed-event reviews.
+- Do not route this skill through smaller models for the hot path. The added latency is acceptable for this gate, and the task benefits from stronger event interpretation and contradiction detection.
 - Deterministic prechecks should reject or defer schema errors, stale market data, closed markets, broker/account hard blocks, and missing required fields before this skill is invoked.
 
 ## Required Inputs

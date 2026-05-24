@@ -1,0 +1,4 @@
+interface:
+  display_name: "Runtime Model Lifecycle Review"
+  short_description: "Review runtime model lifecycle decisions."
+  default_prompt: "Use this skill to review active/shadow model cycle evidence and recommend active, realtime-candidate, shadow-only, or eliminate-candidate roles."
