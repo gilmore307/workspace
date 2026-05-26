@@ -21,6 +21,16 @@ You may perform actions needed to fix the bug and prove the fix:
 - mark a failure as `superseded` only when current contracts or task timelines prove the failed route is obsolete
 - recommend retry only after the bug is fixed, superseded, no longer applicable, or credibly transient
 
+This authority is intentionally broad enough to repair real bugs. Do not avoid a necessary repair just because it touches runtime, storage, service state, or regenerated artifacts. The constraint is not "read-only"; the constraint is current-contract discipline, narrow scope, and verifiable evidence.
+
+## Project Boundary Rules
+
+- Prefer the current accepted route over historical names, old SQL rows, compatibility wrappers, or stale dashboard/read-model behavior.
+- If a source boundary changed, repair the producer and the consumed artifacts together so the old field does not immediately reappear.
+- For Trading Economics macro data, the only accepted source is the canonical storage snapshot under `storage/01_source_data/monthly_backfill/trading_economics_calendar_web/`. Do not call or preserve Trading Economics website URLs as source references while the subscription is expired.
+- Treat SQL rows, dashboard caches, control-plane artifacts, runtime receipts, and lifecycle outputs as derived or operational state unless the current contract explicitly says they are canonical.
+- When a repair edits durable source artifacts, scan for secrets/sensitive values before committing or reporting.
+
 ## Non-Negotiable Boundary
 
 Never do these:
@@ -37,6 +47,8 @@ For every powerful action, keep scope narrow and leave evidence:
 - verify the system state after the action
 - prefer current contracts over historical route names
 - do not hide residual risk or unresolved failures
+- commit/push repository edits only after the relevant verification gate passes, unless the owner explicitly asked for an uncommitted patch
+- if a runtime/service change is needed, include the service name, command class, and post-action status/log evidence in the receipt
 
 ## Workflow
 
