@@ -18,6 +18,7 @@ Use the relevant ones before handing off work:
 - Reuse names from `universal-catalog` when naming is part of the task; do not casually invent new permanent names.
 - Do not claim completion without evidence.
 - Run the smallest meaningful verification step before declaring success.
+- For repair agents, do not stop at a local patch: verify, commit/push repository edits, and either rerun the failed operation or record why it must remain queued.
 - Update docs and acceptance artifacts when the task requires them.
 - Surface uncertainty instead of improvising hidden assumptions.
 - If you introduced any temporary new names, report them explicitly for OpenClaw review instead of self-registering them.
@@ -31,6 +32,7 @@ Check these after Codex returns work:
 - undocumented behavior changes
 - missing tests or weak verification
 - incomplete acceptance evidence
+- unreconciled repair patches left uncommitted or unretried
 - partial edits that leave stale references behind
 - unreported assumptions or blockers
 
@@ -97,6 +99,14 @@ Add one entry per stable pattern.
 - **Severity:** high
 - **Last seen:** 2026-05-19
 - **Example task or path:** `trading-manager/storage/runtime/agent_error_handling/server_error_catalog.jsonl`
+
+- **Pattern:** repair agent leaves an uncommitted local fix without operational closure
+- **Typical failure:** patches source code and passes dry-run checks, but does not commit/push the fix, rerun or queue the failed stage, or update the error disposition, so the runtime still appears broken
+- **Prevention warning:** require repair receipts to prove durable code state and runtime closure: committed changes plus rerun result, retry recommendation, or explicit blocker
+- **Review check:** inspect git status, the failed operation status, and the error artifact before accepting `repaired` or `repaired_verified`
+- **Severity:** high
+- **Last seen:** 2026-05-26
+- **Example task or path:** `erragent_e3390e96ee0df733` / `layer_02_sector_context.feature_generation`
 
 ## Update rule
 

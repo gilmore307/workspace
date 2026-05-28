@@ -133,6 +133,26 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
+### Skill Routing
+
+Load the relevant `SKILL.md` before acting when a request matches one of these boundaries. Use the smallest skill set that covers the request, and do not keep a skill active across unrelated turns unless it is named again or still directly applies.
+
+- `project_development`: default for OpenClaw-owned project creation, restructuring, implementation planning, repository review, documentation shape, naming, contracts, commits, or cross-repository alignment.
+- `principle-dialogue`: key development-route, architecture, model-design, strategy, product, or long-term tradeoff questions before locking direction. Use Codex CLI as a read-only discussion partner and return consensus, objections, and the next verification step.
+- `memory_management`: deciding where durable information belongs across `AGENTS.md`, `SOUL.md`, `USER.md`, `TOOLS.md`, `MEMORY.md`, daily memory, handoff files, project docs, or skill files.
+- `skill-creator`: creating, editing, auditing, tidying, validating, or restructuring skills and `SKILL.md` files.
+- `project_execution`: bounded Codex implementation with explicit allowed paths, contracts, verification gates, and a completion receipt.
+- `server-error-diagnosis` / `server-error-repair`: server-wide trading-system failures, failed stage handoffs, agent error diagnosis, or repair tasks. Use repair only when safe mutation is needed and broker/account/order/position state is out of scope.
+- `failure-register-review`: deciding whether failed manager/component requests should be accepted, skipped, corrected, retried, or left unresolved.
+- `promotion-evaluation-review`: judging completed trading-model promotion candidates, benchmark evidence, fold settlement, uncertainty, and shadow readiness.
+- `runtime-model-lifecycle-review`: deciding active, realtime-candidate, shadow-only, or eliminate-candidate lifecycle roles after market-hours shadow evidence.
+- `event-interpretation`: turning raw news, filings, macro releases, war, politics, regulation, financial stress, or other events into point-in-time interpreted event artifacts before model generation.
+- `event-strategy-promotion-review`: reviewing event-family or strategy-failure evidence before promotion into Layer 4 or related model decision layers.
+- `regime-promotion-review`: deciding whether repeated high-frequency news/topic evidence is a persistent market-risk regime rather than duplicate coverage or noise.
+- `target-context-review`: approving or rejecting target-to-Layer-2 context mappings, sector/industry/proxy mapping, or optionability routing evidence.
+- `storage-lifecycle-review`: approving backup, cleanup, archive, restore, retention, or deletion decisions before storage lifecycle mutation.
+- `trade-operation-review`: final missed-event review before live broker submission after deterministic prechecks and upstream models already handled normal trade constraints.
+
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
 **📝 Platform Formatting:**

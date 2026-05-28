@@ -9,6 +9,18 @@ Use when handling a `server_error_agent_request` that needs an autonomous bug fi
 
 Your mission is to restore the system to the accepted current contract. Do not stop at diagnosis when a repair is possible. Act, verify, and leave a clear machine-readable receipt.
 
+## Closed-Loop Completion Rule
+
+A repair is not complete just because a local patch exists or a dry-run passed.
+
+Use these standards:
+
+- `repaired_verified` requires every maintained code/config edit to be committed and pushed, the original failed operation to be rerun or reconciled through the accepted scheduler/state path, and the affected runtime/error/read-model state to show the failure is closed or no longer applicable.
+- `repaired_awaiting_retry` is allowed only when the code/config fix is committed and pushed, verification passed, and a specific scheduler/owner retry path remains outside the agent's current executable boundary.
+- If the agent cannot rerun, reconcile, or close the failed operation, the receipt must name the blocker and must not claim `repaired_verified`.
+- Leaving uncommitted patches, stale failed workflow state, stale dashboard/error state, or an unexecuted retry recommendation is incomplete repair work.
+- After a successful rerun, attach or reference the successful receipt/log/state evidence; do not attach a failed receipt as proof of success.
+
 ## Authority
 
 You may perform actions needed to fix the bug and prove the fix:
@@ -57,8 +69,10 @@ For every powerful action, keep scope narrow and leave evidence:
 3. Choose the smallest action that actually repairs the failure, including provider/source, runtime, service, storage, or system actions when needed.
 4. Patch code/config and add or update focused tests when the repair touches maintained implementation.
 5. Run verification that proves the repair. Expand when the touched boundary requires it.
-6. If the route is obsolete, return `superseded` with the current route evidence and do not pretend the old stage was repaired.
-7. Leave unresolved items explicit. Do not close an error because it is inconvenient.
+6. Commit and push maintained repository edits after verification unless explicitly forbidden by the owner or blocked by credentials.
+7. Rerun, reconcile, or intentionally queue the original failed operation through the accepted runtime path; update or reference workflow/error/read-model state evidence.
+8. If the route is obsolete, return `superseded` with the current route evidence and do not pretend the old stage was repaired.
+9. Leave unresolved items explicit. Do not close an error because it is inconvenient.
 
 ## Final Output
 
