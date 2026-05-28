@@ -251,6 +251,7 @@ When delegating implementation work to Codex:
 
 - Structure before implementation.
 - Boundaries before wiring.
+- For key development-route, architecture, model-design, or long-term tradeoff questions, use the `principle-dialogue` skill before locking direction. Use it to force first-principles discussion and explicit consensus or disagreement; do not spend it on routine implementation details.
 - Small coherent change before broad refactor.
 - Clarity before cleverness.
 - Root cause before patch.
