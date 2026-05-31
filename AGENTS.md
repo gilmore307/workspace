@@ -133,6 +133,10 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
+### Trading Python Environment
+
+For all trading-related Python commands, use the canonical shared interpreter recorded in `TOOLS.md` under Trading Python Environment. Do not default to system `python3` for trading project tests, scripts, model generation/evaluation, registry checks, scheduler commands, or stage runners.
+
 ### Skill Routing
 
 Load the relevant `SKILL.md` before acting when a request matches one of these boundaries. Use the smallest skill set that covers the request, and do not keep a skill active across unrelated turns unless it is named again or still directly applies.

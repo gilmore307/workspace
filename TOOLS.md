@@ -67,6 +67,14 @@ Rules for secret storage, lookup, and use:
 
 Store formal repositories under `/root/projects/`.
 
+## Trading Python Environment
+
+- Canonical Python for all trading-related repositories: `/root/projects/trading-manager/.venv/bin/python`.
+- Use this interpreter for trading-model, trading-manager, trading-storage, trading-data, trading-dashboard helper scripts, tests, model generation/evaluation, registry checks, and scheduler/stage commands that run Python.
+- Do not use system `python3` for trading project dependency-bearing commands except for OS/bootstrap checks or when explicitly diagnosing interpreter drift.
+- When installing trading Python dependencies, record them in `/root/projects/trading-manager/requirements.txt` before installing into the manager venv.
+- Common command pattern: `PYTHONPATH=src /root/projects/trading-manager/.venv/bin/python <module-or-script>`.
+
 ## SMB
 
 - Host share: `//100.104.174.7/OpenClaw` (Windows: `\\100.104.174.7\OpenClaw`) exposes `/root/projects` for user `openclaw` over Tailscale only.
