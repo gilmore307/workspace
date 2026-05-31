@@ -23,6 +23,7 @@ Apply these before following any historical route:
 - One canonical home for each fact.
 - Names are interfaces; register or document them before depending on them.
 - Semantic/business interface names must be stable and unversioned. Do not add drift suffixes such as `_v1`, `_v2`, `_old`, `_new`, `_legacy`, `_temp`, or `_final` to contract types, registry keys, task ids, storage folder names, table names, public artifact names, or script keys. Put versions in metadata fields such as `schema_version`, `schema_ref`, `contract_version`, migration numbers, or dated immutable evidence paths.
+- Replacement work must close the old route in the same acceptance batch. When introducing a current name, table, artifact, schema, CLI, or storage path that supersedes an older one, migrate consumers and then delete or explicitly retire the old surface before acceptance. Do not leave new/old coexistence as a deferred cleanup unless the user explicitly approves a temporary compatibility surface.
 - Explicit contracts before hidden behavior.
 - Point-in-time evidence before model/trading claims.
 - Safe gates before service, provider, broker, database, or storage mutation.
@@ -54,8 +55,9 @@ The target shape is straightforward, elegant, and boring: a new maintainer shoul
 3. Shape the docs/source boundary first when the request changes architecture, naming, contracts, or ownership.
 4. Make one coherent acceptance-sized change; do not chain unrelated cleanups just because they are nearby.
 5. Update all active references when renaming paths, modules, scripts, contract ids, or registry-backed names.
-6. Run the smallest meaningful verification gate, expanding when the change crosses repos or contracts.
-7. Commit and push accepted file-editing work unless the user explicitly says not to.
+6. Check for old-version coexistence across active source, docs, tests, registry, SQL tables, runtime artifacts, dashboard/read-model paths, and storage receipts; delete, migrate, or explicitly retire stale surfaces in the same batch.
+7. Run the smallest meaningful verification gate, expanding when the change crosses repos or contracts.
+8. Commit and push accepted file-editing work unless the user explicitly says not to.
 
 ## Canonical homes
 
