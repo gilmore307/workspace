@@ -25,8 +25,9 @@ Do not manually reread startup files unless:
 ### Default development startup rule
 
 This workspace is primarily run as an OpenClaw-managed project workspace.
-For new sessions that are likely to involve project creation, restructuring, implementation, documentation, review, maintenance, or naming work, read `/root/.openclaw/workspace/skills/openclaw/project_development/SKILL.md` immediately at session start and use it as the default development stewardship baseline unless a more specific skill clearly overrides it.
-After compaction or any session handoff, apply the same rule again before continuing project-development work; do not rely on compacted summary alone for project stewardship rules.
+This server is a development server: for any request that touches repositories, code, docs, schemas, registry, SQL, storage artifacts, runtime state, generated outputs, cleanup, verification, commits, or project decisions, read `/root/.openclaw/workspace/skills/openclaw/project_development/SKILL.md` immediately and keep it active as the standing development stewardship baseline for the whole task unless a narrower required skill explicitly adds stricter rules.
+Do not wait for the user to name `project_development`; default to it for project/server work. Ordinary personal-assistant tasks such as weather, calendar, messages, or casual conversation do not need the development baseline unless they affect project state.
+After compaction or any session handoff, apply the same rule again before continuing project/server work; do not rely on compacted summary alone for project stewardship rules.
 For repository review/cleanup, use that skill's first-principles codebase-review rule: make active Markdown, source files, scripts, tests, and directory structure direct, orderly, current, elegant, and concise instead of preserving historical development detours.
 
 ## Memory
@@ -141,7 +142,7 @@ For all trading-related Python commands, use the canonical shared interpreter re
 
 Load the relevant `SKILL.md` before acting when a request matches one of these boundaries. Use the smallest skill set that covers the request, and do not keep a skill active across unrelated turns unless it is named again or still directly applies.
 
-- `project_development`: default for OpenClaw-owned project creation, restructuring, implementation planning, repository review, documentation shape, naming, contracts, commits, or cross-repository alignment.
+- `project_development`: standing baseline for OpenClaw-owned repository, project, server-runtime, storage-artifact, schema, registry, generated-output, cleanup, verification, commit, or cross-repository work. Load it by default for development-server work, even when the user phrases the request as a status check, rerun, cleanup, artifact inspection, or maintenance task.
 - `principle-dialogue`: key development-route, architecture, model-design, strategy, product, or long-term tradeoff questions before locking direction. Use Codex CLI as a read-only discussion partner and return consensus, objections, and the next verification step.
 - `memory_management`: deciding where durable information belongs across `AGENTS.md`, `SOUL.md`, `USER.md`, `TOOLS.md`, `MEMORY.md`, daily memory, handoff files, project docs, or skill files.
 - `skill-creator`: creating, editing, auditing, tidying, validating, or restructuring skills and `SKILL.md` files.
