@@ -75,6 +75,14 @@ Store formal repositories under `/root/projects/`.
 - When installing trading Python dependencies, record them in `/root/projects/trading-manager/requirements.txt` before installing into the manager venv.
 - Common command pattern: `PYTHONPATH=src /root/projects/trading-manager/.venv/bin/python <module-or-script>`.
 
+## ThetaData Terminal
+
+- Local historical option-source acquisition uses ThetaData Terminal on `127.0.0.1:25503`.
+- Managed service: `thetadata-terminal.service`.
+- Working directory: `/root/tools/thetadata-terminal`.
+- Service command uses `ThetaTerminalv3.jar`, `config.toml`, `creds.txt`, and logs under `/tmp/thetadata-terminal-logs`.
+- Quick check: `systemctl is-active thetadata-terminal.service` and `ss -ltnp '( sport = :25503 )'`.
+
 ## SMB
 
 - Host share: `//100.104.174.7/OpenClaw` (Windows: `\\100.104.174.7\OpenClaw`) exposes `/root/projects` for user `openclaw` over Tailscale only.
