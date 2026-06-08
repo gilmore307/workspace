@@ -1,6 +1,6 @@
 ---
-name: principle-dialogue
-description: Use when Chentong wants to reason through an architectural, modeling, strategy, product, or other principle-level question by having OpenClaw consult Codex CLI as a disciplined discussion partner until the core position, objections, and next verification step are clear. Trigger for phrases such as "讨论一下", "辩论", "原理", "方向对不对", "你觉得", "让 codex 也想想", or when a decision is conceptual rather than a direct implementation task.
+name: "principle-dialogue"
+description: "Reason through principle-level decisions with capped multi-round Codex CLI critique."
 ---
 
 # Principle Dialogue
@@ -68,16 +68,34 @@ Rules:
    - "State what evidence would change your mind."
    - "Return a recommendation, risks, and a minimal verification plan."
 
-3. Compare positions:
-   - agreements;
-   - disagreements;
-   - new insight;
+3. Compare positions after each Codex CLI reply:
+   - confirmed agreements;
+   - unresolved objections;
+   - changed assumptions;
    - evidence gaps;
-   - decision criteria.
+   - decision criteria and next verification step.
 
-4. Run one more Codex CLI round only if there is a material unresolved point that can be clarified by argument, not if it requires new data collection.
+4. Continue another Codex CLI round only when:
+   - a material objection remains unresolved;
+   - the disagreement is about reasoning, framing, assumptions, or criteria;
+   - both sides have enough existing evidence to make progress by argument;
+   - the next prompt can carry forward the current agreements, unresolved objections, changed assumptions, and evidence gaps.
 
-5. Stop after at most three total rounds. If still unresolved, return the split clearly instead of forcing agreement.
+5. Stop early when:
+   - both sides converge on the same recommendation, assumptions, and verification step;
+   - the remaining disagreement depends on new data, experiments, code inspection, metrics, or external evidence rather than further argument;
+   - the discussion starts repeating prior claims without narrowing the disagreement;
+   - the decision can be safely reduced to a bounded verification step.
+
+6. Hard cap: run at most 5 total Codex CLI rounds. If the cap is reached, stop and report the remaining split instead of forcing consensus.
+
+7. Final output to Chentong must summarize:
+   - consensus reached;
+   - remaining disagreements, if any;
+   - strongest objections;
+   - changed assumptions or evidence gaps;
+   - next smallest verification step;
+   - whether the 5-round cap was hit.
 
 ## Prompt Template
 
