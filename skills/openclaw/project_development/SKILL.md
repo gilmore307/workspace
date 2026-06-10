@@ -66,8 +66,8 @@ The target shape is straightforward, elegant, and boring: a new maintainer shoul
 - Host/environment notes live in `TOOLS.md`.
 - Repository-specific current rules live in that repository's docs.
 - Active task/decision/memory ledgers live in that repository's docs trunk.
-- Registry-backed shared names live in `trading-manager/scripts/registry/` through SQL migrations.
-- Historical narrative belongs in Git history, append-only migrations, or dated memory; do not keep route-change narrative in active docs once the current contract is clear.
+- Registry-backed shared names live in `trading-manager/scripts/registry/current.csv` and sync into the SQL-backed registry through `trading-manager/scripts/registry/sync_registry.py`.
+- Historical narrative belongs in Git history, append-only migrations where a repository still uses them, or dated memory; do not keep route-change narrative in active docs once the current contract is clear.
 
 ## Documentation spine rule
 
@@ -118,7 +118,7 @@ Do not use `100_*` or higher for active docs. If active docs would exceed `99`, 
 
 ### Renames and registry references
 
-When a docs file is renamed and registry rows point to it, add a `trading-manager/scripts/registry/sql/schema_migrations/` migration and regenerate `trading-manager/scripts/registry/current.csv`. Do not hand-edit generated registry snapshots.
+When a docs file is renamed and registry rows point to it, update the affected `trading-manager/scripts/registry/current.csv` rows and run the registry snapshot/dry-run gates. Update `trading-manager/scripts/registry/sql/trading_registry.sql` only when the table shape or constraints change.
 
 Repository README/docs may list the current local docs spine, but they should not duplicate this shared numbering policy.
 
@@ -138,7 +138,7 @@ Repository README/docs may list the current local docs spine, but they should no
 - Treat provider calls, broker/order/account mutation, service starts/stops, destructive SQL, artifact deletion, and storage lifecycle actions as gated operations.
 - Separate historical/modeling services from realtime trading and broker execution unless an accepted contract explicitly connects them.
 - Define durable data ownership, migration responsibility, backup/restore expectations, and retention tradeoffs before touching databases or high-volume storage.
-- Preserve append-only SQL migration history. Fix current state with a new migration instead of rewriting applied migrations.
+- Preserve append-only SQL migration history in repositories that still use migrations. For the `trading-manager` registry, current rows are maintained through `current.csv` plus `sync_registry.py`, not stacked schema migrations.
 - Prefer quarantine/trash and backups over irreversible deletion.
 - For point-in-time modeling systems, keep raw evidence, interpreted events, labels, and promotion claims separated by explicit clocks and gates.
 
@@ -156,7 +156,7 @@ Use the smallest gate that proves the change, then expand for cross-boundary wor
 - Docs-only: path/reference scan, markdown inspection, and `git diff --check`.
 - Python code: targeted tests or full `unittest`, plus `python3 -m compileall` when useful.
 - TypeScript/frontend: typecheck/build/test as appropriate.
-- Registry changes: migration apply/dry-run and generated snapshot review.
+- Registry changes: row review, `sync_registry.py --dry-run` when DB access exists, and `check_registry_current_matches_db.py --allow-missing-db` or the strict DB-backed check as appropriate. If a repository still uses migrations for the touched surface, run the matching migration dry-run too.
 - Renames: stale-reference scan across active docs/source/tests/scripts and registry current; exclude immutable migration history only intentionally.
 - Runtime/service work: inspect service status/log evidence and safety flags before claiming success.
 
