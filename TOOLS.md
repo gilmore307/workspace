@@ -83,6 +83,15 @@ Store formal repositories under `/root/projects/`.
 - Service command uses `ThetaTerminalv3.jar`, `config.toml`, `creds.txt`, and logs under `/tmp/thetadata-terminal-logs`.
 - Quick check: `systemctl is-active thetadata-terminal.service` and `ss -ltnp '( sport = :25503 )'`.
 
+## OpenClaw / Codex CLI Auto Update
+
+- Maintained script: `/root/.openclaw/workspace/scripts/openclaw-codex-auto-update.sh`.
+- Systemd user units: `/root/.config/systemd/user/openclaw-codex-auto-update.service` and `/root/.config/systemd/user/openclaw-codex-auto-update.timer`, symlinked to the maintained unit files in `/root/.openclaw/workspace/scripts/`.
+- Schedule: daily at 04:15 America/New_York with up to 45 minutes randomized delay.
+- Behavior: updates global `@openai/codex@latest`, then runs `openclaw update --yes --timeout 1800 --json` so OpenClaw uses its supported updater, plugin sync, completion refresh, and gateway restart path.
+- The timer intentionally omits catch-up persistence so enabling it during the day does not immediately restart the active gateway because a previous 04:15 run was missed.
+- Quick checks: `systemctl --user list-timers openclaw-codex-auto-update.timer --no-pager`, `systemctl --user status openclaw-codex-auto-update.timer`, and `journalctl --user -u openclaw-codex-auto-update.service -n 100 --no-pager`.
+
 ## SMB
 
 - Host share: `//100.104.174.7/OpenClaw` (Windows: `\\100.104.174.7\OpenClaw`) exposes `/root/projects` for user `openclaw` over Tailscale only.

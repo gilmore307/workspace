@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily OpenClaw and Codex CLI auto-update
+
+[Timer]
+OnCalendar=*-*-* 04:15:00
+RandomizedDelaySec=45m
+AccuracySec=15m
+Unit=openclaw-codex-auto-update.service
+
+[Install]
+WantedBy=timers.target
