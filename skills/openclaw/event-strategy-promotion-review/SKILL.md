@@ -1,30 +1,35 @@
 ---
-name: event-strategy-promotion-review
-description: Review event-family and strategy-failure evidence before it can be promoted into Layer 4 or related model decision layers. Use when an agent judges event interpretation, event-family scouting, strategy-failure packets, or residual event-risk promotion.
+name: "event-strategy-promotion-review"
+description: "Deprecated event-model review route; use narrower skills."
 ---
 
 # Event Strategy Promotion Review
 
-Use this skill before event or strategy-failure evidence can affect model scoring, intervention, or Layer 4 promotion. The agent checks whether the evidence is causal enough, point-in-time enough, and non-overlapping enough to become model input.
+This is a deprecated compatibility route for older prompts that ask for event-strategy promotion or residual event-risk promotion review.
 
-## Non-Negotiable Boundaries
+Do not use this skill as the current event-model review path. Under the current event impact distribution architecture, route to the narrower skill that owns the task.
 
-- Raw event text, news anomalies, or unreviewed labels cannot enter scoring.
-- Event interpretation artifacts must be standardized and point-in-time.
-- Evidence must prove non-overlap with upstream features or residual value after upstream conditioning.
-- Matched controls, base rates, and leakage checks are required before promotion.
-- Do not output buy/sell advice, position sizing, order construction, or broker/account actions.
-- Do not promote a family because it is interesting; promote only when the incremental evidence survives controls.
+## Current Routing
 
-## Required Inputs
+Use these skills instead:
 
-- event family or strategy-failure id and scope
-- interpreted event refs and point-in-time availability clocks
-- matched-control evidence and base-rate comparison
-- upstream overlap status: `not_in_upstream_features`, `residual_after_upstream_conditioning`, or `review_required_overlap_unknown`
-- leakage review and label horizon evidence
-- proposed model-layer consumption route and blocked outputs
-- failure modes and known confounders
+- `event-interpretation`: raw PIT artifacts to standardized event facts.
+- `event-taxonomy-standard-review`: reusable event type/family/lifecycle standards.
+- `regime-interval-review`: persistent event-regime interval governance.
+- `event-family-modelability-review`: M06 modelability, projection mode, and probability-function class.
+- `event-context-projection-review`: context-only projection review.
+- `event-state-projection-review`: M03 event_state_projection compliance review.
+- `event-leakage-overlap-review`: PIT leakage, selected-path contamination, and feature/label overlap audit.
+- `target-context-review`: PIT target/context/optionability routing only.
+
+## Compatibility Behavior
+
+If a legacy task invokes this skill:
+
+1. Identify the actual current review type.
+2. State the redirected skill name.
+3. Return `defer` unless the caller provides the required inputs for the narrower skill.
+4. Do not approve event evidence under the old Layer 4 promotion semantics.
 
 ## Output Contract
 
@@ -32,18 +37,19 @@ Return strict JSON only:
 
 ```json
 {
-  "review_type": "event_strategy_promotion_review",
+  "review_type": "event_strategy_promotion_review_legacy_router",
   "subject_ref": "string",
-  "decision": "approve|defer|reject|insufficient_evidence",
-  "pit_status": "passed|failed|insufficient_evidence",
-  "control_status": "passed|failed|insufficient_evidence",
-  "overlap_status": "not_in_upstream_features|residual_after_upstream_conditioning|review_required_overlap_unknown|failed|insufficient_evidence",
-  "leakage_status": "passed|failed|insufficient_evidence",
-  "allowed_model_use": ["string"],
-  "blocked_model_use": ["string"],
+  "decision": "defer|reject|insufficient_evidence",
+  "redirect_to_skill": "event-interpretation|event-taxonomy-standard-review|regime-interval-review|event-family-modelability-review|event-context-projection-review|event-state-projection-review|event-leakage-overlap-review|target-context-review",
+  "legacy_route_status": "deprecated",
   "blocking_issues": ["string"],
   "required_followups": ["string"],
-  "rationale": "short evidence-grounded explanation"
+  "rationale": "short explanation of why the old route is no longer authoritative"
 }
 ```
 
+## Non-Negotiable Boundaries
+
+- Do not approve event evidence for model use through this legacy route.
+- Do not output signed impact, probability-function class, modelability status, M03 parameters, alpha direction, trade decision, position sizing, option selection, or execution guidance.
+- Do not preserve old `promote_to_layer_4` language as current architecture.

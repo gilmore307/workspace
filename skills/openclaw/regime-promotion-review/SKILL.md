@@ -1,68 +1,74 @@
 ---
-name: regime-promotion-review
-description: Review high-frequency news-topic evidence before it can be promoted into a persistent event regime in the global event observation pool. Use when an agent judges candidate_regime packets, regime interval status, active/shadow/decay rules, or whether repeated news coverage represents a true persistent market-risk regime rather than a short-lived cluster, duplicate coverage, or noise.
+name: "regime-promotion-review"
+description: "Review persistent event-regime interval governance."
 ---
 
-# Regime Promotion Review
+# Regime Interval Review
 
-Use this skill before a repeated news topic can become a `persistent_event_regime` observation. The review decides whether the topic deserves interval status in the global event observation pool and whether it may enter the focused event pool for candidate Layer 4 training/evaluation. It does not approve production Layer 4 conditioning, alpha, trade direction, position sizing, or execution.
+Use this Codex skill when repeated or persistent event evidence may become, update, decay, or retire a `persistent_event_regime` interval in the event observation pool.
 
-## Non-Negotiable Boundaries
+This skill governs regime interval identity and lifecycle. It does not approve production model conditioning, impact distribution parameters, alpha, trade direction, position sizing, option selection, or execution.
 
-- High news frequency alone is insufficient.
-- Same-day news is not required after a regime is active, but the active/shadow/decay state must be point-in-time and evidence-backed.
-- A regime must have a clear interval, affected scope, material-update rule, and decay/staleness rule.
-- Do not duplicate an existing regime. Merge or mark duplicate coverage when topic/entity evidence overlaps an active regime.
-- Do not promote a short-lived headline cluster into a regime.
-- Do not approve permanent background risk without an explicit decay or staleness review.
-- Do not output buy/sell advice, alpha direction, position sizing, option selection, broker/account actions, or production Layer 4 promotion.
+## Core Boundary
+
+A persistent regime is an event-pool observation with interval state, not a permanent vague risk overlay.
+
+The review decides whether evidence supports a regime row and its current lifecycle state:
+
+- active
+- shadow_active
+- decaying
+- stale
+- resolved
+- rejected/noise
+
+It does not decide signed market impact or probability-function parameters. `event-family-modelability-review` handles probability-function class and projection mode if the regime family later becomes a modeling candidate.
 
 ## Required Inputs
 
-If any required input is missing, return `insufficient_evidence` or `defer` instead of guessing:
+If required evidence is missing, return `insufficient_evidence` or `defer`.
 
-- `candidate_regime_ref` and topic key
+- candidate regime ref and topic key
 - topic/entities/keywords and inclusion/exclusion rules
 - first seen time, last seen time, candidate interval, and point-in-time source clocks
-- source count, high-quality source count, source diversity, and representative evidence refs
-- topic frequency, persistence, and acceleration evidence
-- affected scope hint: market/global, sector/theme, peer/index basket, target-local, or unknown
-- duplicate/overlap check against active and stale regimes
-- proposed `regime_status`: `active`, `shadow_active`, `decaying`, `stale`, or `resolved`
-- material update rule and decay/staleness rule
-- known confounders, co-events, and competing explanations
-- proposed downstream use: global observation only, Layer 10 attribution candidate, focused event pool candidate training/evaluation, or review-required
+- representative evidence refs and source-quality summary
+- source count, high-quality source count, source diversity, and update cadence
+- affected scope hint: global, sector/theme, peer/index basket, target-local, or unknown
+- duplicate/overlap check against active, decaying, stale, and resolved regimes
+- proposed regime status and interval boundary rationale
+- material update rule
+- decay/staleness rule
+- resolution/end rule if applicable
+- known confounders, co-events, competing explanations, and canonical event links
+- proposed downstream observation use and blocked uses
 
 ## Review Workflow
 
-1. Validate point-in-time integrity:
-   - evidence was visible before the proposed `available_time`
-   - later resolutions or market reactions are not used as inference facts
-   - source timestamps and retrieval clocks are preserved
+1. Validate point-in-time integrity.
+   - Evidence must be visible before proposed `available_time`.
+   - Later resolutions and market reactions cannot be used as inference facts.
 
-2. Decide whether the topic is persistent:
-   - repeated coverage spans more than a single headline burst
-   - entity/topic cluster is coherent
-   - coverage comes from sufficiently diverse or high-quality sources
-   - the topic has a plausible continuing market-risk mechanism
+2. Decide whether the topic is persistent.
+   - Repeated evidence spans more than a single headline burst.
+   - Topic/entity cluster is coherent.
+   - Sources are sufficiently diverse or authoritative.
+   - The regime has a plausible continuing event mechanism.
 
-3. Check scope and duplicate coverage:
-   - identify affected market/sector/theme/peer/target scopes
-   - reject or merge duplicate coverage of an existing regime
-   - mark uncertain scope as review-required rather than overbroad
+3. Check scope and duplicate coverage.
+   - Identify affected scope without overbroad routing.
+   - Merge or reject duplicate coverage of existing regimes.
+   - Mark uncertain scope as review-required.
 
-4. Require lifecycle rules:
-   - explicit start rule
-   - current active/shadow/decay/stale state
-   - material update rule
-   - decay/staleness review rule
-   - resolution/end rule when applicable
+4. Require lifecycle rules.
+   - Start rule.
+   - Active/shadow/decay/stale/resolved state.
+   - Material update rule.
+   - Decay/staleness review rule.
+   - Resolution/end rule when applicable.
 
-5. Decide output:
-   - `approve`: create or update a `persistent_event_regime` row in the global event observation pool and optionally allow focused-pool candidate training/evaluation
-   - `defer`: plausible, but missing interval/scope/decay/source evidence
-   - `reject`: short-lived cluster, duplicate, noise, no persistent mechanism, or failed PIT integrity
-   - `insufficient_evidence`: required evidence is absent
+5. Decide event-pool eligibility.
+   - The output may allow global or focused event-pool observation use.
+   - It must not approve M03 training or signed impact projection by itself.
 
 ## Output Contract
 
@@ -70,7 +76,7 @@ Return strict JSON only:
 
 ```json
 {
-  "review_type": "regime_promotion_review",
+  "review_type": "regime_interval_review",
   "candidate_regime_ref": "string",
   "topic_key": "string",
   "decision": "approve|defer|reject|insufficient_evidence",
@@ -81,13 +87,34 @@ Return strict JSON only:
   "source_quality_status": "passed|failed|insufficient_evidence",
   "scope_status": "passed|review_required|failed|insufficient_evidence",
   "duplicate_status": "unique|merge_with_existing|duplicate|insufficient_evidence",
+  "interval_rule_status": "passed|failed|insufficient_evidence",
   "decay_rule_status": "passed|failed|insufficient_evidence",
-  "allowed_observation_use": ["global_event_pool", "focused_event_pool", "layer_10_attribution_candidate", "layer_4_candidate_training_evaluation", "layer_5_validation_candidate"],
-  "blocked_model_use": ["production_layer_4_conditioning", "accepted_layer4_event_family", "alpha_direction", "trade_decision", "position_sizing", "execution"],
+  "allowed_observation_use": ["global_event_pool", "focused_event_pool", "event_family_modelability_candidate"],
+  "blocked_model_use": [
+    "production_m03_projection",
+    "signed_impact_distribution",
+    "probability_function_parameter",
+    "alpha_direction",
+    "trade_decision",
+    "position_sizing",
+    "execution"
+  ],
   "blocking_issues": ["string"],
   "required_followups": ["string"],
   "rationale": "short evidence-grounded explanation"
 }
 ```
 
-`approve` means the topic may become or update a `persistent_event_regime` observation and may be used as a focused-pool candidate for offline Layer 4 training/evaluation. It does not mean Layer 10 has proven production failure attribution, that Layer 5 has validated incremental value, or that Layer 4 may use the regime for production conditioning.
+## Decision Rules
+
+- `approve`: create/update regime interval observation with explicit lifecycle rules.
+- `defer`: plausible regime, but interval/scope/source/decay evidence is incomplete.
+- `reject`: short-lived cluster, duplicate, noise, no persistent mechanism, or PIT failure.
+- `insufficient_evidence`: required evidence is absent.
+
+## Non-Negotiable Boundaries
+
+- Same-day news is not required after a regime is active, but staleness/decay must be explicit.
+- Do not approve permanent background risk without decay/staleness review.
+- Do not output signed impact, utility, alpha, or trade instructions.
+- Do not treat regime interval approval as M03 projection approval.
