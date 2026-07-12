@@ -71,7 +71,8 @@ Store formal repositories under `/root/projects/`.
 
 - Tiger Mod Validator for Victoria 3 is installed as `vic3-tiger` at `/usr/local/bin/vic3-tiger`, symlinked to `/root/tools/tiger/v1.19.0/vic3-tiger-linux-v1.19.0/vic3-tiger`.
 - Installed release: Tiger Validator `v1.19.0`; release notes say Vic3 support targets 1.13.8, so treat results against `/root/projects/vic3/game` 1.13.9 as close but not perfect.
-- Tiger requires a full Victoria 3 install root containing `game/` and `clausewitz/`; the current GitHub base checkout at `/root/projects/vic3/game` only has game data and is not enough by itself.
+- Full Steam Victoria 3 install root: `/root/projects/vic3/steam-install`; use this for Tiger's `--game` argument because it contains `game/`, `clausewitz/`, and `jomini/`.
+- GitHub base checkout: `/root/projects/vic3/game`; useful as source reference but not sufficient for Tiger by itself.
 - Current mod descriptor for launcher testing: `/root/Documents/Paradox Interactive/Victoria 3/mod/com.github.gilmore307.mod.1_13_colonial.mod`.
 
 ## Trading Python Environment
