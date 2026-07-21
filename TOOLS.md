@@ -74,6 +74,7 @@ Store formal repositories under `/root/projects/`.
 - Full Steam Victoria 3 install root: `/root/projects/vic3/steam-install`; use this for Tiger's `--game` argument because it contains `game/`, `clausewitz/`, and `jomini/`.
 - The old GitHub base repository `gilmore307/game` was deleted on 2026-07-12; use the full Steam install as the current base-game reference.
 - Current mod descriptor for launcher testing: `/root/Documents/Paradox Interactive/Victoria 3/mod/com.github.gilmore307.mod.1_13_colonial.mod`.
+- When creating or editing Victoria 3 mods, do not touch `.metadata/` or `metadata.json`; launcher metadata should remain launcher-managed unless Chentong explicitly asks for metadata repair.
 - When migrating old Vic3 mod mechanics into a newer game version, preserve the mod's fixed intended mechanics but rebase them onto the current game's environment, keys, schema, and vanilla numeric baselines. Treat old-version numeric differences caused by upstream game updates as normal version drift, not as missing mod content to copy forward.
 
 ## Trading Python Environment
