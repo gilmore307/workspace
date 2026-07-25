@@ -102,9 +102,16 @@ Store formal repositories under `/root/projects/`.
 - The timer intentionally omits catch-up persistence so enabling it during the day does not immediately restart the active gateway because a previous 04:15 run was missed.
 - Quick checks: `systemctl --user list-timers openclaw-codex-auto-update.timer --no-pager`, `systemctl --user status openclaw-codex-auto-update.timer`, and `journalctl --user -u openclaw-codex-auto-update.service -n 100 --no-pager`.
 
+## Remote Access / VPN
+
+- Current route decision: use an independent VPN path for general network/VPN performance instead of using OpenClaw/Tailscale as the main VPN or exit-node route.
+- OpenClaw project synchronization and management should use Git-first workflows. Prefer Git remotes, branches, commits, pulls, pushes, and review gates over SMB directory dragging for maintained repositories.
+- Tailscale may remain as a low-risk private management fallback/control plane for OpenClaw access, but it is not the primary performance route.
+- Do not expose SMB publicly as a replacement for Tailscale. If file transfer outside Git is needed, prefer SFTP, rsync, or compressed archives over SMB on high-latency links.
+
 ## SMB
 
-- Host share: `//100.104.174.7/OpenClaw` (Windows: `\\100.104.174.7\OpenClaw`) exposes `/root/projects` for user `openclaw` over Tailscale only.
+- Compatibility share: `//100.104.174.7/OpenClaw` (Windows: `\\100.104.174.7\OpenClaw`) exposes `/root/projects` for user `openclaw` over Tailscale only. This is not the primary project sync or management route.
 - Samba config binds to `lo 100.104.174.7/10` with `hosts allow = 127. 100.64.0.0/10`.
 - `smbd` can start before Tailscale has its address and bind only to localhost; fixed with `/etc/systemd/system/smbd.service.d/10-wait-for-tailscale.conf` waiting briefly for `tailscale0` before start.
 - Quick check: `ss -ltnp '( sport = :445 or sport = :139 )'` should show `100.104.174.7:445` and `100.104.174.7:139`.
