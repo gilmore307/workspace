@@ -105,6 +105,7 @@ Store formal repositories under `/root/projects/`.
 ## Remote Access / VPN
 
 - Current route decision: use an independent VPN path for general network/VPN performance instead of using OpenClaw/Tailscale as the main VPN or exit-node route.
+- Preferred independent VPN shape: use a `sing-box`-class client/core on user devices for general VPN/proxy routing, backed by a separate provider or node. Do not store provider subscription URLs, node credentials, or private keys in this workspace.
 - OpenClaw project synchronization and management should use Git-first workflows. Prefer Git remotes, branches, commits, pulls, pushes, and review gates over SMB directory dragging for maintained repositories.
 - Tailscale may remain as a low-risk private management fallback/control plane for OpenClaw access, but it is not the primary performance route.
 - Do not expose SMB publicly as a replacement for Tailscale. If file transfer outside Git is needed, prefer SFTP, rsync, or compressed archives over SMB on high-latency links.
