@@ -1,6 +1,6 @@
 ---
 name: "vic3-building-rework-workflow"
-description: "Vic3 mod provenance workflow for buildings, PMs, modifiers, events, JEs, on_actions, docs, verifier."
+description: "Tighten Vic3 retired modifier type owner coverage rules."
 ---
 
 # Vic3 Building Rework Workflow
@@ -32,16 +32,17 @@ Use for Victoria 3 modding that changes building routes, production methods, pro
 
 ## Override Policy
 
-- Prefer additive or narrow `zz_<module>` files with database entry modes (`REPLACE:`, `REPLACE_OR_CREATE:`, `INJECT:`) when the loader supports them.
-- Use same-path/full-file override only when one of these is true:
-  - deletion/suppression of a vanilla key, branch, hook, event, JE, decision, scripted effect, custom loc, visual hook, or mechanism cannot be done narrowly;
+- Prefer additive or narrow `zz_<module>` files with database entry modes (`REPLACE:`, `REPLACE_OR_CREATE:`, `INJECT:`) when the loader supports them and the current vanilla owner does not need to disappear before validation.
+- Use same-path/full-file override when one of these is true:
+  - deletion/suppression of a vanilla key, branch, hook, event, JE, decision, scripted effect, custom loc, visual hook, modifier type, generated modifier type, or mechanism cannot be done narrowly;
+  - a retired source key is deleted and current vanilla owner files still parse or validate references to it before late database replacements apply;
   - many keys in one vanilla file are intentionally modified;
   - top-level block order is intentionally changed;
   - the loader requires file-level replacement or a `replace_path` for additive-merge folders;
   - history/setup files require a complete current-vanilla copy.
 - If a same-path override exists only from convenience, retire it into narrow module files.
-- If `company_types` or similar files only retarget `building_munition_plant` references, use narrow module `REPLACE:` blocks rather than same-path covers.
-- If a vanilla-derived static modifier block only retargets one modifier effect and the folder already supports database entry modes, use a narrow module `REPLACE:` block instead of a same-path static-modifier cover. Do not create broad same-path covers just to hide parse errors from deleted generated modifier types; keep the generated modifier type available as loader compatibility when current vanilla files still validate it before the narrow replacement takes effect.
+- If `company_types` or similar files only retarget `building_munition_plant` references, use narrow module `REPLACE:` blocks rather than same-path covers. If the same current vanilla owner file must be same-path covered for another accepted reason, that cover owns all related modified hunks in that file and the overlapping `zz_` replacements must be removed.
+- If a vanilla-derived static modifier block only retargets one modifier effect and the folder already supports database entry modes, use a narrow module `REPLACE:` block instead of a same-path static-modifier cover. If the source generated modifier type is deleted and the current vanilla static-modifier owner validates the old key before late replacements apply, use a same-path cover for that owner and remove the duplicate narrow replacement.
 - If a file is fully derived from a vanilla file, mark only the actual modified/deleted places inline. Do not frame the entire copied vanilla block as though every line is mod-owned.
 - For global hooks such as `on_actions`, replacing a broad top-level hook requires listing the exact vanilla hook branch being removed. Preserve unrelated vanilla branches unchanged. An emptied hook is a blocker unless every removed branch is individually justified and commented with original vanilla text.
 - Do not pull unrelated hook behavior into a module just because it is in the same vanilla top-level block.
@@ -81,8 +82,8 @@ Use for Victoria 3 modding that changes building routes, production methods, pro
 - Do not replace a retired vanilla top-level object with only an active disabled shell. If a parser/loader key must remain active, label it as an inert parser/loader shell with no gameplay intent, then preserve the complete original vanilla object as commented text in the same cover or replacement block.
 - For messages, localization, and UI/script shells, active objects must state whether they are inert placeholders, live replacements, or live modified behavior. No active shell may remain with unclear runtime status.
 - Do not preserve base-game mechanisms merely to silence Tiger/parser noise. If it is not owned by an accepted mod feature, keep vanilla behavior or move base-game-only fixes to the version hotfix mod.
-- Before deleting a retired key, variable route, custom loc selector, scripted effect, achievement condition, modifier type, or generated modifier type, check whether current vanilla files still parse or validate that reference before late database replacements are applied. If they do, either remove the referencing vanilla owner through a justified same-path/`replace_path` cover, or keep an inert loader-compatibility definition while retargeting active gameplay elsewhere. Runtime log errors and warnings override assumptions that a late `REPLACE:` block is sufficient.
-- For retired generated modifier types that are still needed only so vanilla files can parse before retarget replacements apply, prefer a narrow `REPLACE:` modifier-type compatibility block with `script_only = yes` over a broad same-path modifier-type file. Preserve the original vanilla modifier-type block as comments.
+- Before deleting a retired key, variable route, custom loc selector, scripted effect, achievement condition, modifier type, or generated modifier type, check whether current vanilla files still parse or validate that reference before late database replacements are applied. If they do, either remove the referencing vanilla owner through a justified same-path/`replace_path` cover, or keep an inert loader-compatibility definition only when that shell is explicitly accepted and warning-free. Runtime log errors, Tiger errors, and Tiger warnings override assumptions that a late `REPLACE:` block is sufficient.
+- For retired generated modifier types, do not default to keeping compatibility shells. If the source generated modifier type can be deleted and every current vanilla reference owner can be same-path covered, delete the source through its original owner path and retarget each referencing owner there. Use a narrow `script_only = yes` compatibility block only when the compatibility surface is explicitly accepted, has no gameplay effect, preserves the vanilla block as comments, and produces no Tiger/runtime warning.
 
 ## Vanilla Diff Audit
 
