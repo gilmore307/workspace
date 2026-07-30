@@ -13,9 +13,10 @@ Use for Victoria 3 modding that changes building routes, production methods, pro
 2. Work on `/root/projects/vic3/mod/1_13` for the main mod unless Chentong names another mod root.
 3. Run repository-relative verification commands from `/root/projects/vic3` unless an absolute path is shown.
 4. Do not touch `.metadata/` or `metadata.json` unless launcher metadata or `replace_paths` is directly required by the accepted change.
-5. Inspect the current vanilla owner file before editing any vanilla-derived mod file.
-6. Classify each touched file before editing: additive module file, narrow database replacement, same-path vanilla-derived override, `replace_path` deletion cover, localization/UI/resource, or docs/verifier.
-7. For every vanilla-derived top-level object that will be replaced, retired, or partially copied, diff the mod-intended object against the current vanilla owner object before writing the final annotation.
+5. Playable mod `.txt` script files must be UTF-8 with BOM. Runtime `lexer.cpp` BOM warnings are mod warnings and must be fixed, not treated as noise.
+6. Inspect the current vanilla owner file before editing any vanilla-derived mod file.
+7. Classify each touched file before editing: additive module file, narrow database replacement, same-path vanilla-derived override, `replace_path` deletion cover, localization/UI/resource, or docs/verifier.
+8. For every vanilla-derived top-level object that will be replaced, retired, or partially copied, diff the mod-intended object against the current vanilla owner object before writing the final annotation.
 
 ## Module Ownership
 
@@ -81,6 +82,7 @@ Use for Victoria 3 modding that changes building routes, production methods, pro
 - For messages, localization, and UI/script shells, active objects must state whether they are inert placeholders, live replacements, or live modified behavior. No active shell may remain with unclear runtime status.
 - Do not preserve base-game mechanisms merely to silence Tiger/parser noise. If it is not owned by an accepted mod feature, keep vanilla behavior or move base-game-only fixes to the version hotfix mod.
 - Before deleting a retired key, variable route, custom loc selector, scripted effect, achievement condition, modifier type, or generated modifier type, check whether current vanilla files still parse or validate that reference before late database replacements are applied. If they do, either remove the referencing vanilla owner through a justified same-path/`replace_path` cover, or keep an inert loader-compatibility definition while retargeting active gameplay elsewhere. Runtime log errors and warnings override assumptions that a late `REPLACE:` block is sufficient.
+- For retired generated modifier types that are still needed only so vanilla files can parse before retarget replacements apply, prefer a narrow `REPLACE:` modifier-type compatibility block with `script_only = yes` over a broad same-path modifier-type file. Preserve the original vanilla modifier-type block as comments.
 
 ## Vanilla Diff Audit
 
@@ -115,9 +117,9 @@ Before accepting any batch that touches `REPLACE:`, same-path covers, or retirem
 Run from `/root/projects/vic3` after edits:
 
 1. `python3 scripts/verify_vic3_module.py mod/1_13`
-2. `python3 -m py_compile scripts/verify_vic3_module.py` when verifier changes.
+2. `python3 -m py_compile scripts/verify_vic3_module.py` when verifier changes, then remove any generated `__pycache__` before committing.
 3. `git diff --check` and `git -C mod diff --check`.
-4. `vic3-tiger --game /root/projects/vic3/steam-install /root/projects/vic3/mod/1_13 --no-color -c` for gameplay data changes.
+4. `vic3-tiger --game /root/projects/vic3/steam-install /root/projects/vic3/mod/1_13 --no-color -c` for gameplay data changes; runtime encoding warnings, unknown modifier errors, and modifier-type script/code warnings are blockers.
 5. Read-only Codex CLI review with GPT-5.5 when a batch touches multiple files, same-path covers, or modding rules.
 
 Report changed/deleted files, why each override route is necessary, vanilla diff audit results, validation results, commits, and any remaining warnings.
