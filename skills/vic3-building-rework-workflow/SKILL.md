@@ -1,6 +1,6 @@
 ---
 name: "vic3-building-rework-workflow"
-description: "Finalize Vic3 provenance rules after second Codex review."
+description: "Vic3 mod provenance workflow for buildings, PMs, modifiers, events, JEs, on_actions, docs, verifier."
 ---
 
 # Vic3 Building Rework Workflow
@@ -40,6 +40,7 @@ Use for Victoria 3 modding that changes building routes, production methods, pro
   - history/setup files require a complete current-vanilla copy.
 - If a same-path override exists only from convenience, retire it into narrow module files.
 - If `company_types` or similar files only retarget `building_munition_plant` references, use narrow module `REPLACE:` blocks rather than same-path covers.
+- If a vanilla-derived static modifier block only retargets one modifier effect and the folder already supports database entry modes, use a narrow module `REPLACE:` block instead of a same-path static-modifier cover. Keep same-path only for the generated modifier-type definition or another file-level deletion that cannot be expressed narrowly.
 - If a file is fully derived from a vanilla file, mark only the actual modified/deleted places inline. Do not frame the entire copied vanilla block as though every line is mod-owned.
 - For global hooks such as `on_actions`, replacing a broad top-level hook requires listing the exact vanilla hook branch being removed. Preserve unrelated vanilla branches unchanged. An emptied hook is a blocker unless every removed branch is individually justified and commented with original vanilla text.
 - Do not pull unrelated hook behavior into a module just because it is in the same vanilla top-level block.
@@ -47,6 +48,7 @@ Use for Victoria 3 modding that changes building routes, production methods, pro
 ## Inline Provenance
 
 - Every active gameplay/UI/runtime diff needs a `########################################` frame immediately adjacent to the exact changed key, value, or smallest changed sub-block.
+- Every hash-framed `# MOD: EXPLANATION:` hunk must also include `# MOD: n/total`, where `n` is that frame's 1-based order among all MOD explanation frames in the same file and `total` is the file's total count of such frames. Numbering is per file, counts only hash-delimited frames with `# MOD: EXPLANATION:`, and must be sequential with no gaps or duplicates.
 - The frame must include `# MOD: EXPLANATION:` and the concrete player/system effect.
 - The frame must include the correct source label for that specific hunk: `# VANILLA ADDED:`, `# VANILLA DERIVED:`, `# VANILLA REPLACED:`, or `# VANILLA REMOVED:`. Do not choose a label generically at object scope when inner hunks have different source relationships.
 - `VANILLA ADDED` is valid only when no current vanilla entry, same-path hunk, or renamed source key exists for that behavior.
@@ -87,12 +89,13 @@ Before accepting any batch that touches `REPLACE:`, same-path covers, or retirem
 2. Locate each current vanilla owner file and owner block.
 3. Compare vanilla block to active mod block.
 4. Confirm each added, replaced, removed, or moved hunk has an immediately adjacent accurate provenance frame.
-5. Confirm every `VANILLA REPLACED` and `VANILLA REMOVED` frame preserves the complete original vanilla line or smallest complete sub-block as comments.
-6. Confirm no frame surrounds an unchanged line merely because it is near a real diff.
-7. Confirm no active same-path override keeps unrelated vanilla changes or suppresses unrelated hooks.
-8. Confirm every active disabled shell is explicitly classified as an inert parser/loader shell, live replacement, or live modified behavior.
-9. Confirm every retired vanilla top-level object retains the complete original object as commented text.
-10. Report any unannotated diff as a blocker, even if Tiger and the verifier pass.
+5. Confirm every hash-framed `# MOD: EXPLANATION:` hunk has a correct per-file `# MOD: n/total` line and that the sequence matches the total number of MOD explanation frames in that file.
+6. Confirm every `VANILLA REPLACED` and `VANILLA REMOVED` frame preserves the complete original vanilla line or smallest complete sub-block as comments.
+7. Confirm no frame surrounds an unchanged line merely because it is near a real diff.
+8. Confirm no active same-path override keeps unrelated vanilla changes or suppresses unrelated hooks.
+9. Confirm every active disabled shell is explicitly classified as an inert parser/loader shell, live replacement, or live modified behavior.
+10. Confirm every retired vanilla top-level object retains the complete original object as commented text.
+11. Report any unannotated diff as a blocker, even if Tiger and the verifier pass.
 
 ## Workflow
 
