@@ -1,6 +1,6 @@
 ---
 name: "vic3-building-rework-workflow"
-description: "Tighten Vic3 retired modifier type owner coverage rules."
+description: "Victoria 3 building, map, provenance, and runtime validation workflow."
 ---
 
 # Vic3 Building Rework Workflow
@@ -84,6 +84,24 @@ Use for Victoria 3 modding that changes building routes, production methods, pro
 - Do not preserve base-game mechanisms merely to silence Tiger/parser noise. If it is not owned by an accepted mod feature, keep vanilla behavior or move base-game-only fixes to the version hotfix mod.
 - Before deleting a retired key, variable route, custom loc selector, scripted effect, achievement condition, modifier type, or generated modifier type, check whether current vanilla files still parse or validate that reference before late database replacements are applied. If they do, either remove the referencing vanilla owner through a justified same-path/`replace_path` cover, or keep an inert loader-compatibility definition only when that shell is explicitly accepted and warning-free. Runtime log errors, Tiger errors, and Tiger warnings override assumptions that a late `REPLACE:` block is sufficient.
 - For retired generated modifier types, do not default to keeping compatibility shells. If the source generated modifier type can be deleted and every current vanilla reference owner can be same-path covered, delete the source through its original owner path and retarget each referencing owner there. Use a narrow `script_only = yes` compatibility block only when the compatibility surface is explicitly accepted, has no gameplay effect, preserves the vanilla block as comments, and produces no Tiger/runtime warning.
+
+## Map Rework Annotation
+
+Use this section for state-region/province map redesigns, especially isolated map-test mods where state regions, history states, pops, buildings, capitals, region lists, and localization must move together.
+
+- Start first-time map redesigns in a clean test mod before migrating them into the main module, unless Chentong explicitly chooses direct integration.
+- Treat a named map adjustment as a project, for example `MAP-MELANESIA`, `MAP-MICRONESIA`, or `MAP-POLYNESIA`. Use the same project id across map_data, history, country definitions, region lists, and localization for that adjustment.
+- In every same-path map/history/region/country file touched by a map redesign, add a short header listing all active map projects owned by that file and the old state regions they merge, split, or retarget.
+- At each changed hunk, use a hash-delimited map frame immediately adjacent to the change. The frame must include:
+  - `# MAP CHANGE: n/total`, counted sequentially among map frames in that file;
+  - `# MAP PROJECT: <project-id>`, matching one project listed in the file header;
+  - `# Delete` followed by one commented line containing the removed state/province keys for that hunk;
+  - `# Add` followed by one commented line containing the added state/province keys for that hunk.
+- For state-region province changes, the `Delete` line must list removed province color ids grouped by old state region on one line, and the `Add` line must list the new state region and its province color ids on one line.
+- For non-province companion files such as history states, pops, buildings, capitals, character home regions, strategic regions, geographic regions, and localization, keep the same `MAP CHANGE` / `MAP PROJECT` / `Delete` / `Add` frame shape, but list the old and new state keys or field values instead of province color ids.
+- Do not collapse non-contiguous vanilla blocks into one replacement range merely because they belong to the same map project. Replace each contiguous owner range separately, and review the generated file for accidental deletion of intervening vanilla content before validation.
+- Prefer narrow database replacements for companion files when supported and when they avoid pulling unrelated vanilla validation problems into the test mod. Same-path covers remain appropriate for state-region files and history/setup files that must remove old state keys before validation.
+- Before acceptance, strip comments and scan active text for retired old state keys. Old keys may remain only in commented `Delete` evidence or in intentionally harmless localization inherited from vanilla.
 
 ## Vanilla Diff Audit
 
