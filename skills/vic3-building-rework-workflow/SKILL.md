@@ -95,10 +95,12 @@ Use this section for state-region/province map redesigns, especially isolated ma
 - At each changed hunk, use a hash-delimited map frame immediately adjacent to the change. The frame must include:
   - `# MAP CHANGE: n/total`, counted sequentially among map frames in that file;
   - `# MAP PROJECT: <project-id>`, matching one project listed in the file header;
-  - `# Delete` followed by one commented line containing the removed state/province keys for that hunk;
-  - `# Add` followed by one commented line containing the added state/province keys for that hunk.
-- For state-region province changes, the `Delete` line must list removed province color ids grouped by old state region on one line, and the `Add` line must list the new state region and its province color ids on one line.
-- For non-province companion files such as history states, pops, buildings, capitals, character home regions, strategic regions, geographic regions, and localization, keep the same `MAP CHANGE` / `MAP PROJECT` / `Delete` / `Add` frame shape, but list the old and new state keys or field values instead of province color ids.
+  - `#Delete` followed by one commented line containing the removed state/province keys for that hunk;
+  - `#Add` followed by one commented line containing the added state/province keys for that hunk.
+- For state-region province changes, the `#Delete` line must list removed province color ids grouped by old state region on one line, and the `#Add` line must list the new state region and its province color ids on one line.
+- For history state `create_state` ownership changes, place the map frame immediately next to each changed `owned_provinces` line, not only above the merged state block. The `#Delete` line must list the province color ids removed from each source state for that owner, and the `#Add` line must list the target state, owner country, and final active province ids.
+- For non-province companion files such as pops, buildings, capitals, character home regions, strategic regions, geographic regions, and localization, keep the same `MAP CHANGE` / `MAP PROJECT` / `#Delete` / `#Add` frame shape, but list the old and new state keys or field values instead of province color ids.
+- In same-path map/history covers, merged-away source state blocks must remain in the file as commented source evidence near the replacement. Do not silently delete the old `STATE_*` or `s:STATE_*` blocks merely because the active text now uses the merged state.
 - Do not collapse non-contiguous vanilla blocks into one replacement range merely because they belong to the same map project. Replace each contiguous owner range separately, and review the generated file for accidental deletion of intervening vanilla content before validation.
 - Prefer narrow database replacements for companion files when supported and when they avoid pulling unrelated vanilla validation problems into the test mod. Same-path covers remain appropriate for state-region files and history/setup files that must remove old state keys before validation.
 - Before acceptance, strip comments and scan active text for retired old state keys. Old keys may remain only in commented `Delete` evidence or in intentionally harmless localization inherited from vanilla.
