@@ -40,7 +40,7 @@ Use for Victoria 3 modding that changes building routes, production methods, pro
   - history/setup files require a complete current-vanilla copy.
 - If a same-path override exists only from convenience, retire it into narrow module files.
 - If `company_types` or similar files only retarget `building_munition_plant` references, use narrow module `REPLACE:` blocks rather than same-path covers.
-- If a vanilla-derived static modifier block only retargets one modifier effect and the folder already supports database entry modes, use a narrow module `REPLACE:` block instead of a same-path static-modifier cover. Keep same-path only for the generated modifier-type definition or another file-level deletion that cannot be expressed narrowly.
+- If a vanilla-derived static modifier block only retargets one modifier effect and the folder already supports database entry modes, use a narrow module `REPLACE:` block instead of a same-path static-modifier cover. Do not create broad same-path covers just to hide parse errors from deleted generated modifier types; keep the generated modifier type available as loader compatibility when current vanilla files still validate it before the narrow replacement takes effect.
 - If a file is fully derived from a vanilla file, mark only the actual modified/deleted places inline. Do not frame the entire copied vanilla block as though every line is mod-owned.
 - For global hooks such as `on_actions`, replacing a broad top-level hook requires listing the exact vanilla hook branch being removed. Preserve unrelated vanilla branches unchanged. An emptied hook is a blocker unless every removed branch is individually justified and commented with original vanilla text.
 - Do not pull unrelated hook behavior into a module just because it is in the same vanilla top-level block.
@@ -80,6 +80,7 @@ Use for Victoria 3 modding that changes building routes, production methods, pro
 - Do not replace a retired vanilla top-level object with only an active disabled shell. If a parser/loader key must remain active, label it as an inert parser/loader shell with no gameplay intent, then preserve the complete original vanilla object as commented text in the same cover or replacement block.
 - For messages, localization, and UI/script shells, active objects must state whether they are inert placeholders, live replacements, or live modified behavior. No active shell may remain with unclear runtime status.
 - Do not preserve base-game mechanisms merely to silence Tiger/parser noise. If it is not owned by an accepted mod feature, keep vanilla behavior or move base-game-only fixes to the version hotfix mod.
+- Before deleting a retired key, variable route, custom loc selector, scripted effect, achievement condition, modifier type, or generated modifier type, check whether current vanilla files still parse or validate that reference before late database replacements are applied. If they do, either remove the referencing vanilla owner through a justified same-path/`replace_path` cover, or keep an inert loader-compatibility definition while retargeting active gameplay elsewhere. Runtime log errors and warnings override assumptions that a late `REPLACE:` block is sufficient.
 
 ## Vanilla Diff Audit
 
@@ -95,7 +96,8 @@ Before accepting any batch that touches `REPLACE:`, same-path covers, or retirem
 8. Confirm no active same-path override keeps unrelated vanilla changes or suppresses unrelated hooks.
 9. Confirm every active disabled shell is explicitly classified as an inert parser/loader shell, live replacement, or live modified behavior.
 10. Confirm every retired vanilla top-level object retains the complete original object as commented text.
-11. Report any unannotated diff as a blocker, even if Tiger and the verifier pass.
+11. Confirm runtime/log evidence for loader-validated retirements: no current vanilla owner should still emit errors or warnings for a key, variable, custom loc, scripted effect, achievement condition, modifier type, or generated modifier type that the mod claims to retire.
+12. Report any unannotated diff as a blocker, even if Tiger and the verifier pass.
 
 ## Workflow
 
